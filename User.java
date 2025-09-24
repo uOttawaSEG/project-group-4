@@ -44,7 +44,6 @@ public abstract class User {
         this.phoneNumber = phoneNumber;
     }
 
-    @Override
     public abstract String getRole();
 
 }

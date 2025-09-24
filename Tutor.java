@@ -28,7 +28,6 @@ public class Tutor extends User  {
         this.coursesOffered = coursesOffered;
     }
 
-    @Override
     public String getRole() {
         return "Tutor";
     }

@@ -10,11 +10,6 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_dashboard.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
@@ -30,21 +25,6 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dashboard.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/loginorregister.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/studentinformation.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/tutorinfo.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
@@ -56,9 +36,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Moved register button.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/logout_screen.xml" afterDir="false" />
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Updated landing page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,11 +107,6 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="android.template.-1825705524">
-      <recent name="com.example.logintest.domain" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="LoginTest.app" />
@@ -254,23 +229,7 @@
       <option name="project" value="LOCAL" />
       <updated>1759256306177</updated>
     </task>
-    <task id="LOCAL-00006" summary="Moved register button.">
-      <option name="closed" value="true" />
-      <created>1759343919273</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1759343919273</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Moved register button.">
-      <option name="closed" value="true" />
-      <created>1759345211487</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1759345211487</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -278,8 +237,7 @@
     <MESSAGE value="Added Firebase database." />
     <MESSAGE value="Attempted to repair GitHub merging issues." />
     <MESSAGE value="Updated landing page." />
-    <MESSAGE value="Moved register button." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved register button." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated landing page." />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

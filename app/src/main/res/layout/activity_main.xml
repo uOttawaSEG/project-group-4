@@ -25,5 +25,5 @@
         android:layout_height="wrap_content"
         android:text="Register"
         tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="260dp" />
+        tools:layout_editor_absoluteY="195dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

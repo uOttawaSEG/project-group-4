@@ -12,7 +12,7 @@
         android:inputType="text"
         android:text="Dashboard"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
+`
     <Button
         android:id="@+id/logOutButton"
         android:layout_width="wrap_content"

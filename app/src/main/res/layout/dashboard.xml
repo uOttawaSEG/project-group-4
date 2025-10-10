@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/dashboardTitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Dashboard"
+        android:text="@string/dashboard_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 `
+
     <Button
-        android:id="@+id/logOutButton"
+        android:id="@+id/LogOutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Log Out" />
+        android:onClick="goToLogOut"
+        android:text="@string/logout_button_text" />
 </LinearLayout>

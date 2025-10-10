@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">LoginTest</string>
+
+    <string name="app_name">Your App Name</string>
+    <string name="dashboard_title">Dashboard</string>
+    <string name="logout_button_text">Log Out</string>
 </resources>
+    

@@ -5,10 +5,18 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/logOutButton"
+        android:id="@+id/LogOutButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="238dp"
         android:ems="10"
         android:inputType="text"
         android:text="You've logged out." />
+
+    <Button
+        android:id="@+id/LogOutHomeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="goToHome"
+        android:text="Go to Home" />
+
 </LinearLayout>

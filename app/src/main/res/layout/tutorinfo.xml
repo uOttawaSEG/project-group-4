@@ -6,6 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/TutorHomeButton"
+        android:layout_width="410dp"
+        android:layout_height="47dp"
+        android:onClick="goToHome"
+        android:text="Go to Home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="3dp" />
+
     <TextView
         android:id="@+id/textView9"
         android:layout_width="0dp"

@@ -47,4 +47,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/adminKey" />
 
+    <Button
+        android:id="@+id/AdminHomeButton"
+        android:layout_width="412dp"
+        android:layout_height="50dp"
+        android:onClick="goToHome"
+        android:text="Go to Home"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="678dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

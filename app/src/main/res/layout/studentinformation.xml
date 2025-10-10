@@ -16,9 +16,10 @@
         android:text="Please Enter Your Student Information Below"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView3"
@@ -51,8 +52,8 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="56dp"
         android:text="Email Address"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="parent" />
@@ -62,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="15dp"
         android:text="Account Password"
         app:layout_constraintEnd_toStartOf="@+id/student_password"
@@ -75,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
         android:layout_marginEnd="41dp"
-        android:layout_marginBottom="61dp"
+        android:layout_marginBottom="56dp"
         android:text="Phone Number"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toStartOf="@+id/student_phone"
@@ -110,11 +111,11 @@
 
     <EditText
         android:id="@+id/student_last_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="195dp"
+        android:layout_height="43dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="23dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="52dp"
         android:ems="10"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/student_email"
@@ -140,7 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="197dp"
+        android:layout_marginBottom="180dp"
         android:ems="10"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -166,11 +167,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="57dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="40dp"
         android:ems="10"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/student_last_name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView3" />
 
     <Button
@@ -178,12 +180,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="171dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="120dp"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/AdminHomeButton"
+        android:layout_width="410dp"
+        android:layout_height="47dp"
+        android:onClick="goToHome"
+        android:text="Go to Home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="3dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

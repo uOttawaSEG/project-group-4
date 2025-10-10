@@ -47,4 +47,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AdminActivity.class);
         startActivity(intent);
     }
+
+    //Log out page
+    public void goToLogOut(View view){
+        Intent intent = new Intent(this, LogOutPageActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToHome(View view){
+        Intent intent = new Intent(this, HomepageActivity.class);
+        startActivity(intent);
+    }
 }

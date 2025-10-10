@@ -3,5 +3,15 @@
     <string name="app_name">Your App Name</string>
     <string name="dashboard_title">Dashboard</string>
     <string name="logout_button_text">Log Out</string>
+
+    <string name="student_info_header">Please Enter Your Student Information Below</string>
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_hint">Account Password</string>
+    <string name="phone_hint">Phone Number</string>
+    <string name="program_hint">Program of Study</string>
+    <string name="submit_button_text">Submit</string>
+    <string name="go_to_home_button_text">Go to Home</string>
 </resources>
     

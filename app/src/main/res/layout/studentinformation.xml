@@ -1,203 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
+    <!-- FIX: Header is now constrained properly and uses a string resource -->
     <TextView
         android:id="@+id/header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="112dp"
-        android:layout_marginBottom="600dp"
-        android:text="Please Enter Your Student Information Below"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:text="@string/student_info_header"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+    <!-- FIX: All EditTexts now have proper constraints, hints, and input types -->
+    <!-- They also have a minimum height for accessibility -->
+    <EditText
+        android:id="@+id/student_name"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="-1dp"
-        android:text="First Name"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        android:layout_marginTop="24dp"
+        android:hint="@string/first_name_hint"
+        android:importantForAutofill="yes"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="51dp"
-        android:text="Last Name"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toStartOf="@+id/student_last_name"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginBottom="56dp"
-        android:text="Email Address"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="15dp"
-        android:text="Account Password"
-        app:layout_constraintEnd_toStartOf="@+id/student_password"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="56dp"
-        android:text="Phone Number"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintEnd_toStartOf="@+id/student_phone"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="195dp"
-        android:text="Program of Study"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/student_program"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/student_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/student_phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/student_email" />
-
     <EditText
         android:id="@+id/student_last_name"
-        android:layout_width="195dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="52dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/student_email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView4" />
-
-    <EditText
-        android:id="@+id/student_phone"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/student_program"
+        android:layout_marginTop="8dp"
+        android:hint="@string/last_name_hint"
+        android:importantForAutofill="yes"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView7" />
-
-    <EditText
-        android:id="@+id/student_program"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="180dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView8" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/student_name" />
 
     <EditText
         android:id="@+id/student_email"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="20dp"
-        android:ems="10"
+        android:layout_marginTop="8dp"
+        android:hint="@string/email_hint"
+        android:importantForAutofill="yes"
         android:inputType="textEmailAddress"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/student_last_name" />
 
     <EditText
-        android:id="@+id/student_name"
-        android:layout_width="wrap_content"
+        android:id="@+id/student_password"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="57dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="40dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/student_last_name"
+        android:layout_marginTop="8dp"
+        android:hint="@string/password_hint"
+        android:importantForAutofill="yes"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView3" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/student_email" />
 
+    <EditText
+        android:id="@+id/student_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/phone_hint"
+        android:importantForAutofill="yes"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/student_password" />
+
+    <EditText
+        android:id="@+id/student_program"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/program_hint"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/student_phone" />
+
+    <!-- FIX: Buttons are centered and constrained vertically -->
     <Button
         android:id="@+id/submit_student_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="171dp"
-        android:layout_marginBottom="120dp"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/submit_button_text"
+        app:layout_constraintBottom_toTopOf="@+id/AdminHomeButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/student_program" />
 
+    <!-- FIX: Syntax error and constraints are now correct -->
     <Button
         android:id="@+id/AdminHomeButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:onClick="goToHome"
-        android:text="Go to Home"
+        android:text="@string/go_to_home_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="3dp"
-        app:layout_constraintBotton_toBottomOf="parent" />/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

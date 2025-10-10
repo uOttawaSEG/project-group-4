@@ -3,6 +3,7 @@
     <string name="app_name">Your App Name</string>
     <string name="dashboard_title">Dashboard</string>
     <string name="logout_button_text">Log Out</string>
+    <string name="logout_text">You have successfully logged out</string>
 
     <string name="student_info_header">Please Enter Your Student Information Below</string>
     <string name="first_name_hint">First Name</string>

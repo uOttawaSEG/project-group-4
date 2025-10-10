@@ -4,13 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/LogOutButton"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="238dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="You've logged out." />
+        android:layout_height="681dp"
+        android:text="@string/logout_text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <Button
         android:id="@+id/LogOutHomeButton"

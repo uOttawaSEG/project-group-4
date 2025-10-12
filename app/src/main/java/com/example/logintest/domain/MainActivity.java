@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         //Link UI elements for login
-        username = findViewById(R.id.editTextText);
-        password = findViewById(R.id.editTextTextPassword);
+        username = findViewById(R.id.user_name);
+        password = findViewById(R.id.user_password);
         loginButton = findViewById(R.id.loginButton);
         //When user clicks login button
         loginButton.setOnClickListener (view -> {

@@ -46,12 +46,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Fixed an error message for layout_height">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Configured &quot;not an account error&quot; in MainActivity.java and deleted HomepageActivity.java because it was redundant">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/adminlogin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adminlogin.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +58,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\navat\.android\avd\Medium_Phone.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\Daniela Bordeianu\.android\avd\Medium_Phone.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -108,14 +105,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -126,7 +122,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/uOttawaSEG/project-group-4.git&quot;,
-    &quot;accountId&quot;: &quot;d9fc9902-50b8-4516-b344-c0c9fc282333&quot;
+    &quot;accountId&quot;: &quot;befa4524-63ef-48a3-a40e-3e72f01891b7&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -351,31 +347,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760237748804</updated>
     </task>
-    <task id="LOCAL-00015" summary="Added admin key and admin login features.">
+    <task id="LOCAL-00015" summary="Configured &quot;not an account error&quot; in MainActivity.java and deleted HomepageActivity.java because it was redundant">
       <option name="closed" value="true" />
-      <created>1760287396244</created>
+      <created>1760280682950</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1760287396244</updated>
+      <updated>1760280682950</updated>
     </task>
-    <task id="LOCAL-00016" summary="Updated documentation for Adminactivity.java">
-      <option name="closed" value="true" />
-      <created>1760287822437</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1760287822437</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Fixed an error message for layout_height">
-      <option name="closed" value="true" />
-      <created>1760288108782</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1760288108782</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -400,10 +380,8 @@
     <MESSAGE value="Fixed warnings in studentinformation.xml" />
     <MESSAGE value="Modified logout_screen.xml" />
     <MESSAGE value="Added the errors for tutor highest degree, tutor courses offered, studnt program of study" />
-    <MESSAGE value="Added admin key and admin login features." />
-    <MESSAGE value="Updated documentation for Adminactivity.java" />
-    <MESSAGE value="Fixed an error message for layout_height" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an error message for layout_height" />
+    <MESSAGE value="Configured &quot;not an account error&quot; in MainActivity.java and deleted HomepageActivity.java because it was redundant" />
+    <option name="LAST_COMMIT_MESSAGE" value="Configured &quot;not an account error&quot; in MainActivity.java and deleted HomepageActivity.java because it was redundant" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

@@ -46,10 +46,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Fixed warnings in studentinformation.xml">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Modified logout_screen.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/logout_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/logout_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/HomepageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/HomepageActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInfoActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInfoActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/loginorregister.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/loginorregister.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +337,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760062429873</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Modified logout_screen.xml">
+      <option name="closed" value="true" />
+      <created>1760099822368</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1760099822368</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -355,19 +368,20 @@
     <MESSAGE value="Added Edge Constraints in the studentinformation.xml" />
     <MESSAGE value="Fixed the mistakes in studentinformation.xml" />
     <MESSAGE value="Fixed warnings in studentinformation.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed warnings in studentinformation.xml" />
+    <MESSAGE value="Modified logout_screen.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified logout_screen.xml" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="com.example.logintest.domain">
           <value>
-            <CheckInfo lastCheckTimestamp="1760056432267" />
+            <CheckInfo lastCheckTimestamp="1760220391860" />
           </value>
         </entry>
         <entry key="com.example.logintest.domain.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1760056432266" />
+            <CheckInfo lastCheckTimestamp="1760220391860" />
           </value>
         </entry>
       </map>

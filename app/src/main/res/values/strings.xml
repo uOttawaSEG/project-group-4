@@ -8,7 +8,7 @@
     <string name="student_info_header">Please Enter Your Student Information Below</string>
     <string name="first_name_hint">First Name</string>
     <string name="last_name_hint">Last Name</string>
-    <string name="email_hint">Email Address</string>
+    <string name="email_hint">Email Address (username)</string>
     <string name="password_hint">Account Password</string>
     <string name="phone_hint">Phone Number</string>
     <string name="program_hint">Program of Study</string>

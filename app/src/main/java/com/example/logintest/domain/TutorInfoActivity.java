@@ -51,8 +51,8 @@ public class TutorInfoActivity extends AppCompatActivity {
         String email = emailInput.getText().toString().trim();
         String password = passwordInput.getText().toString().trim();
         String phone = phoneInput.getText().toString().trim();
-        String degree = degreeInput.getText().toString().trim();
-        String courses = coursesInput.getText().toString().trim();
+        String degree = degreeInput.getText().toString().trim().toLowerCase();
+        String courses = coursesInput.getText().toString().trim().toLowerCase();
 
         boolean everythingOK = true;
 
@@ -124,6 +124,42 @@ public class TutorInfoActivity extends AppCompatActivity {
         else if (!phone.matches("[0-9]+")) {
             phoneInput.setError("Phone number can only contain numbers");
             everythingOK = false;
+        }
+
+        // Check courses offered
+        if (courses.isEmpty()){
+            coursesInput.setError("Courses offered is a required field");
+            everythingOK = false;
+        }
+        else if (!courses.contains("french") && !courses.contains("english") && !courses.contains("math") && !courses.contains("maths") && !courses.contains("mathematics") && !courses.contains("science") && !courses.contains("chemistry") && !courses.contains("physics") && !courses.contains("history") && !courses.contains("spanish") && !courses.contains("music")) {
+            coursesInput.setError("You must write at least one course from the list: french, english, math, science, chemistry, physics, history, spanish, music. (Check your spelling)");
+            everythingOK = false;
+        }
+
+        //Check highest degree
+        if (degree.isEmpty()){
+            degreeInput.setError("Highest degree is a required field");
+            everythingOK = false;
+        }
+        else if(!degree.isEmpty()){
+            int degreesFound=0;
+            boolean atLeastOne=false;
+            String[] validDegrees = {"none", "high school diploma", "bachelor", "master", "md/phd", "phd", "doctorate"};
+            for (String validDegree:validDegrees){
+                if (degree.contains(validDegree)){
+                    degreesFound++;
+                    atLeastOne=true;
+                }
+            }
+            if (!atLeastOne){
+                degreeInput.setError("You must write at least one degree from the list: none, high school diploma, bachelor, master, md/phd, phd, doctorate. (Check your spelling)");
+                everythingOK = false;
+            }
+            else if (degreesFound>1){
+                degreeInput.setError("You can only write one degree from the list: none, high school diploma, bachelor, master, md/phd, phd, doctorate. (Check your spelling)");
+                everythingOK = false;
+            }
+
         }
 
         // If everything is good, go to the Dashboard

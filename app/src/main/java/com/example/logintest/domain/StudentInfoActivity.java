@@ -123,6 +123,16 @@ public class StudentInfoActivity extends AppCompatActivity {
             everythingOK = false;
         }
 
+        // Check program
+        if (program.isEmpty()){
+            programInput.setError("Program is a required field");
+            everythingOK = false;
+        }
+        if (program.length() < 4) {
+            programInput.setError("Program must be at least 4 characters");
+            everythingOK = false;
+        }
+
         // If everything is good, go to the Dashboard
         if (everythingOK) {
             Intent intent = new Intent(this, DashboardActivity.class);

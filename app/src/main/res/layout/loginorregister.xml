@@ -25,8 +25,8 @@
         android:layout_marginStart="73dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="29dp"
-        android:text="Username"
-        app:layout_constraintEnd_toStartOf="@+id/editTextText"
+        android:text="Username (email)"
+        app:layout_constraintEnd_toStartOf="@+id/user_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_header" />
 
@@ -39,11 +39,11 @@
         android:layout_marginBottom="540dp"
         android:text="Password"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPassword"
+        app:layout_constraintEnd_toStartOf="@+id/user_password"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/user_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
@@ -56,7 +56,7 @@
         app:layout_constraintStart_toEndOf="@+id/password_text" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -79,7 +79,7 @@
         android:text="Tutor Register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/register_text"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/user_password" />
 
     <TextView
         android:id="@+id/register_text"
@@ -117,15 +117,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/user_password" />
 
     <Button
         android:id="@+id/adminLoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="goToAdminLogin"
+        android:layout_marginStart="239dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="284dp"
         android:text="Admin Login"
-        tools:layout_editor_absoluteX="239dp"
-        tools:layout_editor_absoluteY="399dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="goToAdminLogin"
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OTAMS Homepage"
+        tools:layout_editor_absoluteX="137dp"
+        tools:layout_editor_absoluteY="19dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

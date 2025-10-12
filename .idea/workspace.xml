@@ -46,11 +46,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Added the errors for tutor highest degree, tutor courses offered, studnt program of study">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Configured &quot;not an account error&quot; in MainActivity.java and deleted HomepageActivity.java because it was redundant">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/Tutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/HomepageActivity.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInfoActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/loginorregister.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/loginorregister.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,8 +111,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -349,7 +353,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760237748804</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Configured &quot;not an account error&quot; in MainActivity.java and deleted HomepageActivity.java because it was redundant">
+      <option name="closed" value="true" />
+      <created>1760280682950</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1760280682950</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -374,7 +386,8 @@
     <MESSAGE value="Fixed warnings in studentinformation.xml" />
     <MESSAGE value="Modified logout_screen.xml" />
     <MESSAGE value="Added the errors for tutor highest degree, tutor courses offered, studnt program of study" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the errors for tutor highest degree, tutor courses offered, studnt program of study" />
+    <MESSAGE value="Configured &quot;not an account error&quot; in MainActivity.java and deleted HomepageActivity.java because it was redundant" />
+    <option name="LAST_COMMIT_MESSAGE" value="Configured &quot;not an account error&quot; in MainActivity.java and deleted HomepageActivity.java because it was redundant" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

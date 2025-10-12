@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
         String usernameInput = username.getText().toString().trim();
         String passwordInput = password.getText().toString().trim();
 
-        boolean everythingOK = true;
 
         //Check username
         if (usernameInput.isEmpty()) {
@@ -114,9 +113,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Firebase authentication", "Login successful for:" + username);
                 Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                 goToDashboard(null);
-            } else {
+            }
+            else {
                 Log.w("Firebase authentification", "Login failed", task.getException());
-                Toast.makeText(MainActivity.this, "Not an account, please register. If you already have an account, try again.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Not an account, please register. If you already have an account, try again.", Toast.LENGTH_LONG).show();
             }
         });
     }

@@ -2,12 +2,23 @@ package com.example.logintest.domain;
 
 import android.os.Bundle;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class StudentInfoActivity extends AppCompatActivity {
+    // Database services
+    DatabaseReference databaseReference;
+    private FirebaseAuth mAuth;
 
     // Variables for each input field
     EditText firstNameInput;
@@ -32,17 +43,21 @@ public class StudentInfoActivity extends AppCompatActivity {
         programInput = findViewById(R.id.student_program);
         submitButton = findViewById(R.id.submit_student_btn);
 
+        // Initialize  both firebase services
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+
         // When user clicks submit button
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkForErrors();
+                validateAndRegisterUser();
             }
         });
     }
 
     // Check if all fields are filled correctly
-    void checkForErrors() {
+    boolean checkForErrors() {
         // Get what the user typed and removed extra spaces
         String firstName = firstNameInput.getText().toString().trim();
         String lastName = lastNameInput.getText().toString().trim();
@@ -52,6 +67,7 @@ public class StudentInfoActivity extends AppCompatActivity {
         String program = programInput.getText().toString().trim();
 
         boolean everythingOK = true;
+
 
         // Check first name
         if (firstName.isEmpty()) {
@@ -132,12 +148,72 @@ public class StudentInfoActivity extends AppCompatActivity {
             programInput.setError("Program must be at least 4 characters");
             everythingOK = false;
         }
-
+        return everythingOK;
+        /*
         // If everything is good, go to the Dashboard
         if (everythingOK) {
             Intent intent = new Intent(this, DashboardActivity.class);
             startActivity(intent);
             finish(); // Close the registration screen
+        }
+        */
+    }
+
+    void validateAndRegisterUser(){
+        if (checkForErrors()) {
+            String email=emailInput.getText().toString().trim();
+            String password=passwordInput.getText().toString().trim();
+            String firstName=firstNameInput.getText().toString().trim();
+            String lastName=lastNameInput.getText().toString().trim();
+            String phone=phoneInput.getText().toString().trim();
+            String program=programInput.getText().toString().trim();
+
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
+                if (task.isSuccessful()) {
+                    Log.d("Firebase authentication", "Registration successful for:" + email);
+                    Toast.makeText(StudentInfoActivity.this, "Authentification successful", Toast.LENGTH_SHORT).show();
+
+                    //Create user's ID
+                    String userId = mAuth.getCurrentUser().getUid();
+
+                    //Create an instance of Student class
+                    Student student = new Student(firstName, lastName, email, phone, program);
+
+                    //Save the student's data to firebase
+                    databaseReference.child("students").child(userId).setValue(student).addOnCompleteListener(this, dbTask -> {
+                        if (dbTask.isSuccessful()) {
+                            Log.d("Firebase database", "Student data created for"+userId);
+                            Toast.makeText(StudentInfoActivity.this, "Student registered successfully", Toast.LENGTH_SHORT).show();
+                            //Go to dashboard if registration is successful
+                            Intent intent = new Intent(this, DashboardActivity.class);
+                            startActivity(intent);
+                            finish(); // Close the registration screen
+                        }
+                        else{
+                            Log.w("Firebase database", "Student account creation failed", dbTask.getException());
+                            Toast.makeText(StudentInfoActivity.this, "Student registration failed", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else{ //Authentication failed if task.isSuccessful() is false
+                    Log.w("Firebase authentification", "Registration failed", task.getException());
+                    //Check if account already exists
+                    if(task.getException() instanceof FirebaseAuthUserCollisionException){
+                        emailInput.setError("This email address is already in use");
+                        Toast.makeText(StudentInfoActivity.this, "This email address is already in use by another account", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StudentInfoActivity.this, "Click on Go to Home to login", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        //If the student has trouble w Internet or Firebase has a temporary issue
+                        Toast.makeText(StudentInfoActivity.this, "Registration failed, try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            });
+        }
+        else{ //if checkForErrors returns false
+            Toast.makeText(StudentInfoActivity.this, "Registration failed, please correct the fields marked in red", Toast.LENGTH_SHORT).show();
+            return;
         }
     }
 }

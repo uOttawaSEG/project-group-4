@@ -46,10 +46,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Tutor registration and its error mistakes done">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/MainActivity.java" afterDir="false" />
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Modified MainActivity, more precisely checkForErrors and validateAndLoginUser because I forgot to consider the case where a user writes the wrong password for an existing account">
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/loginorregister.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/loginorregister.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -390,7 +387,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760294597434</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Modified MainActivity, more precisely checkForErrors and validateAndLoginUser because I forgot to consider the case where a user writes the wrong password for an existing account">
+      <option name="closed" value="true" />
+      <created>1760312352753</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1760312352753</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -420,7 +425,8 @@
     <MESSAGE value="Fixed an error message for layout_height" />
     <MESSAGE value="Changed layout for adminlogin.xml for debugging" />
     <MESSAGE value="Tutor registration and its error mistakes done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tutor registration and its error mistakes done" />
+    <MESSAGE value="Modified MainActivity, more precisely checkForErrors and validateAndLoginUser because I forgot to consider the case where a user writes the wrong password for an existing account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified MainActivity, more precisely checkForErrors and validateAndLoginUser because I forgot to consider the case where a user writes the wrong password for an existing account" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

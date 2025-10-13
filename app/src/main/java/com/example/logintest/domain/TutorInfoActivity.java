@@ -220,6 +220,7 @@ public class TutorInfoActivity extends AppCompatActivity {
                         Toast.makeText(TutorInfoActivity.this, "Tutor registered successfully", Toast.LENGTH_SHORT).show();
                         //Go to dashboard if registration is successful
                         Intent intent = new Intent(this, DashboardActivity.class);
+                        intent.putExtra("USER_ROLE", "Tutor"); // to display role on Dashboard
                         startActivity(intent);
                         finish(); // Close the registration screen
                     }

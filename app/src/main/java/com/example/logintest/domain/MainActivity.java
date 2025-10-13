@@ -60,6 +60,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // helper method for validateAndLoginUser() to display role on Dashboard/Welcome screen
+//    public void goToDashboardWithRole(String userRole) {
+//        Intent intent = new Intent(this, DashboardActivity.class);
+//        intent.putExtra("USER_ROLE", userRole);
+//        startActivity(intent);
+//        finish();
+//    }
+
     // Tutor Register button
     public void goToTutorRegistration(View view) {
         Intent intent = new Intent(MainActivity.this, TutorInfoActivity.class);
@@ -107,12 +115,44 @@ public class MainActivity extends AppCompatActivity {
         String passwordInput = password.getText().toString().trim();
         //Verify if the user exists
         mAuth.signInWithEmailAndPassword(usernameInput, passwordInput).addOnCompleteListener(this, task -> {
-            if (task.isSuccessful()) {
-                Log.d("Firebase authentication", "Login successful for:" + username);
+                    if (task.isSuccessful()) {
+                        // display the user's role on Dashboard/Welcome screen
+                        FirebaseUser currUser = mAuth.getCurrentUser();
+                        if (currUser != null) {
+                            String userID = currUser.getUid();
+                            DatabaseReference dbUser = databaseReference;
+
+                            dbUser.child("tutors").child(userID).get().addOnCompleteListener(tutorTask -> {
+                                if (tutorTask.isSuccessful() && tutorTask.getResult().exists()) {
+                                    //goToDashboardWithRole("Tutor");
+                                    Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
+                                    intent.putExtra("USER_ROLE", "Tutor");
+                                    startActivity(intent);
+                                } else {
+                                    dbUser.child("students").child(userID).get().addOnCompleteListener(studentTask -> {
+                                        if (studentTask.isSuccessful() && studentTask.getResult().exists()) {
+                                            //goToDashboardWithRole("Student");
+                                            Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
+                                            intent.putExtra("USER_ROLE", "Student");
+                                            startActivity(intent);
+                                        } else { //is an admin
+                                            dbUser.child("admins").child(userID).get().addOnCompleteListener(adminTask -> {
+                                                if (adminTask.isSuccessful() && adminTask.getResult().exists()) {
+                                                    //goToDashboardWithRole("Admin");
+                                                    Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
+                                                    intent.putExtra("USER_ROLE", "Admin");
+                                                    startActivity(intent);
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                Log.d("Firebase authentication", "Login successful for:" + usernameInput);
                 Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                goToDashboard(null);
-            }
-            else{
+                //goToDashboard(null);
+            } else{
                 Log.w("Firebase authentication", "Login failed", task.getException());
                 try {
                     String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
@@ -142,7 +182,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 }

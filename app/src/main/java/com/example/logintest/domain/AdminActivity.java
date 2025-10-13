@@ -31,6 +31,7 @@ public class AdminActivity extends AppCompatActivity {
                 if (enteredKey.equals(ADMIN_KEY)) {
                     // Key is correct, navigate to the dashboard
                     Intent intent = new Intent(AdminActivity.this, DashboardActivity.class);
+                    intent.putExtra("USER_ROLE", "Admin"); // to display role on Dashboard
                     startActivity(intent);
                 } else {
                     // Key is incorrect, show an error message

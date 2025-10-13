@@ -40,7 +40,7 @@ public class AdminActivity extends AppCompatActivity {
         });
     }
 
-    // Method to go to the home screen
+    // Home button
     public void goToHome(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

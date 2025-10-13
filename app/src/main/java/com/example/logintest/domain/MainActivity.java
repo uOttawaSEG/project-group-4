@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -77,12 +78,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //Log out page
-    public void goToLogOut(View view){
-        Intent intent = new Intent(this, LogOutPageActivity.class);
-        startActivity(intent);
-    }
-
     boolean checkForErrors() {
         //Get what the user typed and removed extra spaces
         String usernameInput = username.getText().toString().trim();
@@ -133,8 +128,10 @@ public class MainActivity extends AppCompatActivity {
                             username.requestFocus();
                             Toast.makeText(MainActivity.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
                             break;
-                        //It seems that there isn't a specific error code for user not found (email not in DB) or for wrong password,
-                        //apparently it was for security reasons so the error case below is used instead.
+                        /*
+                        It seems that there isn't a specific error code for user not found (email not in DB) or for wrong password,
+                        apparently it was for security reasons so the error case below is used instead.
+                         */
                         case "ERROR_INVALID_CREDENTIAL":
                             Toast.makeText(MainActivity.this, "Incorrect email or password. If you don't have an account, please register", Toast.LENGTH_SHORT).show();
                             break;

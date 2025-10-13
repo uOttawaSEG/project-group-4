@@ -61,6 +61,11 @@ public class TutorInfoActivity extends AppCompatActivity {
             }
         });
     }
+    // Home button
+    public void goToHome(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 
     // Check if all fields are filled correctly
     boolean checkForErrors() {

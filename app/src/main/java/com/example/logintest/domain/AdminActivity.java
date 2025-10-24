@@ -23,6 +23,7 @@ public class AdminActivity extends AppCompatActivity {
         adminKeyEditText = findViewById(R.id.adminKey);
         adminLoginButton = findViewById(R.id.adminLoginButton);
 
+        // Admin login with key
         adminLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

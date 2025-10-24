@@ -23,6 +23,7 @@
         android:text="@string/logout_button_text" />
 
     <LinearLayout
+        android:id="@+id/welcome_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -46,5 +47,15 @@
             android:textStyle="bold|italic" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/inboxButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcome_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="View Inbox"
+        android:visibility="gone" />
 
 </RelativeLayout>

@@ -15,6 +15,9 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class StudentInfoActivity extends AppCompatActivity {
     // Database services
     DatabaseReference databaseReference;
@@ -154,25 +157,34 @@ public class StudentInfoActivity extends AppCompatActivity {
             everythingOK = false;
         }
         return everythingOK;
-        /*
-        // If everything is good, go to the Dashboard
-        if (everythingOK) {
-            Intent intent = new Intent(this, DashboardActivity.class);
-            startActivity(intent);
-            finish(); // Close the registration screen
-        }
-        */
     }
 
-    void validateAndRegisterUser(){
+    void validateAndRegisterUser() {
         if (checkForErrors()) {
-            String email=emailInput.getText().toString().trim();
-            String password=passwordInput.getText().toString().trim();
-            String firstName=firstNameInput.getText().toString().trim();
-            String lastName=lastNameInput.getText().toString().trim();
-            String phone=phoneInput.getText().toString().trim();
-            String program=programInput.getText().toString().trim();
-
+            String email = emailInput.getText().toString().trim();
+            String password = passwordInput.getText().toString().trim();
+            String firstName = firstNameInput.getText().toString().trim();
+            String lastName = lastNameInput.getText().toString().trim();
+            String phone = phoneInput.getText().toString().trim();
+            String program = programInput.getText().toString().trim();
+            //First verify if the user is under the students list
+            databaseReference.child("student").orderByChild("email").equalTo(email).get().addOnCompleteListener(task -> {
+                if (!task.isSuccessful()){
+                    Log.e("Registration check", "Error checking for existing 'students' node", task.getException());
+                    Toast.makeText(StudentInfoActivity.this, "Could not verify email. Please try again", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (task.getResult().exists()){
+                    //if the email was found in 'students' path in db
+                    emailInput.setError("This email address is already in use.");
+                    Toast.makeText(StudentInfoActivity.this, "The email address you entered is already in use. Go to home to log in", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    //if it is not found in students path, verify in the 'pending students' path
+                    checkPendingStudents(firstName, lastName, email, phone, program, password);
+                }
+            });
+            /*
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
                 if (task.isSuccessful()) {
                     Log.d("Firebase authentication", "Registration successful for:" + email);
@@ -216,10 +228,63 @@ public class StudentInfoActivity extends AppCompatActivity {
                 }
 
             });
-        }
-        else{ //if checkForErrors returns false
+        }*/
+        } else { //if checkForErrors returns false
             Toast.makeText(StudentInfoActivity.this, "Registration failed, please correct the fields marked in red", Toast.LENGTH_SHORT).show();
             return;
         }
     }
+
+    private void checkPendingStudents(String firstName, String lastName, String email, String phone, String program, String password){
+        databaseReference.child("pending students").orderByChild("email").equalTo(email).get().addOnCompleteListener(task->{
+            if (!task.isSuccessful()){
+                Log.e("Registration check", "Error checking 'pending students' node", task.getException());
+                Toast.makeText(StudentInfoActivity.this, "Could not verify email. Please try again.", Toast.LENGTH_LONG).show();
+                return;
+            }
+            if (task.getResult().exists()){
+                //if the email was found in 'pending students' path in db
+                emailInput.setError("This email has already been submitted for review.");
+                Toast.makeText(StudentInfoActivity.this, "This email address is pending approval. For more information, contact the Administrator at 613-724-3361.", Toast.LENGTH_LONG).show();
+
+                //Go back to the home screen
+                Intent intent=new Intent(this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+            else{
+                submitNewPendingRequest(firstName, lastName, email, phone, program, password);
+            }
+        });
+    }
+    private void submitNewPendingRequest(String firstName, String lastName, String email, String phone, String program, String password){
+        //Create user's ID
+        String pendingId = databaseReference.child("pending tutors").push().getKey();
+        if (pendingId==null){
+            Toast.makeText(StudentInfoActivity.this, "Could not create user ID. Please try again.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        //Create an instance of Student class
+        Student pendingStudent = new Student(firstName, lastName, email, phone, program, password);
+        databaseReference.child("pending students").child(pendingId).setValue(pendingStudent).addOnCompleteListener(task->{
+            if (task.isSuccessful()){
+                Log.d("Pending registration", "Student request submitted for: "+ email);
+                Toast.makeText(StudentInfoActivity.this,"Student registration request submitted. The Administrator will review your application shortly.", Toast.LENGTH_LONG).show();
+
+                //Go back to the home screen
+                Intent intent=new Intent(this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+            else{
+                Log.w("Pending registration", "Failed to submit student request", task.getException());
+                Toast.makeText(StudentInfoActivity.this, "Could not submit request. Please try again.", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+
+
 }

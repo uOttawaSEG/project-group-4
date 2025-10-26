@@ -200,19 +200,64 @@ public class TutorInfoActivity extends AppCompatActivity {
         String phone=phoneInput.getText().toString().trim();
         String degree=degreeInput.getText().toString().trim().toLowerCase();
         String courses=coursesInput.getText().toString().trim().toLowerCase();
-
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
-            if (task.isSuccessful()) {
-                Log.d("Firebase authentication", "Registration successful for:" + email);
-                Toast.makeText(TutorInfoActivity.this, "Authentification successful", Toast.LENGTH_SHORT).show();
+        //First verify if the user is under the tutors list
+        databaseReference.child("tutors").orderByChild("email").equalTo(email).get().addOnCompleteListener(task -> {
+            if (!task.isSuccessful()){
+                Log.e("Registration check", "Error checking for existing 'tutors' node", task.getException());
+                Toast.makeText(TutorInfoActivity.this, "Could not verify email. Please try again", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (task.getResult().exists()){
+                //if the email was found in 'tutors' path in db
+                emailInput.setError("This email address is already in use.");
+                Toast.makeText(TutorInfoActivity.this, "The email address you entered is already in use. Go to home to log in.", Toast.LENGTH_LONG).show();
+            }
+            else{
+                //if it is not found in tutors path, verify in the 'pending tutors' path
+                checkPendingTutors(firstName, lastName, email, phone, degree, courses, password);
+            }
+        });
+        /*
+        //mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
+            //if (task.isSuccessful()) {
+                //Log.d("Firebase authentication", "Registration successful for:" + email);
+                //Toast.makeText(TutorInfoActivity.this, "Authentification successful", Toast.LENGTH_SHORT).show();
 
                 //Create user's ID
-                String userId = mAuth.getCurrentUser().getUid();
+                String pendingId = mAuth.getCurrentUser().getUid();
                 //Create a list of courses for the constructor
                 List<String> courseList= Arrays.asList(courses.split("\\s*,\\s*"));
                 //Create an instance of Tutor class
-                Tutor tutor = new Tutor(firstName, lastName, email, phone, degree, courseList);
+                Tutor pendingTutor = new Tutor(firstName, lastName, email, phone, degree, courseList, password);
 
+                //Save the pending tutor to the database
+                databaseReference.child("pending tutors").child(pendingId).setValue(pendingTutor).addOnCompleteListener(pendingTask -> {
+
+                    if (pendingTask.isSuccessful()) {
+                        Log.d("Pending registration", "Tutor request submitted for: "+pendingId);
+                        Toast.makeText(TutorInfoActivity.this, "Tutor request submitted. Wait for the administrator to review your registration.", Toast.LENGTH_SHORT).show();
+
+                        //Go back to the home screen after submission
+                        Intent intent=new Intent(this, MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish(); //Close the tutor registration UI
+                    } else {//If the submission fails, so if task.isSuccessful() is false
+                        Log.w("Pending registration", "Failed to submit tutor request", pendingTask.getException());
+                        //Toast.makeText(TutorInfoActivity.this, "Failed to submit tutor request", Toast.LENGTH_LONG).show();
+                        if(pendingTask.getException() instanceof FirebaseAuthUserCollisionException){
+                            emailInput.setError("This email address is already in use");
+                            Toast.makeText(TutorInfoActivity.this, "This email address is already in use by another account", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TutorInfoActivity.this, "Click on Go to Home to login", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            //If the tutor has trouble w Internet or Firebase has a temporary issue or maybe VPN, etc.
+                            Toast.makeText(TutorInfoActivity.this, "Registration failed, try again", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+                /*
                 //Save the tutor's data to firebase
                 databaseReference.child("tutors").child(userId).setValue(tutor).addOnCompleteListener(this, dbTask -> {
                     if (dbTask.isSuccessful()) {
@@ -229,7 +274,8 @@ public class TutorInfoActivity extends AppCompatActivity {
                         Toast.makeText(TutorInfoActivity.this, "Tutor registration failed", Toast.LENGTH_SHORT).show();
                     }
                 });
-            }
+                */
+        /*
             else{ //Authentication failed if task.isSuccessful() is false
                 Log.w("Firebase authentification", "Registration failed", task.getException());
                 //Check if account already exists
@@ -239,11 +285,68 @@ public class TutorInfoActivity extends AppCompatActivity {
                     Toast.makeText(TutorInfoActivity.this, "Click on Go to Home to login", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    //If the tutor has trouble w Internet or Firebase has a temporary issue
+                    //If the tutor has trouble w Internet or Firebase has a temporary issue or maybe VPN, etc.
                     Toast.makeText(TutorInfoActivity.this, "Registration failed, try again", Toast.LENGTH_SHORT).show();
                 }
             }
+            */
 
+        //});
+
+    }
+
+    private void checkPendingTutors(String firstName, String lastName, String email, String phone, String degree, String courses, String password){
+        databaseReference.child("pending tutors").orderByChild("email").equalTo(email).get().addOnCompleteListener(task->{
+            if (!task.isSuccessful()){
+                Log.e("Registration check", "Error checking 'pending tutors' node", task.getException());
+                Toast.makeText(TutorInfoActivity.this, "Could not verify email. Please try again.", Toast.LENGTH_LONG).show();
+                return;
+            }
+            if (task.getResult().exists()){
+                //if the email was found in 'pending tutors' path in db
+                emailInput.setError("This email has already been submitted for review.");
+                Toast.makeText(TutorInfoActivity.this, "This email address is pending approval. For more information, contact 613-724-3361.", Toast.LENGTH_LONG).show();
+
+                //Go back to the home screen
+                Intent intent=new Intent(this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+            else{
+                submitNewPendingRequest(firstName, lastName, email, phone, degree, courses, password);
+            }
         });
+    }
+
+    private void submitNewPendingRequest(String firstName, String lastName, String email, String phone, String degree, String courses, String password){
+        //Create user's ID
+        String pendingId = databaseReference.child("pending tutors").push().getKey();
+        if (pendingId==null){
+            Toast.makeText(TutorInfoActivity.this, "Could not create user ID. Please try again.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        //Create a list of courses for the constructor
+        List<String> courseList= Arrays.asList(courses.split("\\s*,\\s*"));
+        //Create an instance of Tutor class
+        Tutor pendingTutor = new Tutor(firstName, lastName, email, phone, degree, courseList, password);
+        databaseReference.child("pending tutors").child(pendingId).setValue(pendingTutor).addOnCompleteListener(task->{
+            if (task.isSuccessful()){
+                Log.d("Pending registration", "Tutor request submitted for: "+ email);
+                Toast.makeText(TutorInfoActivity.this,"Tutor registration request submitted. The Administrator will review your application shortly.", Toast.LENGTH_LONG).show();
+
+                //Go back to the home screen
+                Intent intent=new Intent(this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+            else{
+                Log.w("Pending registration", "Failed to submit tutor request", task.getException());
+                Toast.makeText(TutorInfoActivity.this, "Could not submit request. Please try again.", Toast.LENGTH_LONG).show();
+            }
+        });
+
+
     }
 }

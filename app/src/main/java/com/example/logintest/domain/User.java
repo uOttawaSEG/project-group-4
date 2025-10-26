@@ -6,7 +6,9 @@ public abstract class User {
     private String email;
     private String phoneNumber;
 
-    public User(String firstName, String lastName, String email, String phoneNumber) {
+    private String password;
+
+    public User(String firstName, String lastName, String email, String phoneNumber, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -46,6 +48,10 @@ public abstract class User {
         this.phoneNumber = phoneNumber;
     }
 
+    //For the new instance variable password
+    public String getPassword() { return password;}
+
+    public void setPassword(String password){ this.password=password;}
     public abstract String getRole();
 
 }

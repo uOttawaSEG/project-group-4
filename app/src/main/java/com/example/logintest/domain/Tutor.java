@@ -6,8 +6,8 @@ public class Tutor extends User  {
     private String highestDegree;
     private List<String> coursesOffered;
 
-    public Tutor(String firstName, String lastName, String email, String phoneNumber, String highestDegree, List<String> coursesOffered) {
-        super(firstName, lastName, email, phoneNumber);
+    public Tutor(String firstName, String lastName, String email, String phoneNumber, String highestDegree, List<String> coursesOffered, String password) {
+        super(firstName, lastName, email, phoneNumber, password);
         this.highestDegree = highestDegree;
         this.coursesOffered = coursesOffered;
     }

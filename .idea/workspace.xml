@@ -51,15 +51,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Updated APK file">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Added new password instance variable to users, modified Student and Tutor Activities for pending requests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInfoActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/Tutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/Tutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInfoActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tutorinfo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tutorinfo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/inbox_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/inbox_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -460,7 +456,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760371297697</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added new password instance variable to users, modified Student and Tutor Activities for pending requests">
+      <option name="closed" value="true" />
+      <created>1761452604194</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1761452604194</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -497,7 +501,8 @@
     <MESSAGE value="In DashboardActivity.java, I changed one of the parameters of the Intent created in the onClick method because when we would click on log out, it would lead to the homepage instead of the logout screen" />
     <MESSAGE value="Changed the layout in dashboard.xml, because it would change when Running the app" />
     <MESSAGE value="Updated APK file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated APK file" />
+    <MESSAGE value="Added new password instance variable to users, modified Student and Tutor Activities for pending requests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new password instance variable to users, modified Student and Tutor Activities for pending requests" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

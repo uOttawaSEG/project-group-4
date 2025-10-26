@@ -32,5 +32,11 @@
         android:text="Back" />
 
     <!-- You can add a ListView or RecyclerView here to display messages -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pendingRequestsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/backDash"
+        android:layout_marginTop="16dp" />
 
 </RelativeLayout>

@@ -159,81 +159,55 @@ public class StudentInfoActivity extends AppCompatActivity {
         return everythingOK;
     }
 
-    void validateAndRegisterUser() {
-        if (checkForErrors()) {
-            String email = emailInput.getText().toString().trim();
-            String password = passwordInput.getText().toString().trim();
-            String firstName = firstNameInput.getText().toString().trim();
-            String lastName = lastNameInput.getText().toString().trim();
-            String phone = phoneInput.getText().toString().trim();
-            String program = programInput.getText().toString().trim();
-            //First verify if the user is under the students list
-            databaseReference.child("students").orderByChild("email").equalTo(email).get().addOnCompleteListener(task -> {
-                if (!task.isSuccessful()){
-                    Log.e("Registration check", "Error checking for existing 'students' node", task.getException());
-                    Toast.makeText(StudentInfoActivity.this, "Could not verify email. Please try again", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (task.getResult().exists()){
-                    //if the email was found in 'students' path in db
-                    emailInput.setError("This email address is already in use.");
-                    Toast.makeText(StudentInfoActivity.this, "The email address you entered is already in use. Go to home to log in", Toast.LENGTH_LONG).show();
-                }
-                else{
-                    //if it is not found in students path, verify in the 'tutors' path: they could have entered an email that is in use for a tutor account
-                    checkIfEmailExists(firstName, lastName, email, phone, program, password);
-                }
-            });
-            /*
-            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
-                if (task.isSuccessful()) {
-                    Log.d("Firebase authentication", "Registration successful for:" + email);
-                    Toast.makeText(StudentInfoActivity.this, "Authentification successful", Toast.LENGTH_SHORT).show();
-
-                    //Create user's ID
-                    String userId = mAuth.getCurrentUser().getUid();
-
-                    //Create an instance of Student class
-                    Student student = new Student(firstName, lastName, email, phone, program);
-
-                    //Save the student's data to firebase
-                    databaseReference.child("students").child(userId).setValue(student).addOnCompleteListener(this, dbTask -> {
-                        if (dbTask.isSuccessful()) {
-                            Log.d("Firebase database", "Student data created for"+userId);
-                            Toast.makeText(StudentInfoActivity.this, "Student registered successfully", Toast.LENGTH_SHORT).show();
-                            //Go to dashboard if registration is successful
-                            Intent intent = new Intent(this, DashboardActivity.class);
-                            intent.putExtra("USER_ROLE", "Student"); // to display role on Dashboard
-                            startActivity(intent);
-                            finish(); // Close the registration screen
-                        }
-                        else{
-                            Log.w("Firebase database", "Student account creation failed", dbTask.getException());
-                            Toast.makeText(StudentInfoActivity.this, "Student registration failed", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-                else{ //Authentication failed if task.isSuccessful() is false
-                    Log.w("Firebase authentification", "Registration failed", task.getException());
-                    //Check if account already exists
-                    if(task.getException() instanceof FirebaseAuthUserCollisionException){
-                        emailInput.setError("This email address is already in use");
-                        Toast.makeText(StudentInfoActivity.this, "This email address is already in use by another account", Toast.LENGTH_SHORT).show();
-                        Toast.makeText(StudentInfoActivity.this, "Click on Go to Home to login", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        //If the student has trouble w Internet or Firebase has a temporary issue
-                        Toast.makeText(StudentInfoActivity.this, "Registration failed, try again", Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-            });
-        }*/
-        } else { //if checkForErrors returns false
+    void validateAndRegisterUser(){
+        if (!checkForErrors()){
             Toast.makeText(StudentInfoActivity.this, "Registration failed, please correct the fields marked in red", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        String email = emailInput.getText().toString().trim();
+        String password = passwordInput.getText().toString().trim();
+        String firstName = firstNameInput.getText().toString().trim();
+        String lastName = lastNameInput.getText().toString().trim();
+        String phone = phoneInput.getText().toString().trim();
+        String program = programInput.getText().toString().trim();
+
+        Log.d("StudentInfoActivity", "Submitting student registration for: " + email);
+
+        // Just submit directly without any checks
+        checkPendingStudents(firstName, lastName, email, phone, program, password);
     }
+
+//    void validateAndRegisterUser() {
+//        if (checkForErrors()) {
+//            String email = emailInput.getText().toString().trim();
+//            String password = passwordInput.getText().toString().trim();
+//            String firstName = firstNameInput.getText().toString().trim();
+//            String lastName = lastNameInput.getText().toString().trim();
+//            String phone = phoneInput.getText().toString().trim();
+//            String program = programInput.getText().toString().trim();
+//            //First verify if the user is under the students list
+//            databaseReference.child("students").orderByChild("email").equalTo(email).get().addOnCompleteListener(task -> {
+//                if (!task.isSuccessful()){
+//                    Log.e("Registration check", "Error checking for existing 'students' node", task.getException());
+//                    Toast.makeText(StudentInfoActivity.this, "Could not verify email. Please try again", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                if (task.getResult().exists()){
+//                    //if the email was found in 'students' path in db
+//                    emailInput.setError("This email address is already in use.");
+//                    Toast.makeText(StudentInfoActivity.this, "The email address you entered is already in use. Go to home to log in", Toast.LENGTH_LONG).show();
+//                }
+//                else{
+//                    //if it is not found in students path, verify in the 'tutors' path: they could have entered an email that is in use for a tutor account
+//                    checkIfEmailExists(firstName, lastName, email, phone, program, password);
+//                }
+//            });
+//        } else { //if checkForErrors returns false
+//            Toast.makeText(StudentInfoActivity.this, "Registration failed, please correct the fields marked in red", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//    }
     private void checkIfEmailExists(String firstName, String lastName, String email, String phone, String program, String password){
         //Verify if the email does not exist for a tutor account
         databaseReference.child("tutors").orderByChild("email").equalTo(email).get().addOnCompleteListener(task -> {

@@ -128,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
                                     Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
                                     intent.putExtra("USER_ROLE", "Tutor");
                                     startActivity(intent);
+
+                                    finish();
                                 } else {
                                     dbUser.child("students").child(userID).get().addOnCompleteListener(studentTask -> {
                                         if (studentTask.isSuccessful() && studentTask.getResult().exists()) {
@@ -135,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
                                             Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
                                             intent.putExtra("USER_ROLE", "Student");
                                             startActivity(intent);
+
+                                            finish();
                                         } else { //is an admin
                                             dbUser.child("admins").child(userID).get().addOnCompleteListener(adminTask -> {
                                                 if (adminTask.isSuccessful() && adminTask.getResult().exists()) {
@@ -142,6 +146,8 @@ public class MainActivity extends AppCompatActivity {
                                                     Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
                                                     intent.putExtra("USER_ROLE", "Admin");
                                                     startActivity(intent);
+
+                                                    finish();
                                                 }
                                             });
                                         }

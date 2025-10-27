@@ -3,6 +3,10 @@ package com.example.logintest.domain;
 public class Student extends User{
     private String program;
 
+    //empty constructor
+    public Student() {
+        //super();
+    }
     public Student(String firstName, String lastName, String email, String phoneNumber, String program, String password) {
         super(firstName, lastName, email, phoneNumber, password);
         this.program = program;

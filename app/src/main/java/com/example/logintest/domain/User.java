@@ -7,7 +7,13 @@ public abstract class User {
     private String phoneNumber;
 
     private String password;
+//    private String userId;
+//    private String role;
 
+    //empty constructor
+    public User() {
+
+    }
     public User(String firstName, String lastName, String email, String phoneNumber, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -52,6 +58,12 @@ public abstract class User {
     public String getPassword() { return password;}
 
     public void setPassword(String password){ this.password=password;}
+
+
+//    public String getUserId() {return userId;}
+//    public void setUserId(String userId) {this.userId = userId;}
+//    public void setRole(String role) {this.role = role; }
+
     public abstract String getRole();
 
 }

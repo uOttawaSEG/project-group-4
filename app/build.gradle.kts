@@ -55,15 +55,30 @@ android {
     }
 }
 
+// In /app/build.gradle.kts
+
 dependencies {
 
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation(libs.firebase.database)
-    implementation(libs.firebase.auth)
     implementation(libs.recyclerview)
+
+    // --- START OF THE FIX ---
+
+    // 1. Add the Firebase Bill of Materials (BoM).
+    // This forces all Firebase libraries to use the same, compatible version.
+    // Replace "33.1.0" with the latest version if you wish.
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+
+    // 2. Add your Firebase libraries WITHOUT versions.
+    // The BoM now controls which version is used.
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-database")
+
+    // --- END OF THE FIX ---
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

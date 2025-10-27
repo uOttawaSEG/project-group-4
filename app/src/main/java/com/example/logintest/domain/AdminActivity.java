@@ -34,6 +34,8 @@ public class AdminActivity extends AppCompatActivity {
                     Intent intent = new Intent(AdminActivity.this, DashboardActivity.class);
                     intent.putExtra("USER_ROLE", "Admin"); // to display role on Dashboard
                     startActivity(intent);
+
+                    finish(); // closing AdminActivity -> debugging
                 } else {
                     // Key is incorrect, show an error message
                     Toast.makeText(AdminActivity.this, "Invalid Admin Key", Toast.LENGTH_SHORT).show();

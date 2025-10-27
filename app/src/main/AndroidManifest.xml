@@ -28,7 +28,7 @@
         <activity android:name=".DashboardActivity" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".LogOutPageActivity" />
-
+        <activity android:name=".InboxActivity" />
     </application>
 
 </manifest>

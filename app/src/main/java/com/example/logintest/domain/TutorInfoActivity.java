@@ -193,107 +193,52 @@ public class TutorInfoActivity extends AppCompatActivity {
             Toast.makeText(TutorInfoActivity.this, "Registration failed, please correct the fields marked in red", Toast.LENGTH_SHORT).show();
             return;
         }
-        String email=emailInput.getText().toString().trim();
-        String password=passwordInput.getText().toString().trim();
-        String firstName=firstNameInput.getText().toString().trim();
-        String lastName=lastNameInput.getText().toString().trim();
-        String phone=phoneInput.getText().toString().trim();
-        String degree=degreeInput.getText().toString().trim().toLowerCase();
-        String courses=coursesInput.getText().toString().trim().toLowerCase();
-        //First verify if the user is under the 'tutors' path
-        databaseReference.child("tutors").orderByChild("email").equalTo(email).get().addOnCompleteListener(task -> {
-            if (!task.isSuccessful()){
-                Log.e("Registration check", "Error checking for existing 'tutors' node", task.getException());
-                Toast.makeText(TutorInfoActivity.this, "Could not verify email. Please try again", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if (task.getResult().exists()){
-                //if the email was found in 'tutors' path in db
-                emailInput.setError("This email address is already in use.");
-                Toast.makeText(TutorInfoActivity.this, "The email address you entered is already in use. Go to home to log in.", Toast.LENGTH_LONG).show();
-            }
-            else{
-                //if it is not found in tutors path, verify the students path: they could have entered an email that is in use for a student account
-                checkIfEmailExists(firstName, lastName, email, phone, degree, courses, password);
-            }
-        });
-        /*
-        //mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
-            //if (task.isSuccessful()) {
-                //Log.d("Firebase authentication", "Registration successful for:" + email);
-                //Toast.makeText(TutorInfoActivity.this, "Authentification successful", Toast.LENGTH_SHORT).show();
 
-                //Create user's ID
-                String pendingId = mAuth.getCurrentUser().getUid();
-                //Create a list of courses for the constructor
-                List<String> courseList= Arrays.asList(courses.split("\\s*,\\s*"));
-                //Create an instance of Tutor class
-                Tutor pendingTutor = new Tutor(firstName, lastName, email, phone, degree, courseList, password);
+        String email = emailInput.getText().toString().trim();
+        String password = passwordInput.getText().toString().trim();
+        String firstName = firstNameInput.getText().toString().trim();
+        String lastName = lastNameInput.getText().toString().trim();
+        String phone = phoneInput.getText().toString().trim();
+        String degree = degreeInput.getText().toString().trim().toLowerCase();
+        String courses = coursesInput.getText().toString().trim().toLowerCase();
 
-                //Save the pending tutor to the database
-                databaseReference.child("pending tutors").child(pendingId).setValue(pendingTutor).addOnCompleteListener(pendingTask -> {
+        Log.d("TutorInfoActivity", "Submitting tutor registration for: " + email);
 
-                    if (pendingTask.isSuccessful()) {
-                        Log.d("Pending registration", "Tutor request submitted for: "+pendingId);
-                        Toast.makeText(TutorInfoActivity.this, "Tutor request submitted. Wait for the administrator to review your registration.", Toast.LENGTH_SHORT).show();
-
-                        //Go back to the home screen after submission
-                        Intent intent=new Intent(this, MainActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
-                        finish(); //Close the tutor registration UI
-                    } else {//If the submission fails, so if task.isSuccessful() is false
-                        Log.w("Pending registration", "Failed to submit tutor request", pendingTask.getException());
-                        //Toast.makeText(TutorInfoActivity.this, "Failed to submit tutor request", Toast.LENGTH_LONG).show();
-                        if(pendingTask.getException() instanceof FirebaseAuthUserCollisionException){
-                            emailInput.setError("This email address is already in use");
-                            Toast.makeText(TutorInfoActivity.this, "This email address is already in use by another account", Toast.LENGTH_SHORT).show();
-                            Toast.makeText(TutorInfoActivity.this, "Click on Go to Home to login", Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            //If the tutor has trouble w Internet or Firebase has a temporary issue or maybe VPN, etc.
-                            Toast.makeText(TutorInfoActivity.this, "Registration failed, try again", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
-                /*
-                //Save the tutor's data to firebase
-                databaseReference.child("tutors").child(userId).setValue(tutor).addOnCompleteListener(this, dbTask -> {
-                    if (dbTask.isSuccessful()) {
-                        Log.d("Firebase database", "Tutor data created for"+userId);
-                        Toast.makeText(TutorInfoActivity.this, "Tutor registered successfully", Toast.LENGTH_SHORT).show();
-                        //Go to dashboard if registration is successful
-                        Intent intent = new Intent(this, DashboardActivity.class);
-                        intent.putExtra("USER_ROLE", "Tutor"); // to display role on Dashboard
-                        startActivity(intent);
-                        finish(); // Close the registration screen
-                    }
-                    else{
-                        Log.w("Firebase database", "Tutor account creation failed", dbTask.getException());
-                        Toast.makeText(TutorInfoActivity.this, "Tutor registration failed", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                */
-        /*
-            else{ //Authentication failed if task.isSuccessful() is false
-                Log.w("Firebase authentification", "Registration failed", task.getException());
-                //Check if account already exists
-                if(task.getException() instanceof FirebaseAuthUserCollisionException){
-                    emailInput.setError("This email address is already in use");
-                    Toast.makeText(TutorInfoActivity.this, "This email address is already in use by another account", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(TutorInfoActivity.this, "Click on Go to Home to login", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    //If the tutor has trouble w Internet or Firebase has a temporary issue or maybe VPN, etc.
-                    Toast.makeText(TutorInfoActivity.this, "Registration failed, try again", Toast.LENGTH_SHORT).show();
-                }
-            }
-            */
-
-        //});
-
+        // Just submit directly without any checks
+        submitNewPendingRequest(firstName, lastName, email, phone, degree, courses, password);
     }
+
+//    void validateAndRegisterUser(){
+//        if (!checkForErrors()){
+//            Toast.makeText(TutorInfoActivity.this, "Registration failed, please correct the fields marked in red", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        String email=emailInput.getText().toString().trim();
+//        String password=passwordInput.getText().toString().trim();
+//        String firstName=firstNameInput.getText().toString().trim();
+//        String lastName=lastNameInput.getText().toString().trim();
+//        String phone=phoneInput.getText().toString().trim();
+//        String degree=degreeInput.getText().toString().trim().toLowerCase();
+//        String courses=coursesInput.getText().toString().trim().toLowerCase();
+//        //First verify if the user is under the 'tutors' path
+//        databaseReference.child("tutors").orderByChild("email").equalTo(email).get().addOnCompleteListener(task -> {
+//            if (!task.isSuccessful()){
+//                Log.e("Registration check", "Error checking for existing 'tutors' node", task.getException());
+//                Toast.makeText(TutorInfoActivity.this, "Could not verify email. Please try again", Toast.LENGTH_SHORT).show();
+//                return;
+//            }
+//            if (task.getResult().exists()){
+//                //if the email was found in 'tutors' path in db
+//                emailInput.setError("This email address is already in use.");
+//                Toast.makeText(TutorInfoActivity.this, "The email address you entered is already in use. Go to home to log in.", Toast.LENGTH_LONG).show();
+//            }
+//            else{
+//                //if it is not found in tutors path, verify the students path: they could have entered an email that is in use for a student account
+//                checkIfEmailExists(firstName, lastName, email, phone, degree, courses, password);
+//            }
+//        });
+//
+//    }
     private void checkIfEmailExists(String firstName, String lastName, String email, String phone, String degree, String courses, String password){
         //Verify if the email does not exist for a student account
         databaseReference.child("students").orderByChild("email").equalTo(email).get().addOnCompleteListener(task -> {
@@ -372,6 +317,8 @@ public class TutorInfoActivity extends AppCompatActivity {
         List<String> courseList= Arrays.asList(courses.split("\\s*,\\s*"));
         //Create an instance of Tutor class
         Tutor pendingTutor = new Tutor(firstName, lastName, email, phone, degree, courseList, password);
+
+        // data gets stored to firebase
         databaseReference.child("pending").child(pendingId).setValue(pendingTutor).addOnCompleteListener(task->{
             if (task.isSuccessful()){
                 Log.d("Pending registration", "Tutor request submitted for: "+ email);

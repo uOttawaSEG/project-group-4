@@ -76,6 +76,7 @@ dependencies {
     // The BoM now controls which version is used.
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-database")
+    implementation(libs.fragment)
 
     // --- END OF THE FIX ---
 

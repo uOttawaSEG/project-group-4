@@ -159,55 +159,55 @@ public class StudentInfoActivity extends AppCompatActivity {
         return everythingOK;
     }
 
-    void validateAndRegisterUser(){
-        if (!checkForErrors()){
-            Toast.makeText(StudentInfoActivity.this, "Registration failed, please correct the fields marked in red", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        String email = emailInput.getText().toString().trim();
-        String password = passwordInput.getText().toString().trim();
-        String firstName = firstNameInput.getText().toString().trim();
-        String lastName = lastNameInput.getText().toString().trim();
-        String phone = phoneInput.getText().toString().trim();
-        String program = programInput.getText().toString().trim();
-
-        Log.d("StudentInfoActivity", "Submitting student registration for: " + email);
-
-        // Just submit directly without any checks
-        checkPendingStudents(firstName, lastName, email, phone, program, password);
-    }
-
-//    void validateAndRegisterUser() {
-//        if (checkForErrors()) {
-//            String email = emailInput.getText().toString().trim();
-//            String password = passwordInput.getText().toString().trim();
-//            String firstName = firstNameInput.getText().toString().trim();
-//            String lastName = lastNameInput.getText().toString().trim();
-//            String phone = phoneInput.getText().toString().trim();
-//            String program = programInput.getText().toString().trim();
-//            //First verify if the user is under the students list
-//            databaseReference.child("students").orderByChild("email").equalTo(email).get().addOnCompleteListener(task -> {
-//                if (!task.isSuccessful()){
-//                    Log.e("Registration check", "Error checking for existing 'students' node", task.getException());
-//                    Toast.makeText(StudentInfoActivity.this, "Could not verify email. Please try again", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                if (task.getResult().exists()){
-//                    //if the email was found in 'students' path in db
-//                    emailInput.setError("This email address is already in use.");
-//                    Toast.makeText(StudentInfoActivity.this, "The email address you entered is already in use. Go to home to log in", Toast.LENGTH_LONG).show();
-//                }
-//                else{
-//                    //if it is not found in students path, verify in the 'tutors' path: they could have entered an email that is in use for a tutor account
-//                    checkIfEmailExists(firstName, lastName, email, phone, program, password);
-//                }
-//            });
-//        } else { //if checkForErrors returns false
+//    void validateAndRegisterUser(){
+//        if (!checkForErrors()){
 //            Toast.makeText(StudentInfoActivity.this, "Registration failed, please correct the fields marked in red", Toast.LENGTH_SHORT).show();
 //            return;
 //        }
+//
+//        String email = emailInput.getText().toString().trim();
+//        String password = passwordInput.getText().toString().trim();
+//        String firstName = firstNameInput.getText().toString().trim();
+//        String lastName = lastNameInput.getText().toString().trim();
+//        String phone = phoneInput.getText().toString().trim();
+//        String program = programInput.getText().toString().trim();
+//
+//        Log.d("StudentInfoActivity", "Submitting student registration for: " + email);
+//
+//        checkPendingStudents(firstName, lastName, email, phone, program, password);
 //    }
+
+    void validateAndRegisterUser() {
+        if (checkForErrors()) {
+            String email = emailInput.getText().toString().trim();
+            String password = passwordInput.getText().toString().trim();
+            String firstName = firstNameInput.getText().toString().trim();
+            String lastName = lastNameInput.getText().toString().trim();
+            String phone = phoneInput.getText().toString().trim();
+            String program = programInput.getText().toString().trim();
+            //First verify if the user is under the students list
+            databaseReference.child("students").orderByChild("email").equalTo(email).get().addOnCompleteListener(task -> {
+                if (!task.isSuccessful()){
+                    Log.e("Registration check", "Error checking for existing 'students' node", task.getException());
+                    Toast.makeText(StudentInfoActivity.this, "Could not verify email. Please try again", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (task.getResult().exists()){
+                    //if the email was found in 'students' path in db
+                    emailInput.setError("This email address is already in use.");
+                    Toast.makeText(StudentInfoActivity.this, "The email address you entered is already in use. Go to home to log in", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    //if it is not found in students path, verify in the 'tutors' path: they could have entered an email that is in use for a tutor account
+                    checkIfEmailExists(firstName, lastName, email, phone, program, password);
+                }
+            });
+        } else { //if checkForErrors returns false
+            Toast.makeText(StudentInfoActivity.this, "Registration failed, please correct the fields marked in red", Toast.LENGTH_SHORT).show();
+            return;
+        }
+    }
+
     private void checkIfEmailExists(String firstName, String lastName, String email, String phone, String program, String password){
         //Verify if the email does not exist for a tutor account
         databaseReference.child("tutors").orderByChild("email").equalTo(email).get().addOnCompleteListener(task -> {
@@ -262,7 +262,7 @@ public class StudentInfoActivity extends AppCompatActivity {
                 Toast.makeText(StudentInfoActivity.this, "This email address is pending approval. For more information, contact the Administrator at 613-724-3361.", Toast.LENGTH_LONG).show();
 
                 //Go back to the home screen
-                Intent intent=new Intent(this, MainActivity.class);
+                Intent intent=new Intent(StudentInfoActivity.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
@@ -287,7 +287,7 @@ public class StudentInfoActivity extends AppCompatActivity {
                 Toast.makeText(StudentInfoActivity.this,"Student registration request submitted. The Administrator will review your application. Please come back later.", Toast.LENGTH_LONG).show();
 
                 //Go back to the home screen
-                Intent intent=new Intent(this, MainActivity.class);
+                Intent intent=new Intent(StudentInfoActivity.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();

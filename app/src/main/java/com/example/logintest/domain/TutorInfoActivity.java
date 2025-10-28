@@ -204,7 +204,7 @@ public class TutorInfoActivity extends AppCompatActivity {
 
         Log.d("TutorInfoActivity", "Submitting tutor registration for: " + email);
 
-        // Just submit directly without any checks
+        //not checking, submitting right away - had to this for testing
         submitNewPendingRequest(firstName, lastName, email, phone, degree, courses, password);
     }
 

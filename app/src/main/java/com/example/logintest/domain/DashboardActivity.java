@@ -25,7 +25,7 @@ public class DashboardActivity extends AppCompatActivity {
         adminInboxButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.inbox_layout);
+                setContentView(R.layout.admin_inbox);
                 //Intent intent = new Intent(Inboxy.this, InboxActivity.class);
                 //startActivity(intent);
             }

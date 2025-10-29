@@ -61,9 +61,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Implemented email notifications to user upon registration acceptance/rejection.">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Changed name of PendingUser.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/pendingUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/pendingUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminInboxActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminInboxActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/FirebaseRegistrationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/FirebaseRegistrationRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -496,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761759919513</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Changed name of PendingUser.java">
+      <option name="closed" value="true" />
+      <created>1761763797149</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1761763797149</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -511,7 +520,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added Firebase database." />
     <MESSAGE value="Attempted to repair GitHub merging issues." />
     <MESSAGE value="Updated landing page." />
     <MESSAGE value="Added HomepageActivity.java and LogOutPageActivity.java. Modified some of the xml to have a home button to facilitate navigation" />
@@ -536,7 +544,8 @@
     <MESSAGE value="Added a RecyclerView in inbox_layout.xml" />
     <MESSAGE value="Added new xml's to support the Admin inbox xml" />
     <MESSAGE value="Implemented email notifications to user upon registration acceptance/rejection." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented email notifications to user upon registration acceptance/rejection." />
+    <MESSAGE value="Changed name of PendingUser.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed name of PendingUser.java" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

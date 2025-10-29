@@ -2,7 +2,7 @@ package com.example.logintest.repository;
 
 import androidx.annotation.NonNull;
 
-import com.example.logintest.domain.pendingUser;
+import com.example.logintest.domain.PendingUser;
 import com.example.logintest.domain.Student;
 import com.example.logintest.domain.Tutor;
 import com.example.logintest.domain.User;
@@ -23,7 +23,7 @@ public class FirebaseRegistrationRepository {
     }
 
     public interface RegistrationRequestsListener {
-        void onRequestsLoaded(List<pendingUser> requests);
+        void onRequestsLoaded(List<PendingUser> requests);
     }
 
     // created ApprovalListener interface and RejectionListener interfaces to keep track of acceptance sand rejections that
@@ -43,7 +43,7 @@ public class FirebaseRegistrationRepository {
         databaseReference.child("pending").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                List<pendingUser> requests =new ArrayList<>();
+                List<PendingUser> requests =new ArrayList<>();
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     String requestId = snapshot.getKey();
@@ -55,7 +55,7 @@ public class FirebaseRegistrationRepository {
                     }
 
                     if (user != null && requestId != null) {
-                        pendingUser request = new pendingUser(requestId, user);
+                        PendingUser request = new PendingUser(requestId, user);
                         request.setStatus("pending");
                         requests.add(request);
                     }
@@ -75,19 +75,19 @@ public class FirebaseRegistrationRepository {
         databaseReference.child("denied").addListenerForSingleValueEvent(new ValueEventListener() {
              @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                List<pendingUser> requests = new ArrayList<>();
+                List<PendingUser> requests = new ArrayList<>();
 
                  for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     String requestId = snapshot.getKey();
 
-                    // Check if it's a Tutor or Student
+                    // check if it's a Tutor or Student
                      User user = snapshot.getValue(Tutor.class);
                     if (user == null) {
                         user = snapshot.getValue(Student.class);
                     }
 
                     if (user != null && requestId != null) {
-                        pendingUser request = new pendingUser(requestId, user);
+                        PendingUser request = new PendingUser(requestId, user);
                         request.setStatus("rejected");
                         requests.add(request);
                     }
@@ -103,7 +103,7 @@ public class FirebaseRegistrationRepository {
         });
     }
 
-    public void acceptPending(pendingUser request, AcceptedListener listener) {
+    public void acceptPending(PendingUser request, AcceptedListener listener) {
         String requestId = request.getRequestId();
         User user = request.getUser();
 
@@ -127,7 +127,7 @@ public class FirebaseRegistrationRepository {
                 });
     }
 
-    public void rejectRequest(pendingUser request, RejectListener listener) {
+    public void rejectRequest(PendingUser request, RejectListener listener) {
         String requestId = request.getRequestId();
         User user = request.getUser();
 
@@ -147,7 +147,7 @@ public class FirebaseRegistrationRepository {
                 });
     }
 
-    public void approveRejectedRequest(pendingUser request, AcceptedListener listener) {
+    public void approveRejectedRequest(PendingUser request, AcceptedListener listener) {
         String requestId = request.getRequestId();
         User user = request.getUser();
 

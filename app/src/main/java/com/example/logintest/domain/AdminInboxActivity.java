@@ -28,8 +28,8 @@ public class AdminInboxActivity extends AppCompatActivity {
     private LinearLayout containerLayout;
     private TabLayout pendingOrRejectedTab;
 
-    private List<pendingUser> pendingRequests = new ArrayList<>();
-    private List<pendingUser> rejectedRequests = new ArrayList<>();
+    private List<PendingUser> pendingRequests = new ArrayList<>();
+    private List<PendingUser> rejectedRequests = new ArrayList<>();
     private FirebaseRegistrationRepository pendingRepository;
 
     // --- POJO for the email message body ---
@@ -85,7 +85,7 @@ public class AdminInboxActivity extends AppCompatActivity {
                     // loading the rejected requests
                     pendingRepository.getRejectedRequests(new FirebaseRegistrationRepository.RegistrationRequestsListener() {
                         @Override
-                        public void onRequestsLoaded(List<pendingUser> requests) {
+                        public void onRequestsLoaded(List<PendingUser> requests) {
                             rejectedRequests = requests;
                             showRejectedRequests();
                         }
@@ -101,7 +101,7 @@ public class AdminInboxActivity extends AppCompatActivity {
         // loading the request cards
         pendingRepository.getPendingRequests(new FirebaseRegistrationRepository.RegistrationRequestsListener() {
             @Override
-            public void onRequestsLoaded(List<pendingUser> requests) {
+            public void onRequestsLoaded(List<PendingUser> requests) {
                 pendingRequests = requests;
                 showPendingRequests();
             }
@@ -110,14 +110,14 @@ public class AdminInboxActivity extends AppCompatActivity {
 
     private void showPendingRequests() {
         containerLayout.removeAllViews();
-        for (pendingUser request: pendingRequests) {
+        for (PendingUser request: pendingRequests) {
             View requestCard = createPendingRequestCard(request);
             containerLayout.addView(requestCard);
         }
     }
     private void showRejectedRequests() {
         containerLayout.removeAllViews();
-        for (pendingUser request:rejectedRequests) {
+        for (PendingUser request:rejectedRequests) {
             View requestCard = createRejectedRequestCard(request);
             containerLayout.addView(requestCard);
         }
@@ -128,7 +128,7 @@ public class AdminInboxActivity extends AppCompatActivity {
      * @param request
      * @return
      */
-    private View createPendingRequestCard(final pendingUser request) {
+    private View createPendingRequestCard(final PendingUser request) {
         View cardView = LayoutInflater.from(this).inflate(R.layout.pending_inbox, containerLayout, false);
 
         TextView pendingName = cardView.findViewById(R.id.pendingName);
@@ -149,7 +149,7 @@ public class AdminInboxActivity extends AppCompatActivity {
         return cardView;
     }
 
-    private View createRejectedRequestCard(final pendingUser request) {
+    private View createRejectedRequestCard(final PendingUser request) {
         View cardView = LayoutInflater.from(this).inflate(R.layout.rejected_inbox, containerLayout, false);
         TextView rejectedName = cardView.findViewById(R.id.rejectedName);
         TextView rejectedEmail = cardView.findViewById(R.id.rejectedEmail);
@@ -165,7 +165,7 @@ public class AdminInboxActivity extends AppCompatActivity {
     }
 
 
-    private void acceptPending(pendingUser request, View cardView) {
+    private void acceptPending(PendingUser request, View cardView) {
         pendingRepository.acceptPending(request, new FirebaseRegistrationRepository.AcceptedListener() {
             @Override
             public void onAcceptSuccess() {
@@ -192,7 +192,7 @@ public class AdminInboxActivity extends AppCompatActivity {
         });
     }
 
-    private void rejectRequest(final pendingUser request, final View cardView) {
+    private void rejectRequest(final PendingUser request, final View cardView) {
         pendingRepository.rejectRequest(request, new FirebaseRegistrationRepository.RejectListener() {
             @Override
             public void onRejectionSuccess() {
@@ -235,7 +235,7 @@ public class AdminInboxActivity extends AppCompatActivity {
     }
 
 
-    private void approveRejectedRequest(final pendingUser request, final View cardView) {
+    private void approveRejectedRequest(final PendingUser request, final View cardView) {
         pendingRepository.approveRejectedRequest(request, new FirebaseRegistrationRepository.AcceptedListener() {
             @Override
             public void onAcceptSuccess() {

@@ -185,28 +185,69 @@ public class StudentInfoActivity extends AppCompatActivity {
             String lastName = lastNameInput.getText().toString().trim();
             String phone = phoneInput.getText().toString().trim();
             String program = programInput.getText().toString().trim();
-            //First verify if the user is under the students list
-            databaseReference.child("students").orderByChild("email").equalTo(email).get().addOnCompleteListener(task -> {
-                if (!task.isSuccessful()){
-                    Log.e("Registration check", "Error checking for existing 'students' node", task.getException());
-                    Toast.makeText(StudentInfoActivity.this, "Could not verify email. Please try again", Toast.LENGTH_SHORT).show();
-                    return;
+
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
+                if (task.isSuccessful()) {
+                    Log.d("Firebase authentication", "Registration successful for:" + email);
+                    Toast.makeText(StudentInfoActivity.this, "Registration request successful", Toast.LENGTH_SHORT).show();
+
+                    //Create user's ID
+                    String userId = mAuth.getCurrentUser().getUid();
+                    //Create an instance of Student class
+                    Student student = new Student(firstName, lastName, email, phone, program, password);
+
+                    //Save the student's data to firebase
+                    databaseReference.child("pending").child(userId).setValue(student).addOnCompleteListener(this, dbTask -> {
+                        if (dbTask.isSuccessful()) {
+                            Log.d("Firebase database", "Student data created for"+userId);
+                            Toast.makeText(StudentInfoActivity.this, "Student request submitted successfully", Toast.LENGTH_SHORT).show();
+                            //Go to the welcome screen if registration request is successful
+                            Intent intent = new Intent(this, MainActivity.class);
+                            startActivity(intent);
+                            finish(); // Close the registration screen
+                        }
+                        else{
+                            Log.w("Firebase database", "Tutor account creation failed", dbTask.getException());
+                            Toast.makeText(StudentInfoActivity.this, "Tutor registration request failed", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
-                if (task.getResult().exists()){
-                    //if the email was found in 'students' path in db
-                    emailInput.setError("This email address is already in use.");
-                    Toast.makeText(StudentInfoActivity.this, "The email address you entered is already in use. Go to home to log in", Toast.LENGTH_LONG).show();
+                else{ //Authentication (registration request) failed if task.isSuccessful() is false
+                    Log.w("Firebase authentification", "Registration request failed", task.getException());
+                    //Check if account already exists
+                    if(task.getException() instanceof FirebaseAuthUserCollisionException){
+                        //Check under which path it is in the database
+                        databaseReference.child("pending").orderByChild("email").equalTo(email).get().addOnCompleteListener(pendingTask->{
+                            if (pendingTask.isSuccessful() && pendingTask.getResult().exists()){
+                                emailInput.setError("This email has already been submitted for review.");
+                                Toast.makeText(StudentInfoActivity.this, "This email address is pending approval.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(StudentInfoActivity.this, "Contact the Administrator at 613-724-3361 to resolve this matter.", Toast.LENGTH_LONG).show();
+                            }else{
+                                databaseReference.child("denied").orderByChild("email").equalTo(email).get().addOnCompleteListener(deniedTask->{
+                                    if (deniedTask.isSuccessful() && deniedTask.getResult().exists()){
+                                        emailInput.setError("The Administrator denied the registration request for this email address.");
+                                        Toast.makeText(StudentInfoActivity.this, "The Administrator denied the registration request for this email.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(StudentInfoActivity.this, "To resolve this matter, contact 613-724-3361.", Toast.LENGTH_LONG).show();
+                                    }else{ //that means the user is either under tutors or students path, which means this email address is already in use
+                                        emailInput.setError("This email address is already in use.");
+                                        Toast.makeText(StudentInfoActivity.this, "The email address you entered is already in use. Go to home to log in.", Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
+                        });
+                    }
+                    else{
+                        //If the tutor has trouble w Internet or Firebase has a temporary issue or vpn is on
+                        Toast.makeText(StudentInfoActivity.this, "Registration failed, try again", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else{
-                    //if it is not found in students path, verify in the 'tutors' path: they could have entered an email that is in use for a tutor account
-                    checkIfEmailExists(firstName, lastName, email, phone, program, password);
-                }
+
             });
         } else { //if checkForErrors returns false
             Toast.makeText(StudentInfoActivity.this, "Registration failed, please correct the fields marked in red", Toast.LENGTH_SHORT).show();
-            return;
         }
     }
+    /*
 
     private void checkIfEmailExists(String firstName, String lastName, String email, String phone, String program, String password){
         //Verify if the email does not exist for a tutor account
@@ -298,7 +339,7 @@ public class StudentInfoActivity extends AppCompatActivity {
             }
         });
     }
-
+    */
 
 
 }

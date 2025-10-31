@@ -151,7 +151,7 @@ public class FirebaseRegistrationRepository {
         String requestId = request.getRequestId();
         User user = request.getUser();
 
-        // switching rejected users to aceepted
+        // switching rejected users to accepted
         databaseReference.child("denied").child(requestId).removeValue()
                 .addOnSuccessListener(aVoid -> {
                     String approvedPath = user.getRole().toLowerCase() + "s";

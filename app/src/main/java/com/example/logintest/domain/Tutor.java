@@ -10,8 +10,8 @@ public class Tutor extends User  {
     public Tutor() {
         //super();
     }
-    public Tutor(String firstName, String lastName, String email, String phoneNumber, String highestDegree, List<String> coursesOffered, String password) {
-        super(firstName, lastName, email, phoneNumber, password);
+    public Tutor(String firstName, String lastName, String email, String phoneNumber, String highestDegree, List<String> coursesOffered) {
+        super(firstName, lastName, email, phoneNumber);
         this.highestDegree = highestDegree;
         this.coursesOffered = coursesOffered;
     }

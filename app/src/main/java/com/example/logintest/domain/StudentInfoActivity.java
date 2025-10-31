@@ -174,7 +174,7 @@ public class StudentInfoActivity extends AppCompatActivity {
                     //Create user's ID
                     String userId = mAuth.getCurrentUser().getUid();
                     //Create an instance of Student class
-                    Student student = new Student(firstName, lastName, email, phone, program, password);
+                    Student student = new Student(firstName, lastName, email, phone, program);
 
                     //Save the student's data to firebase
                     databaseReference.child("pending").child(userId).setValue(student).addOnCompleteListener(this, dbTask -> {

@@ -7,8 +7,8 @@ public class Student extends User{
     public Student() {
         //super();
     }
-    public Student(String firstName, String lastName, String email, String phoneNumber, String program, String password) {
-        super(firstName, lastName, email, phoneNumber, password);
+    public Student(String firstName, String lastName, String email, String phoneNumber, String program) {
+        super(firstName, lastName, email, phoneNumber);
         this.program = program;
     }
     // getters and setters

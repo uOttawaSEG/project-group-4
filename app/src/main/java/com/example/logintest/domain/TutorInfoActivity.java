@@ -211,7 +211,7 @@ public class TutorInfoActivity extends AppCompatActivity {
                     //Create a list of courses for the constructor
                     List<String> courseList= Arrays.asList(courses.split("\\s*,\\s*"));
                     //Create an instance of Tutor class
-                    Tutor tutor = new Tutor(firstName, lastName, email, phone, degree, courseList, password);
+                    Tutor tutor = new Tutor(firstName, lastName, email, phone, degree, courseList);
 
                     //Save the tutor's data to firebase
                     databaseReference.child("pending").child(userId).setValue(tutor).addOnCompleteListener(this, dbTask -> {

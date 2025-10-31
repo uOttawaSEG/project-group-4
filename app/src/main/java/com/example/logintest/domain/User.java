@@ -14,7 +14,7 @@ public abstract class User {
     public User() {
 
     }
-    public User(String firstName, String lastName, String email, String phoneNumber, String password) {
+    public User(String firstName, String lastName, String email, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -53,12 +53,6 @@ public abstract class User {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-    //For the new instance variable password
-    public String getPassword() { return password;}
-
-    public void setPassword(String password){ this.password=password;}
-
 
 //    public String getUserId() {return userId;}
 //    public void setUserId(String userId) {this.userId = userId;}

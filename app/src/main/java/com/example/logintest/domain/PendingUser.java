@@ -15,46 +15,35 @@ public class PendingUser {
         this.status = "pending";
     }
 
-    // firebase getters and setters
-    public String getRequestId() {
 
+    // getters and setters for the firebase
+    public String getRequestId() {
         return pendingId;
     }
     public void setRequestId(String pendingId) {
-
-        this.pendingId = pendingId;
+         this.pendingId = pendingId;
     }
 
     public User getUser() {
-
         return user;
     }
     public void setUser(User user) {
-
         this.user = user;
     }
 
-
-    public String getStatus() {
-        return status;
-    }
     public void setStatus(String status) {
-
         this.status = status;
     }
 
     public String getPendingName() {
-
         return user.getFirstName()+" "+ user.getLastName();
     }
 
     public String getPendingEmail() {
-
         return user.getEmail();
     }
 
     public String getPendingRole() {
-
         return user.getRole();
     }
 }

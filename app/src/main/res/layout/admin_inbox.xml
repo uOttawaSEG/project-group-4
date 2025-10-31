@@ -5,14 +5,23 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <Button
+        android:id="@+id/inboxToDashBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:text="Dashboard" />
+
     <TextView
-        android:layout_width="225dp"
+        android:layout_width="176dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:gravity="left"
-        android:text="Registration Requests"
+        android:text="Registration requests"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        />
+
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
@@ -23,14 +32,16 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pending" />
+            android:text="Pending"
+            />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rejected" />
-
+            android:text="Rejected"
+            />
     </com.google.android.material.tabs.TabLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -40,8 +51,10 @@
             android:id="@+id/containerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            />
 
     </ScrollView>
+
 
 </LinearLayout>

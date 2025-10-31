@@ -61,13 +61,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Removed a few comments in Student and Tutor Activity classes, also I configured the messages according to the user's status in the MainActivity.java class">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Added new xml's to support the Admin inbox xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInfoActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/Tutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/Tutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInfoActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminInboxActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminInboxActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/PendingUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/PendingUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/admin_inbox.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_inbox.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/pending_inbox.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/pending_inbox.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/rejected_inbox.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/rejected_inbox.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +77,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\Daniela Bordeianu\.android\avd\Medium_Phone.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=/Users/parishoang/.android/avd/Medium_Phone_2.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -142,12 +142,12 @@
     &quot;assignee&quot;: &quot;navatavasoli&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/uOttawaSEG/project-group-4.git",
-    "accountId": "befa4524-63ef-48a3-a40e-3e72f01891b7"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/uOttawaSEG/project-group-4.git&quot;,
+    &quot;accountId&quot;: &quot;d31907dd-b4ae-4bfa-afa1-e0a294142e2c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -163,21 +163,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
-    &quot;ApkExportedModule&quot;: &quot;LoginTest.app&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.android.studio.ml.bot.mainConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.app.executor": "Run",
+    "ApkExportedModule": "LoginTest.app",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "preferences.customizations"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="LoginTest.app" />
@@ -492,55 +492,7 @@
       <option name="project" value="LOCAL" />
       <updated>1761498433897</updated>
     </task>
-    <task id="LOCAL-00030" summary="Implemented email notifications to user upon registration acceptance/rejection.">
-      <option name="closed" value="true" />
-      <created>1761759919513</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1761759919513</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Changed name of PendingUser.java">
-      <option name="closed" value="true" />
-      <created>1761763797149</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1761763797149</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Solved errors associated PendingUser and AdminActivity">
-      <option name="closed" value="true" />
-      <created>1761767206292</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1761767206292</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Added additional comments to AdminActivity and AdminInboxActivity.">
-      <option name="closed" value="true" />
-      <created>1761767525621</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1761767525621</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Configured registration errors for Tutor and Student but now it includes also the cases where it is denied and pending">
-      <option name="closed" value="true" />
-      <created>1761876073959</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1761876073959</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Removed a few comments in Student and Tutor Activity classes, also I configured the messages according to the user's status in the MainActivity.java class">
-      <option name="closed" value="true" />
-      <created>1761879999426</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1761879999426</updated>
-    </task>
-    <option name="localTasksCounter" value="36" />
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -555,6 +507,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updated UI" />
+    <MESSAGE value="Added Firebase database." />
+    <MESSAGE value="Attempted to repair GitHub merging issues." />
+    <MESSAGE value="Updated landing page." />
+    <MESSAGE value="Added HomepageActivity.java and LogOutPageActivity.java. Modified some of the xml to have a home button to facilitate navigation" />
+    <MESSAGE value="Added Edge Constraints in the studentinformation.xml" />
     <MESSAGE value="Fixed the mistakes in studentinformation.xml" />
     <MESSAGE value="Fixed warnings in studentinformation.xml" />
     <MESSAGE value="Modified logout_screen.xml" />
@@ -574,25 +532,19 @@
     <MESSAGE value="Added new password instance variable to users, modified Student and Tutor Activities for pending requests" />
     <MESSAGE value="Added a RecyclerView in inbox_layout.xml" />
     <MESSAGE value="Added new xml's to support the Admin inbox xml" />
-    <MESSAGE value="Implemented email notifications to user upon registration acceptance/rejection." />
-    <MESSAGE value="Changed name of PendingUser.java" />
-    <MESSAGE value="Solved errors associated PendingUser and AdminActivity" />
-    <MESSAGE value="Added additional comments to AdminActivity and AdminInboxActivity." />
-    <MESSAGE value="Configured registration errors for Tutor and Student but now it includes also the cases where it is denied and pending" />
-    <MESSAGE value="Removed a few comments in Student and Tutor Activity classes, also I configured the messages according to the user's status in the MainActivity.java class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed a few comments in Student and Tutor Activity classes, also I configured the messages according to the user's status in the MainActivity.java class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new xml's to support the Admin inbox xml" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="com.example.logintest.domain">
           <value>
-            <CheckInfo lastCheckTimestamp="1761875969522" />
+            <CheckInfo lastCheckTimestamp="1761915318187" />
           </value>
         </entry>
         <entry key="com.example.logintest.domain.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1761875969529" />
+            <CheckInfo lastCheckTimestamp="1761915318190" />
           </value>
         </entry>
       </map>

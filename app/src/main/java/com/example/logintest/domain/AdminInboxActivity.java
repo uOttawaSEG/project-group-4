@@ -5,6 +5,7 @@ package com.example.logintest.domain;
 // official GitHub dev resource: https://github.com/firebase/extensions/tree/master/firestore-send-email
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,11 +29,12 @@ import java.util.List;
 public class AdminInboxActivity extends AppCompatActivity {
     private static final String TAG = "AdminInboxActivity";
     private LinearLayout containerLayout;
-    private TabLayout pendingOrRejectedTab;
+    private TabLayout pendingOrRejectedTab; // xml design involves tabs to separate pending from rejected categorization
 
     private List<PendingUser> pendingRequests = new ArrayList<>();
     private List<PendingUser> rejectedRequests = new ArrayList<>();
     private FirebaseRegistrationRepository pendingRepository;
+    private Button indexToDashButton;
 
     // email message body
     public static class Message {
@@ -79,6 +81,19 @@ public class AdminInboxActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_inbox);
 
+        // setting up inboxToDashBtn
+        indexToDashButton = findViewById(R.id.inboxToDashBtn);
+
+        indexToDashButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminInboxActivity.this, DashboardActivity.class);
+                intent.putExtra("USER_ROLE", "Admin");
+                startActivity(intent);
+                finish(); // used for debugging
+            }
+        });
+
         containerLayout = findViewById(R.id.containerLayout);
         pendingOrRejectedTab = findViewById(R.id.tabLayout);
         pendingRepository = new FirebaseRegistrationRepository();
@@ -87,9 +102,9 @@ public class AdminInboxActivity extends AppCompatActivity {
         pendingOrRejectedTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if (tab.getPosition() == 0) {
+                if (tab.getPosition()== 0) {
                     showPendingRequests();
-                } else if (tab.getPosition() == 1) {
+                } else if (tab.getPosition()==1) {
                     pendingRepository.getRejectedRequests(new FirebaseRegistrationRepository.RegistrationRequestsListener() {
                         @Override
                         public void onRequestsLoaded(List<PendingUser> requests) {
@@ -118,6 +133,7 @@ public class AdminInboxActivity extends AppCompatActivity {
     // pending requests
     private void showPendingRequests() {
         containerLayout.removeAllViews();
+
         for (PendingUser request: pendingRequests) {
             View requestCard = createPendingRequestCard(request);
             containerLayout.addView(requestCard);
@@ -126,17 +142,14 @@ public class AdminInboxActivity extends AppCompatActivity {
     // rejected requests
     private void showRejectedRequests() {
         containerLayout.removeAllViews();
+
         for (PendingUser request:rejectedRequests) {
             View requestCard = createRejectedRequestCard(request);
             containerLayout.addView(requestCard);
         }
     }
 
-    /**
-     * Show pending information for a registered account to the Admin for their approval/rejection
-     * @param request the request to be approved
-     * @return card view of the request
-     */
+    // create card that shows pending requests (not yet approved or rejected)
     private View createPendingRequestCard(final PendingUser request) {
         View cardView = LayoutInflater.from(this).inflate(R.layout.pending_inbox, containerLayout, false);
 
@@ -146,7 +159,7 @@ public class AdminInboxActivity extends AppCompatActivity {
 
         pendingName.setText("Name: " + request.getPendingName());
         pendingEmail.setText("Email: " + request.getPendingEmail());
-        pendingRole.setText("Type: " + request.getPendingRole());
+        pendingRole.setText("Role : " + request.getPendingRole());
 
         Button acceptBtn = cardView.findViewById(R.id.acceptBtn);
 
@@ -157,11 +170,7 @@ public class AdminInboxActivity extends AppCompatActivity {
         return cardView;
     }
 
-    /**
-     * Show rejected card information
-     * @param request the rejected card
-     * @return card view of the rejected request
-     */
+    //create card that displays rejected request
     private View createRejectedRequestCard(final PendingUser request) {
         View cardView = LayoutInflater.from(this).inflate(R.layout.rejected_inbox, containerLayout, false);
         TextView rejectedName = cardView.findViewById(R.id.rejectedName);
@@ -170,7 +179,7 @@ public class AdminInboxActivity extends AppCompatActivity {
 
         rejectedName.setText("Name: "+ request.getPendingName());
         rejectedEmail.setText("Email: "+ request.getPendingEmail());
-        rejectedRole.setText("Type: " +request.getPendingRole());
+        rejectedRole.setText("role: " +request.getPendingRole());
 
         Button acceptRejecteeBtn = cardView.findViewById(R.id.acceptRejectionBtn);
         acceptRejecteeBtn.setOnClickListener(v -> approveRejectedRequest(request, cardView));
@@ -178,11 +187,7 @@ public class AdminInboxActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * Accept a pending request
-     * @param request to be accepted
-     * @param cardView the card view of the request
-     */
+    //
     private void acceptPending(PendingUser request, View cardView) {
         pendingRepository.acceptPending(request, new FirebaseRegistrationRepository.AcceptedListener() {
             @Override

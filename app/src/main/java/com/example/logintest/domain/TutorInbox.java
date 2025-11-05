@@ -64,18 +64,20 @@ public class TutorInbox extends AppCompatActivity {
                 upcomingSessions.clear();
                 pendingSessions.clear();
 
-                for (DataSnapshot sessionSnapshot : dataSnapshot.getChildren()) {
+                for (DataSnapshot sessionSnapshot: dataSnapshot.getChildren()) {
                     SessionRequester session = sessionSnapshot.getValue(SessionRequester.class);
                     if (session != null) {
-                        long sessionMillis = convertTime(session.getSessionDate(), session.getSessionTime());
-                        long currentTime = System.currentTimeMillis();
-
-                        if (sessionMillis < currentTime) {
-                            pastSessions.add(session);
-                        } else if (session.getSessionStatus().equals("pending")) {
+                        if (session.getSessionStatus().equalsIgnoreCase("pending")) {
                             pendingSessions.add(session);
-                        } else if (session.getSessionStatus().equals("accepted")) {
-                            upcomingSessions.add(session);
+                        } else {
+                            long sessionMillis = convertTime(session.getSessionDate(), session.getSessionTime());
+                            long currentTime = System.currentTimeMillis();
+
+                            if (sessionMillis > currentTime) {
+                                upcomingSessions.add(session);
+                            } else { // the request time and date is before current time and date
+                                pastSessions.add(session);
+                            }
                         }
                     }
                     //display past sessions as default
@@ -111,15 +113,16 @@ public class TutorInbox extends AppCompatActivity {
                 } else if (tab.getPosition()==1) {
                     //display upcoming sessions
                     sessionCardLayout.removeAllViews();
-                    for (SessionRequester session: pastSessions) {
+                    for (SessionRequester session: upcomingSessions) {
                         View upcomingCard = makeSessionCard(session, "Upcoming");
                         sessionCardLayout.addView(upcomingCard);
+
                     }
 
                 } else if (tab.getPosition()== 2) {
                     //display pending sessions
                     sessionCardLayout.removeAllViews();
-                    for (SessionRequester session: pastSessions) {
+                    for (SessionRequester session: pendingSessions) {
                         View pendingCard = makeSessionCard(session, "Pending");
                         sessionCardLayout.addView(pendingCard);
                     }
@@ -159,20 +162,41 @@ public class TutorInbox extends AppCompatActivity {
 
         Button acceptBtn = cardView.findViewById(R.id.tutorAcceptBtn);
         Button rejectBtn = cardView.findViewById(R.id.tutorRejectBtn);
+        Button cancelBtn = cardView.findViewById(R.id.cancelBtn);
+
+        if (status.equals("Upcoming")) {
+            cancelBtn.setVisibility(View.VISIBLE);
+            acceptBtn.setVisibility(View.GONE);
+            rejectBtn.setVisibility(View.GONE);
+        }
+        if (status.equals("Past")) {
+            cancelBtn.setVisibility(View.GONE);
+            acceptBtn.setVisibility(View.GONE);
+            rejectBtn.setVisibility(View.GONE);
+        }
 
         acceptBtn.setOnClickListener(v -> {
-            sessionsFirebaseReference.child(studentCard.getStudentEmail().replace(".","_")).child("sessionStatus").setValue("accepted");
+            upcomingSessions.add(studentCard);
+            pendingSessions.remove(studentCard);
+            sessionsFirebaseReference.child(studentCard.getSessionId()).child("sessionStatus").setValue("accepted");
             Toast.makeText(TutorInbox.this, "Session accepted", Toast.LENGTH_SHORT).show();
         });
         rejectBtn.setOnClickListener(v -> {
-            sessionsFirebaseReference.child(studentCard.getStudentEmail().replace(".","_")).child("sessionStatus").setValue("rejected");
+            pendingSessions.remove(studentCard);
+            sessionsFirebaseReference.child(studentCard.getSessionId()).child("sessionStatus").setValue("rejected");
             Toast.makeText(TutorInbox.this, "Session rejected", Toast.LENGTH_SHORT).show();
+        });
+        cancelBtn.setOnClickListener(v -> {
+            upcomingSessions.remove(studentCard);
+
+            sessionsFirebaseReference.child(studentCard.getSessionId()).removeValue();
+            Toast.makeText(TutorInbox.this, "Session cancelled", Toast.LENGTH_SHORT).show();
         });
         return cardView;
     }
 
     // helper method to convert time, used to check if a session time and date is before the current time and date
-    private long convertTime(String time, String date) {
+    private long convertTime(String date, String time) {
         try {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
             Date dateObj = format.parse(date + " " + time);

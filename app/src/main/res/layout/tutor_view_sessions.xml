@@ -86,7 +86,15 @@
                 android:backgroundTint="#3F51B5"
                 android:text="Reject"
                 android:textColor="@android:color/white" />
+            <Button
+                android:id="@+id/cancelBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:visibility="gone"/>
 
         </LinearLayout>
+
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

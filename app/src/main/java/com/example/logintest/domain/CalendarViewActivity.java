@@ -53,6 +53,7 @@ public class CalendarViewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CalendarViewActivity.this, TimeSlot.class);
                 intent.putExtra("SELECTED_DATE", dateSelected);
+                intent.putExtra("USER_ROLE", "Tutor");
                 startActivity(intent);
 
             }

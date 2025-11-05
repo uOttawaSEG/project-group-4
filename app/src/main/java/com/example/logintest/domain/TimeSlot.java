@@ -202,6 +202,11 @@ public class TimeSlot extends AppCompatActivity {
             return;
         }
 
+        if(Overlaps(start, end, alreadySelectedTimeSlots)) {
+            Toast.makeText(this, "This time slot overlaps with previously selected time slots", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         // Get the date from the intent
         Intent intent = getIntent();
@@ -249,6 +254,34 @@ public class TimeSlot extends AppCompatActivity {
                 .addOnFailureListener(e -> {
                     Toast.makeText(TimeSlot.this, "Could not create session: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
+    }
+
+
+    //helper method to check if time slot overlaps with other sessions
+    private boolean Overlaps(String start, String end, Set<String> timeSlots) {
+        int startMins = toMinutes(start);
+        int endMins = toMinutes(end);
+
+        for(String time: timeSlots) {
+            String[] allTimeIntervals = time.split("-");
+            int s = toMinutes(allTimeIntervals[0]);
+            int e = toMinutes(allTimeIntervals[1]);
+
+            if(startMins < e && endMins > s) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //helper method to convert time string into integer of mintues
+    private int toMinutes(String time) {
+        String [] times = time.split(":");
+
+        int hr = Integer.parseInt(times[0]);
+        int min = Integer.parseInt(times[1]);
+
+        return hr * 60 + min;
     }
 
 } // end of TimeSlot.java

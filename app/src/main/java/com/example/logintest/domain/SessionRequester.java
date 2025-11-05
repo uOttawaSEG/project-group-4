@@ -10,7 +10,7 @@ public class SessionRequester {
     private String sessionTime;
     private boolean sessionAvailable;
     public String sessionStatus;
-    // private String sessionId;
+    private String sessionId;
 
 
     public SessionRequester() {
@@ -25,6 +25,7 @@ public class SessionRequester {
         this.sessionTime = session.getTimeSlot();
         this.sessionAvailable = session.isAvailable();
         this.sessionStatus = "pending";
+        this.sessionId = session.getSessionId();
     }
 
 
@@ -62,5 +63,8 @@ public class SessionRequester {
 
     public void setSessionStatus(String status) {
         this.sessionStatus = status;
+    }
+    public String getSessionId() {
+        return sessionId;
     }
 }

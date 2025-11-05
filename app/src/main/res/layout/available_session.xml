@@ -57,7 +57,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="#3F51B5"
                 android:text="Cancel Session"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone"/>
 
         </LinearLayout>
 
@@ -68,7 +69,8 @@
             android:backgroundTint="#3F51B5"
             android:layout_marginStart="8dp"
             android:textColor="@android:color/white"
-            android:text="Request Session" />
+            android:text="Request Session"
+            android:visibility="gone"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

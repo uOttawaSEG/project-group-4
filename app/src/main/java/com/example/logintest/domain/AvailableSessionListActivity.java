@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,18 +31,24 @@ public class AvailableSessionListActivity extends AppCompatActivity {
     private DatabaseReference sessionPath;
     Button toDash;
     Student student;
+    String role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sessions_list);
 
+        role = getIntent().getStringExtra("USER_ROLE");
         student = (Student)getIntent().getSerializableExtra("CURR_STUDENT");
 
         toDash = findViewById(R.id.fromSessionsToDashBtn);
         toDash.setOnClickListener(v -> {
             Intent intent = new Intent(AvailableSessionListActivity.this, DashboardActivity.class);
-            intent.putExtra("USER_ROLE", "Tutor");
+            if(role.equals("Student")) {
+                intent.putExtra("USER_ROLE", "Student");
+            } else {
+                intent.putExtra("USER_ROLE", "Tutor");
+            }
             startActivity(intent);
         });
 
@@ -100,25 +107,43 @@ public class AvailableSessionListActivity extends AppCompatActivity {
             sessionDate.setText(session.getDate());
             sessionTime.setText(session.getTimeSlot());
 
+            if("Student".equalsIgnoreCase(role)) {
+                studentRegisterSessionBtn.setVisibility(View.VISIBLE);
+                cancelSessionBtn.setVisibility(View.GONE);
+            } else if ("Tutor".equalsIgnoreCase(role)) {
+                studentRegisterSessionBtn.setVisibility(View.GONE);
+                cancelSessionBtn.setVisibility(View.VISIBLE);
+            }
+
             studentRegisterSessionBtn.setOnClickListener(v -> {
                 // sessions is not available anymore
                 // set availabiltiy to false and then add it to pending list
+
                 session.setAvailable(false);
 
                 SessionRequester studentRequester = new SessionRequester(student, session);
-
                 DatabaseReference requestsReference = FirebaseDatabase.getInstance().getReference("sessionRequests");
                 requestsReference.child(session.getSessionId()).setValue(studentRequester);
 
-                sessionPath.child(session.getSessionId()).setValue(session)
-                        .addOnSuccessListener(aVoid -> {
-                            // Logging the session request in the database
-                            //FirebaseDatabase.getInstance().getReference("sessionRequests").child(session.getSessionId()).setValue(new SessionRequester(sessionStudent, session));
-                            Toast.makeText(AvailableSessionListActivity.this, "Session request successful", Toast.LENGTH_SHORT).show();
-                        })
-                        .addOnFailureListener(e -> {
-                            Toast.makeText(AvailableSessionListActivity.this, "Failed to request session", Toast.LENGTH_SHORT).show();
-                        });
+
+                requestsReference.child(session.getSessionId()).setValue(studentRequester)
+                    .addOnSuccessListener(aVoid -> {
+                        sessionPath.child(session.getSessionId()).removeValue();
+                        Toast.makeText(AvailableSessionListActivity.this, "Session request successful", Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(AvailableSessionListActivity.this, "Could not request session", Toast.LENGTH_SHORT).show();
+                    });
+
+//                sessionPath.child(session.getSessionId()).setValue(session)
+//                        .addOnSuccessListener(aVoid -> {
+//                            // Logging the session request in the database
+//                            //FirebaseDatabase.getInstance().getReference("sessionRequests").child(session.getSessionId()).setValue(new SessionRequester(sessionStudent, session));
+//                            Toast.makeText(AvailableSessionListActivity.this, "Session request successful", Toast.LENGTH_SHORT).show();
+//                        })
+//                        .addOnFailureListener(e -> {
+//                            Toast.makeText(AvailableSessionListActivity.this, "Failed to request session", Toast.LENGTH_SHORT).show();
+//                        });
             });
 
             //cancel the session (to do: make it only available to tutors)

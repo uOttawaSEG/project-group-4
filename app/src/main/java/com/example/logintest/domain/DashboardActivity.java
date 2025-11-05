@@ -16,7 +16,7 @@ public class DashboardActivity extends AppCompatActivity {
     Button adminInboxButton;
 
     Button viewCalendarButton;
-
+    Button toSessions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +38,18 @@ public class DashboardActivity extends AppCompatActivity {
         viewCalendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_calendar_view);
-                //Intent intent = new Intent(DashboardActivity.this, CalendarViewActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(DashboardActivity.this, CalendarViewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // go to sessions list button
+        toSessions = findViewById(R.id.viewSessionsBtn);
+        toSessions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, AvailableSessionListActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -2,6 +2,8 @@ package com.example.logintest.domain;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CalendarView;
 
 import androidx.activity.EdgeToEdge;
@@ -10,29 +12,61 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Calendar;
+
 public class CalendarViewActivity extends AppCompatActivity {
     CalendarView calendarView;
+    Button selectDateBtn;
+    long dateSelected=0;
+    Button toDash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_calendar_view);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
         calendarView =findViewById(R.id.calendarView);
-        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
-            Intent intent = new Intent(CalendarViewActivity.this, TimeSlot.class);
+        dateSelected = calendarView.getDate(); //initial date will just be the day the user is on the app
 
-            intent.putExtra("YEAR", year);
-            intent.putExtra("MONTH", month + 1);
-            intent.putExtra("DAY", dayOfMonth);
+        //setting min date manually (added this for debugging)
+        Calendar minDate = Calendar.getInstance();
+        minDate.set(2025, Calendar.NOVEMBER, 4);
+        calendarView.setMinDate(minDate.getTimeInMillis());
 
-            startActivity(intent);
+        selectDateBtn = findViewById(R.id.selectDateBtn);
+        toDash = findViewById(R.id.FromCalToDashBtn);
+
+
+        // store selected date details
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                Calendar c = Calendar.getInstance();
+                c.set(year, month, dayOfMonth);
+                dateSelected= c.getTimeInMillis();
+            }
         });
+
+        selectDateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CalendarViewActivity.this, TimeSlot.class);
+                intent.putExtra("SELECTED_DATE", dateSelected);
+                startActivity(intent);
+
+            }
+        });
+
+        toDash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CalendarViewActivity.this, DashboardActivity.class);
+                intent.putExtra("USER_ROLE", "Tutor");
+                startActivity(intent);
+
+            }
+        });
+
     }
 }

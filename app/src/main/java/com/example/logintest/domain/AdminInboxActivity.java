@@ -153,12 +153,12 @@ public class AdminInboxActivity extends AppCompatActivity {
     private View createPendingRequestCard(final PendingUser request) {
         View cardView = LayoutInflater.from(this).inflate(R.layout.pending_inbox, containerLayout, false);
 
-        TextView pendingName = cardView.findViewById(R.id.pendingName);
-        TextView pendingEmail = cardView.findViewById(R.id.pendingEmail);
+        TextView pendingName = cardView.findViewById(R.id.sessionTutorName);
+        TextView pendingEmail = cardView.findViewById(R.id.sessionDate);
         TextView pendingRole = cardView.findViewById(R.id.pendingRole);
-        TextView pendingPhone= cardView.findViewById(R.id.pendingPhone);
-        TextView pendingProgramOrDegree = cardView.findViewById(R.id.pendingProgramOrDegree);
-        TextView pendingCourses = cardView.findViewById(R.id.pendingCourses);
+        TextView pendingPhone= cardView.findViewById(R.id.sessionPhone);
+        TextView pendingProgramOrDegree = cardView.findViewById(R.id.tutorCourses);
+        TextView pendingCourses = cardView.findViewById(R.id.sessionTime);
 
 
         pendingName.setText("Name: " + request.getPendingName());
@@ -175,7 +175,7 @@ public class AdminInboxActivity extends AppCompatActivity {
 
         Button acceptBtn = cardView.findViewById(R.id.acceptBtn);
 
-        Button rejectBtn = cardView.findViewById(R.id.rejectBtn);
+        Button rejectBtn = cardView.findViewById(R.id.cancelSessionBtn);
 
         acceptBtn.setOnClickListener(v -> acceptPending(request, cardView));
         rejectBtn.setOnClickListener(v -> rejectRequest(request, cardView));

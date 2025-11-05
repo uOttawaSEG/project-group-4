@@ -11,9 +11,9 @@
         android:id="@+id/calendarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minDate="11/04/2025"
+
         tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="227dp" />
+        tools:layout_editor_absoluteY="139dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -23,5 +23,27 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         tools:layout_editor_absoluteX="118dp"
         tools:layout_editor_absoluteY="85dp" />
+
+    <Button
+        android:id="@+id/selectDateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="261dp"
+        android:layout_marginBottom="165dp"
+        android:text="Select Date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+    <Button
+        android:id="@+id/FromCalToDashBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To Dashboard"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="9dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

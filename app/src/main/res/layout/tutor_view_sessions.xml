@@ -15,47 +15,51 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/sessionTutorName"
+            android:id="@+id/sessionStudentName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="Student Name"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/sessionDate"
+            android:id="@+id/sessionStudentEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Email"
+            android:text="Student Email"
             android:textSize="14sp" />
 
+
         <TextView
-            android:id="@+id/pendingRole"
+            android:id="@+id/sessionStudentPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Role"
-            android:textSize="14sp"
-            android:textStyle="italic" />
-
+            android:text="Student Phone" />
 
         <TextView
-            android:id="@+id/sessionPhone"
+            android:id="@+id/sessionStudentProgram"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phone" />
+            android:text="student Program" />
 
         <TextView
-            android:id="@+id/tutorCourses"
+            android:id="@+id/sessionStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Program or Degree" />
+            android:text="Session Status" />
 
         <TextView
-            android:id="@+id/sessionTime"
+            android:id="@+id/tutorViewTime"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Session Time" />
+
+        <TextView
+            android:id="@+id/tutorViewDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Session Date" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,7 +78,7 @@
                 android:textColor="@android:color/white" />
 
             <Button
-                android:id="@+id/cancelSessionBtn"
+                android:id="@+id/rejectBtn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"

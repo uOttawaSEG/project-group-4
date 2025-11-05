@@ -1,12 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/toCalBtn"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="Back to Calandar" />
 
     <TextView
         android:id="@+id/dateTextView"
         android:layout_width="wrap_content"
-        android:layout_height="54dp"
-        android:layout_weight="1"
-        android:text="Date" />
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textSize="18sp"
+        android:paddingBottom="16dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Time" />
+
+    <Spinner
+        android:id="@+id/startTimeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="End Time" />
+
+    <Spinner
+        android:id="@+id/endTimeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/selectTimeSlotBtn"
+        android:layout_width="207dp"
+        android:layout_height="wrap_content"
+        android:text="Select Time slot" />
+
 </LinearLayout>

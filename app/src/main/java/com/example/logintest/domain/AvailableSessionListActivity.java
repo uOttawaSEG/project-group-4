@@ -1,5 +1,6 @@
 package com.example.logintest.domain;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -23,16 +24,26 @@ import java.util.List;
 
 public class AvailableSessionListActivity extends AppCompatActivity {
     LinearLayout availableSessionsContainer;
+    LinearLayout cardContainer;
     List<AvailableSession> availableSessions = new ArrayList<>();
     private DatabaseReference tutorPath;
     private DatabaseReference sessionPath;
+    Button toDash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sessions_list);
 
+        toDash = findViewById(R.id.fromSessionsToDashBtn);
+        toDash.setOnClickListener(v -> {
+            Intent intent = new Intent(AvailableSessionListActivity.this, DashboardActivity.class);
+            intent.putExtra("USER_ROLE", "Tutor");
+            startActivity(intent);
+        });
+
         availableSessionsContainer = findViewById(R.id.availableSessionsContainer);
+        cardContainer = findViewById(R.id.cardContainer);
 
         //linking up firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -63,23 +74,62 @@ public class AvailableSessionListActivity extends AppCompatActivity {
         });
     }
 
+    //display the session cards
     private void displaySessions() {
-        // Refresh by clearing the cards
-        availableSessionsContainer.removeAllViews();
+        // first refresh by clearing the cards
+        cardContainer.removeAllViews();
 
-        // Then reload/make each session into a visible card
+        LayoutInflater inflater= LayoutInflater.from(this);
+
+        // and then reload/make each session into a visible card
         for (AvailableSession session: availableSessions) {
-            CardView sessionInfoCard = makeCard(session);
-            availableSessionsContainer.addView(sessionInfoCard);
+            CardView sessionInfoCard = (CardView) inflater.inflate(R.layout.available_session, cardContainer, false);
+
+            TextView tutorName = sessionInfoCard.findViewById(R.id.sessionTutorName);
+            TextView tutorCourses = sessionInfoCard.findViewById(R.id.tutorCourses);
+            TextView sessionDate = sessionInfoCard.findViewById(R.id.sessionDate);
+            TextView sessionTime = sessionInfoCard.findViewById(R.id.sessionTime);
+            Button cancelSessionBtn = sessionInfoCard.findViewById(R.id.cancelSessionBtn);
+            Button studentRegisterSessionBtn = sessionInfoCard.findViewById(R.id.studentRegisterSessionBtn);
+
+            tutorName.setText(session.getTutorName());
+            tutorCourses.setText(session.getTutorCourses());
+            sessionDate.setText(session.getDate());
+            sessionTime.setText(session.getTimeSlot());
+
+            studentRegisterSessionBtn.setOnClickListener(v -> {
+                // sessions is not available anymore
+                // set availabiltiy to false and then add it to pending list
+                session.setAvailable(false);
+                sessionPath.child(session.getSessionId()).setValue(session)
+                        .addOnSuccessListener(aVoid -> {
+                            Toast.makeText(AvailableSessionListActivity.this, "Session request successful", Toast.LENGTH_SHORT).show();
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(AvailableSessionListActivity.this, "Failed to request session", Toast.LENGTH_SHORT).show();
+                        });
+            });
+
+            //cancel the session (to do: make it only available to tutors)
+            //removes the card from the firebase
+            cancelSessionBtn.setOnClickListener(v -> {
+                sessionPath.child(session.getSessionId()).removeValue()
+                        .addOnSuccessListener(aVoid -> {
+                            Toast.makeText(AvailableSessionListActivity.this, "Session cancelled", Toast.LENGTH_SHORT).show();
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(AvailableSessionListActivity.this, "Failed to cancel session", Toast.LENGTH_SHORT).show();
+                        });
+            });
+            cardContainer.addView(sessionInfoCard);
         }
 
-        // Show message if no sessions
+        // change title to"no sessions" if the list is empty
         if (availableSessions.isEmpty()) {
-            TextView noSessionsText = new TextView(this);
-            noSessionsText.setText("No available sessions");
-            noSessionsText.setTextSize(16);
-            noSessionsText.setGravity(Gravity.CENTER);
-            availableSessionsContainer.addView(noSessionsText);
+            TextView sessionListTitle = findViewById(R.id.sessionListTItle);
+            sessionListTitle.setText("No available sessions");
+            sessionListTitle.setGravity(Gravity.CENTER);
+            availableSessionsContainer.addView(sessionListTitle);
         }
     }
 
@@ -89,40 +139,7 @@ public class AvailableSessionListActivity extends AppCompatActivity {
         LayoutInflater inflater = LayoutInflater.from(this);
         CardView sessionCard = (CardView) inflater.inflate(R.layout.available_session, null);
 
-        TextView tutorName = sessionCard.findViewById(R.id.sessionTutorName);
-        TextView tutorCourses = sessionCard.findViewById(R.id.tutorCourses);
-        TextView sessionDate = sessionCard.findViewById(R.id.sessionDate);
-        TextView sessionTime = sessionCard.findViewById(R.id.sessionTime);
-        Button cancelSessionBtn = sessionCard.findViewById(R.id.cancelSessionBtn);
-        Button studentRegisterSessionBtn = sessionCard.findViewById(R.id.studentRegisterSessionBtn);
 
-        tutorName.setText(session.getTutorName());
-        tutorCourses.setText(session.getTutorCourses());
-        sessionDate.setText(session.getDate());
-        sessionTime.setText(session.getTimeSlot());
-
-        studentRegisterSessionBtn.setOnClickListener(v -> {
-            // sessions is not available anymore
-            session.setAvailable(false);
-            sessionPath.child(session.getSessionId()).setValue(session)
-                    .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(AvailableSessionListActivity.this, "Session request successful", Toast.LENGTH_SHORT).show();
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(AvailableSessionListActivity.this, "Session request failed", Toast.LENGTH_SHORT).show();
-                    });
-        });
-
-        //cancel the session (to do: make it only available to tutors)
-        cancelSessionBtn.setOnClickListener(v -> {
-            sessionPath.child(session.getSessionId()).removeValue()
-                    .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(AvailableSessionListActivity.this, "Session cancelled", Toast.LENGTH_SHORT).show();
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(AvailableSessionListActivity.this, "Failed to cancel session", Toast.LENGTH_SHORT).show();
-                    });
-        });
 
         return sessionCard;
     }

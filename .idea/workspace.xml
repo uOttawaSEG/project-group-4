@@ -35,11 +35,6 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/calendar_view.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dashboard.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
@@ -91,25 +86,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Removed a few comments in Student and Tutor Activity classes, also I configured the messages according to the user's status in the MainActivity.java class">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/available_session.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/sessions_list.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/tutor_view_sessions.xml" afterDir="false" />
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Added Time Slots, Added Time slot selection and session functionality, created a page that shows tutor sessions (however, it keeps crashing everytime I try to click on the go to sessions button). &#10;&#10;Checklist: &#10;-Tutor can create new availabiltiy slots,&#10;-Tutor cannot select past date or overlapping slot&#10;-Tutor sessions get added to the database&#10;&#10;Bug:&#10;-Tutor and Student can't look at the session list page because it keeps crashing">
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminInboxActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminInboxActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/CalendarViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/CalendarViewActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/DashboardActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/DashboardActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TimeSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TimeSlot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_calendar_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_calendar_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_time_slot.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_time_slot.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dashboard.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/pending_inbox.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/pending_inbox.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/sessions_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/sessions_list.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/logintest/domain/CalendarViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/logintest/domain/CalendarViewActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/logintest/domain/DashboardActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/logintest/domain/DashboardActivity.java" afterDir="false" />
@@ -190,12 +173,12 @@
     &quot;assignee&quot;: &quot;navatavasoli&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/uOttawaSEG/project-group-4.git",
-    "accountId": "d31907dd-b4ae-4bfa-afa1-e0a294142e2c"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/uOttawaSEG/project-group-4.git&quot;,
+    &quot;accountId&quot;: &quot;d31907dd-b4ae-4bfa-afa1-e0a294142e2c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -588,7 +571,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761879999426</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Added Time Slots, Added Time slot selection and session functionality, created a page that shows tutor sessions (however, it keeps crashing everytime I try to click on the go to sessions button). &#10;&#10;Checklist: &#10;-Tutor can create new availabiltiy slots,&#10;-Tutor cannot select past date or overlapping slot&#10;-Tutor sessions get added to the database&#10;&#10;Bug:&#10;-Tutor and Student can't look at the session list page because it keeps crashing">
+      <option name="closed" value="true" />
+      <created>1762315939034</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1762315939034</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -603,7 +594,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed the mistakes in studentinformation.xml" />
     <MESSAGE value="Fixed warnings in studentinformation.xml" />
     <MESSAGE value="Modified logout_screen.xml" />
     <MESSAGE value="Added the errors for tutor highest degree, tutor courses offered, studnt program of study" />
@@ -628,7 +618,8 @@
     <MESSAGE value="Added additional comments to AdminActivity and AdminInboxActivity." />
     <MESSAGE value="Configured registration errors for Tutor and Student but now it includes also the cases where it is denied and pending" />
     <MESSAGE value="Removed a few comments in Student and Tutor Activity classes, also I configured the messages according to the user's status in the MainActivity.java class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed a few comments in Student and Tutor Activity classes, also I configured the messages according to the user's status in the MainActivity.java class" />
+    <MESSAGE value="Added Time Slots, Added Time slot selection and session functionality, created a page that shows tutor sessions (however, it keeps crashing everytime I try to click on the go to sessions button). &#10;&#10;Checklist: &#10;-Tutor can create new availabiltiy slots,&#10;-Tutor cannot select past date or overlapping slot&#10;-Tutor sessions get added to the database&#10;&#10;Bug:&#10;-Tutor and Student can't look at the session list page because it keeps crashing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Time Slots, Added Time slot selection and session functionality, created a page that shows tutor sessions (however, it keeps crashing everytime I try to click on the go to sessions button). &#10;&#10;Checklist: &#10;-Tutor can create new availabiltiy slots,&#10;-Tutor cannot select past date or overlapping slot&#10;-Tutor sessions get added to the database&#10;&#10;Bug:&#10;-Tutor and Student can't look at the session list page because it keeps crashing" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

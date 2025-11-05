@@ -11,14 +11,28 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/fromSessionsToDashBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To Dashboard" />
+
         <TextView
+            android:id="@+id/sessionListTItle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="16dp"
             android:text="Available Tutoring Sessions"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:paddingBottom="16dp" />
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/cardContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
     </LinearLayout>
 
 </ScrollView>

@@ -30,6 +30,7 @@
         <activity android:name=".LogOutPageActivity" />
         <activity android:name=".AdminInboxActivity" />
         <activity android:name=".TimeSlot" />
+        <activity android:name=".AvailableSessionListActivity"/>
 
     </application>
 

@@ -29,11 +29,14 @@ public class AvailableSessionListActivity extends AppCompatActivity {
     private DatabaseReference tutorPath;
     private DatabaseReference sessionPath;
     Button toDash;
+    Student student;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sessions_list);
+
+        student = (Student)getIntent().getSerializableExtra("CURR_STUDENT");
 
         toDash = findViewById(R.id.fromSessionsToDashBtn);
         toDash.setOnClickListener(v -> {
@@ -101,8 +104,16 @@ public class AvailableSessionListActivity extends AppCompatActivity {
                 // sessions is not available anymore
                 // set availabiltiy to false and then add it to pending list
                 session.setAvailable(false);
+
+                SessionRequester studentRequester = new SessionRequester(student, session);
+
+                DatabaseReference requestsReference = FirebaseDatabase.getInstance().getReference("sessionRequests");
+                requestsReference.child(session.getSessionId()).setValue(studentRequester);
+
                 sessionPath.child(session.getSessionId()).setValue(session)
                         .addOnSuccessListener(aVoid -> {
+                            // Logging the session request in the database
+                            //FirebaseDatabase.getInstance().getReference("sessionRequests").child(session.getSessionId()).setValue(new SessionRequester(sessionStudent, session));
                             Toast.makeText(AvailableSessionListActivity.this, "Session request successful", Toast.LENGTH_SHORT).show();
                         })
                         .addOnFailureListener(e -> {
@@ -133,14 +144,4 @@ public class AvailableSessionListActivity extends AppCompatActivity {
         }
     }
 
-    // Helper method to set up a card for the session
-    private CardView makeCard(AvailableSession session) {
-
-        LayoutInflater inflater = LayoutInflater.from(this);
-        CardView sessionCard = (CardView) inflater.inflate(R.layout.available_session, null);
-
-
-
-        return sessionCard;
-    }
 }

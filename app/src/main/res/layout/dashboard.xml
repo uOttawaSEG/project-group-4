@@ -69,7 +69,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="126dp"
         android:layout_marginBottom="454dp"
-        android:text="View Calendar" />
+        android:text="View Calendar"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/viewSessionsBtn"
@@ -80,5 +81,16 @@
         android:layout_marginStart="126dp"
         android:layout_marginBottom="294dp"
         android:text="View Sessions" />
+
+    <Button
+        android:id="@+id/viewInbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="126dp"
+        android:layout_marginBottom="194dp"
+        android:text="View Inbox"
+        android:visibility="gone"/>
 
 </RelativeLayout>

@@ -7,9 +7,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 public class DashboardActivity extends AppCompatActivity {
     TextView userRole;
@@ -17,22 +23,69 @@ public class DashboardActivity extends AppCompatActivity {
 
     Button viewCalendarButton;
     Button toSessions;
+    Button toInbox;
+    private Student studentUser;
+    private FirebaseAuth mAuth;
+    private DatabaseReference databaseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
 
+        mAuth = FirebaseAuth.getInstance();
+        databaseRef = com.google.firebase.database.FirebaseDatabase.getInstance().getReference();
+
         adminInboxButton = findViewById(R.id.inboxButton);
-        // Admin inbox access button
-        adminInboxButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.admin_inbox);
-                //Intent intent = new Intent(Inboxy.this, InboxActivity.class);
-                //startActivity(intent);
+        userRole = findViewById(R.id.user_role);
+        String role = getIntent().getStringExtra("USER_ROLE");
+
+        if ("Student".equals(role)) {
+            FirebaseUser firebaseUser = mAuth.getCurrentUser();
+            if (firebaseUser == null) {
+                return;
             }
-        });
+            String studId = firebaseUser.getUid();
+            databaseRef.child("students").child(studId).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        studentUser = snapshot.getValue(Student.class);
+
+                        // go to sessions list button
+                        toSessions = findViewById(R.id.viewSessionsBtn);
+                        toSessions.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(DashboardActivity.this, AvailableSessionListActivity.class);
+                                intent.putExtra("USER_ROLE", role);
+                                intent.putExtra("CURR_STUDENT", studentUser); // pass the student object
+                                startActivity(intent);
+                            }
+                        });
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        } else { //is tutor
+            // go to sessions list button
+            toSessions = findViewById(R.id.viewSessionsBtn);
+            toSessions.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(DashboardActivity.this, AvailableSessionListActivity.class);
+                    intent.putExtra("USER_ROLE", role);
+                    //intent.putExtra("CURR_STUDENT", studentUser); // pass the student object
+                    startActivity(intent);
+                }
+            });
+
+        }
 
         viewCalendarButton = findViewById(R.id.viewCalendarButton);
         viewCalendarButton.setOnClickListener(new View.OnClickListener() {
@@ -43,27 +96,38 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
-        // go to sessions list button
-        toSessions = findViewById(R.id.viewSessionsBtn);
-        toSessions.setOnClickListener(new View.OnClickListener() {
+        toInbox = findViewById(R.id.viewInbox);
+        toInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DashboardActivity.this, AvailableSessionListActivity.class);
+                Intent intent = new Intent(DashboardActivity.this, TutorInbox.class);
+                intent.putExtra("CURR_STUDENT", studentUser); // pass the student object
                 startActivity(intent);
             }
         });
-
-        userRole = findViewById(R.id.user_role);
-        String role = getIntent().getStringExtra("USER_ROLE");
 
         if (role != null) {
             userRole.setText(role);
             if (role.equals("Admin")) {
                 adminInboxButton.setVisibility(View.VISIBLE);
+            } else if (role.equals("Tutor")) {
+                toInbox.setVisibility(View.VISIBLE);
+                viewCalendarButton.setVisibility(View.VISIBLE);
             }
         } else {
             userRole.setText("Unknown");
         }
+
+
+        // Admin inbox access button
+        adminInboxButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.admin_inbox);
+                //Intent intent = new Intent(Inboxy.this, InboxActivity.class);
+                //startActivity(intent);
+            }
+        });
     }
 
     public void goToLogOut(View view) {

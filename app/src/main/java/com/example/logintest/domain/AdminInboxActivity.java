@@ -173,7 +173,7 @@ public class AdminInboxActivity extends AppCompatActivity {
             pendingCourses.setText("Courses: " + request.getCourses());
         }
 
-        Button acceptBtn = cardView.findViewById(R.id.acceptBtn);
+        Button acceptBtn = cardView.findViewById(R.id.tutorAcceptBtn);
 
         Button rejectBtn = cardView.findViewById(R.id.cancelSessionBtn);
 

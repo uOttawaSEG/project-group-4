@@ -68,7 +68,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/acceptBtn"
+                android:id="@+id/tutorAcceptBtn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="0dp"
@@ -78,7 +78,7 @@
                 android:textColor="@android:color/white" />
 
             <Button
-                android:id="@+id/rejectBtn"
+                android:id="@+id/tutorRejectBtn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"

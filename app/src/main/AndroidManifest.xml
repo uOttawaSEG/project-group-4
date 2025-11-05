@@ -31,6 +31,7 @@
         <activity android:name=".AdminInboxActivity" />
         <activity android:name=".TimeSlot" />
         <activity android:name=".AvailableSessionListActivity"/>
+        <activity android:name=".TutorInbox"/>
 
     </application>
 

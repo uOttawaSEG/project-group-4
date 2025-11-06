@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,11 +36,12 @@ public class TutorInbox extends AppCompatActivity {
     private Button inboxToDashButton;
     private DatabaseReference sessionsFirebaseReference;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tutor_inbox);
+
+        ToggleButton toggle = findViewById(R.id.toggleBtn);
 
         // go back to dashboard button
         inboxToDashButton = findViewById(R.id.tutorInboxToDashBtn);
@@ -88,7 +90,6 @@ public class TutorInbox extends AppCompatActivity {
                         sessionCardLayout.addView(pastCard);
                     }
                 }
-
             }
 
             @Override
@@ -97,6 +98,33 @@ public class TutorInbox extends AppCompatActivity {
             }
         });
 
+
+        //toggle button to set automatic session acceptance
+        toggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked) {
+                //approve all pending sessions
+                if (pendingSessions.isEmpty()) {
+                    Toast.makeText(TutorInbox.this, "There are no sessions", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                for(SessionRequester session: pendingSessions) {
+                    sessionsFirebaseReference.child(session.getSessionId()).child("sessionStatus").setValue("accepted");
+                    upcomingSessions.add(session);
+                }
+                pendingSessions.clear();
+                Toast.makeText(TutorInbox.this, "Automatic session approval enabled", Toast.LENGTH_SHORT).show();
+
+                TabLayout.Tab selectedTab = sessionTab.getTabAt(sessionTab.getSelectedTabPosition());
+                if (selectedTab != null && "Pending".equalsIgnoreCase(selectedTab.getText().toString())) {
+                    sessionCardLayout.removeAllViews();
+                    for(SessionRequester session: pendingSessions) {
+                        View pendingCard = makeSessionCard(session, "Pending");
+                        sessionCardLayout.addView(pendingCard);
+                    }
+                }
+
+            }
+        });
 
         //tab functionality
         sessionTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

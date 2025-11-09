@@ -12,8 +12,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="139dp" />
+        app:layout_constraintBottom_toTopOf="@+id/selectDateBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/textView4"
@@ -21,8 +25,12 @@
         android:layout_height="wrap_content"
         android:text="Booking Calendar"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="85dp" />
+        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FromCalToDashBtn"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/selectDateBtn"
@@ -43,7 +51,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="To Dashboard"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="9dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

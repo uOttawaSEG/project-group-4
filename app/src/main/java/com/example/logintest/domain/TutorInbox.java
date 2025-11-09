@@ -33,6 +33,8 @@ public class TutorInbox extends AppCompatActivity {
     private List<SessionRequester> pastSessions = new ArrayList<>();
     private List<SessionRequester> upcomingSessions = new ArrayList<>();
     private List<SessionRequester> pendingSessions = new ArrayList<>();
+    //to better reflect the session status
+    private List<SessionRequester> rejectedSessions = new ArrayList<>();
     private Button inboxToDashButton;
     private DatabaseReference sessionsFirebaseReference;
 
@@ -65,13 +67,18 @@ public class TutorInbox extends AppCompatActivity {
                 pastSessions.clear();
                 upcomingSessions.clear();
                 pendingSessions.clear();
+                rejectedSessions.clear();
 
                 for (DataSnapshot sessionSnapshot: dataSnapshot.getChildren()) {
                     SessionRequester session = sessionSnapshot.getValue(SessionRequester.class);
                     if (session != null) {
                         if (session.getSessionStatus().equalsIgnoreCase("pending")) {
                             pendingSessions.add(session);
-                        } else {
+                        }
+                        else if(session.getSessionStatus().equalsIgnoreCase("rejected")){
+                            rejectedSessions.add(session);
+                        }
+                        else {
                             long sessionMillis = convertTime(session.getSessionDate(), session.getSessionTime());
                             long currentTime = System.currentTimeMillis();
 
@@ -82,6 +89,7 @@ public class TutorInbox extends AppCompatActivity {
                             }
                         }
                     }
+                    /*
                     //display past sessions as default
                     sessionCardLayout.removeAllViews();
 
@@ -89,8 +97,16 @@ public class TutorInbox extends AppCompatActivity {
                         View pastCard = makeSessionCard(ses, "Past");
                         sessionCardLayout.addView(pastCard);
                     }
+                    */
                 }
-            }
+                //display past sessions as default
+                sessionCardLayout.removeAllViews();
+
+                for (SessionRequester ses: pastSessions) {
+                    View pastCard = makeSessionCard(ses, "Past");
+                    sessionCardLayout.addView(pastCard);
+                }
+            }//end of onDataChange
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -156,6 +172,15 @@ public class TutorInbox extends AppCompatActivity {
                     }
 
                 }
+                else if (tab.getPosition()== 3) {
+                    //display rejected sessions
+                    sessionCardLayout.removeAllViews();
+                    for (SessionRequester session: rejectedSessions) {
+                        View rejectedCard = makeSessionCard(session, "Rejected");
+                        sessionCardLayout.addView(rejectedCard);
+                    }
+
+                }
             }
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {}
@@ -196,11 +221,19 @@ public class TutorInbox extends AppCompatActivity {
             cancelBtn.setVisibility(View.VISIBLE);
             acceptBtn.setVisibility(View.GONE);
             rejectBtn.setVisibility(View.GONE);
+            sessionStatus.setText("Status: ACCEPTED");
         }
         if (status.equals("Past")) {
             cancelBtn.setVisibility(View.GONE);
             acceptBtn.setVisibility(View.GONE);
             rejectBtn.setVisibility(View.GONE);
+            sessionStatus.setVisibility(View.GONE);
+        }
+        if (status.equals("Rejected")) {
+            cancelBtn.setVisibility(View.GONE);
+            acceptBtn.setVisibility(View.GONE);
+            rejectBtn.setVisibility(View.GONE);
+            sessionStatus.setText("Status: REJECTED");
         }
 
         acceptBtn.setOnClickListener(v -> {
@@ -216,8 +249,8 @@ public class TutorInbox extends AppCompatActivity {
         });
         cancelBtn.setOnClickListener(v -> {
             upcomingSessions.remove(studentCard);
-
-            sessionsFirebaseReference.child(studentCard.getSessionId()).removeValue();
+            sessionsFirebaseReference.child(studentCard.getSessionId()).child("sessionStatus").setValue("rejected");
+            //sessionsFirebaseReference.child(studentCard.getSessionId()).removeValue();
             Toast.makeText(TutorInbox.this, "Session cancelled", Toast.LENGTH_SHORT).show();
         });
         return cardView;

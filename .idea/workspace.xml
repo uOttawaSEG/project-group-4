@@ -91,9 +91,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Added toast messages for admin once it logs in or out, forgot to commit my changes from last deliverable">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Added edge constraints to the buttons in activity_calendar_view.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_calendar_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_calendar_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInbox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tutor_inbox.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tutor_inbox.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -606,7 +607,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762708745362</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Added edge constraints to the buttons in activity_calendar_view.xml">
+      <option name="closed" value="true" />
+      <created>1762709756187</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1762709756187</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -621,7 +630,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated documentation for Adminactivity.java" />
     <MESSAGE value="Fixed an error message for layout_height" />
     <MESSAGE value="Changed layout for adminlogin.xml for debugging" />
     <MESSAGE value="Tutor registration and its error mistakes done" />
@@ -646,7 +654,8 @@
     <MESSAGE value="Added Tutor Inbox functionality and connected to firebase &#10;&#10;will implement the toggle button and card sorting later" />
     <MESSAGE value="Card sorting works now. Session cards are removed and added accordingly in the firebase and visually on the xml. &#10;&#10;Last things to do: check overlapping times and the toggle button" />
     <MESSAGE value="Added toast messages for admin once it logs in or out, forgot to commit my changes from last deliverable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added toast messages for admin once it logs in or out, forgot to commit my changes from last deliverable" />
+    <MESSAGE value="Added edge constraints to the buttons in activity_calendar_view.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added edge constraints to the buttons in activity_calendar_view.xml" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

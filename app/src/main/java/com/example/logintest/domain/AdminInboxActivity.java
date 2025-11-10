@@ -178,7 +178,8 @@ public class AdminInboxActivity extends AppCompatActivity {
             pendingProgramOrDegree.setText("Program: " + request.getPendingProgramOrDegree());
         } else { // is a Tutor
             pendingProgramOrDegree.setText("Degree: " + request.getPendingProgramOrDegree());
-            pendingCourses.setText("Courses: " + request.getCourses());
+            String courses=request.getCourses().subSequence(0, request.getCourses().length()-2).toString();
+            pendingCourses.setText("Courses: " + courses);
         }
 
         Button acceptBtn = cardView.findViewById(R.id.tutorAcceptBtn);
@@ -209,7 +210,8 @@ public class AdminInboxActivity extends AppCompatActivity {
             rejectedProgramOrDegree.setText("Program: " + request.getPendingProgramOrDegree());
         } else { // is a Tutor
             rejectedProgramOrDegree.setText("Degree: " + request.getPendingProgramOrDegree());
-            rejectedCourses.setText("Courses: " + request.getCourses());
+            String courses=request.getCourses().subSequence(0, request.getCourses().length()-2).toString();
+            rejectedCourses.setText("Courses: " + courses);
         }
 
         Button acceptRejecteeBtn = cardView.findViewById(R.id.acceptRejectionBtn);

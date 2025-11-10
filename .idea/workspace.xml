@@ -91,10 +91,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Tutor can now approve (will move to upcoming tab), cancel (will move to rejected tab) or reject (will move to rejected tab) sessions which will be reflected in tutor_inbox.xml">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Fixed the bug where the app glitches when a user moves from pending to rejected in the admin inbox">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminInboxActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminInboxActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/FirebaseRegistrationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/FirebaseRegistrationRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -623,7 +622,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762726046469</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Fixed the bug where the app glitches when a user moves from pending to rejected in the admin inbox">
+      <option name="closed" value="true" />
+      <created>1762749961104</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1762749961104</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -638,7 +645,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed layout for adminlogin.xml for debugging" />
     <MESSAGE value="Tutor registration and its error mistakes done" />
     <MESSAGE value="Modified MainActivity, more precisely checkForErrors and validateAndLoginUser because I forgot to consider the case where a user writes the wrong password for an existing account" />
     <MESSAGE value="Constrained vertically OTAMS Homepage TextView in loginorregister.xml" />
@@ -663,7 +669,8 @@
     <MESSAGE value="Added toast messages for admin once it logs in or out, forgot to commit my changes from last deliverable" />
     <MESSAGE value="Added edge constraints to the buttons in activity_calendar_view.xml" />
     <MESSAGE value="Tutor can now approve (will move to upcoming tab), cancel (will move to rejected tab) or reject (will move to rejected tab) sessions which will be reflected in tutor_inbox.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tutor can now approve (will move to upcoming tab), cancel (will move to rejected tab) or reject (will move to rejected tab) sessions which will be reflected in tutor_inbox.xml" />
+    <MESSAGE value="Fixed the bug where the app glitches when a user moves from pending to rejected in the admin inbox" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the bug where the app glitches when a user moves from pending to rejected in the admin inbox" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

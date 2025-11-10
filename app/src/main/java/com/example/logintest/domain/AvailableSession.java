@@ -2,6 +2,7 @@ package com.example.logintest.domain;
 
 public class AvailableSession {
     //private Tutor tutor;
+    private String tutorId;
     private String tutorName;
     private String tutorCourses;
     private String date;
@@ -12,7 +13,8 @@ public class AvailableSession {
     public AvailableSession() {
     }
 
-    public AvailableSession(Tutor tutor, String date, String timeSlot) {
+    public AvailableSession(String tutorId, Tutor tutor, String date, String timeSlot) {
+        this.tutorId=tutorId;
         this.tutorName = tutor.getFirstName() +" "+ tutor.getLastName();
         this.tutorCourses = tutor.getCoursesOffered().toString();
         this.date = date;

@@ -240,7 +240,10 @@ public class TimeSlot extends AppCompatActivity {
     }
 
     private void createAndUploadSession(Tutor tutor, String date, String timeSlot) {
-        AvailableSession session = new AvailableSession(tutor, date, timeSlot);
+        FirebaseUser currentUser=FirebaseAuth.getInstance().getCurrentUser();
+        String currentTutorId=currentUser.getUid();
+
+        AvailableSession session = new AvailableSession(currentTutorId, tutor, date, timeSlot);
 
         DatabaseReference sessionsRef = FirebaseDatabase.getInstance().getReference("sessions");
         sessionsRef.child(session.getSessionId()).setValue(session)

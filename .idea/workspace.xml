@@ -91,9 +91,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Fixed the bug where the app glitches when a user moves from pending to rejected in the admin inbox">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Fixed the Requests card of admin inbox because there was an extra comma that should not have been displayed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminInboxActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminInboxActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TimeSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TimeSlot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -630,7 +632,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762749961104</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Fixed the Requests card of admin inbox because there was an extra comma that should not have been displayed">
+      <option name="closed" value="true" />
+      <created>1762750699958</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1762750699958</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -645,7 +655,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Tutor registration and its error mistakes done" />
     <MESSAGE value="Modified MainActivity, more precisely checkForErrors and validateAndLoginUser because I forgot to consider the case where a user writes the wrong password for an existing account" />
     <MESSAGE value="Constrained vertically OTAMS Homepage TextView in loginorregister.xml" />
     <MESSAGE value="Fixed the TutorInfoActivity.java, DashboardActivity.java, LogOutPageActivity.java, and StudentInfoActivity.java files because they did not have the onClick methods called for the buttons, which did not lead them to the correct page" />
@@ -670,7 +679,8 @@
     <MESSAGE value="Added edge constraints to the buttons in activity_calendar_view.xml" />
     <MESSAGE value="Tutor can now approve (will move to upcoming tab), cancel (will move to rejected tab) or reject (will move to rejected tab) sessions which will be reflected in tutor_inbox.xml" />
     <MESSAGE value="Fixed the bug where the app glitches when a user moves from pending to rejected in the admin inbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the bug where the app glitches when a user moves from pending to rejected in the admin inbox" />
+    <MESSAGE value="Fixed the Requests card of admin inbox because there was an extra comma that should not have been displayed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the Requests card of admin inbox because there was an extra comma that should not have been displayed" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

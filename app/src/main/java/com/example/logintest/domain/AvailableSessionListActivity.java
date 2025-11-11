@@ -44,7 +44,7 @@ public class AvailableSessionListActivity extends AppCompatActivity {
         toDash = findViewById(R.id.fromSessionsToDashBtn);
         toDash.setOnClickListener(v -> {
             Intent intent = new Intent(AvailableSessionListActivity.this, DashboardActivity.class);
-            if(role.equals("Student")) {
+            if("Student".equals(role)) {
                 intent.putExtra("USER_ROLE", "Student");
             } else {
                 intent.putExtra("USER_ROLE", "Tutor");

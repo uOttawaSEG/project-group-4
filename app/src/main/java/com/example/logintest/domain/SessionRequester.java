@@ -11,6 +11,7 @@ public class SessionRequester {
     private boolean sessionAvailable;
     public String sessionStatus;
     private String sessionId;
+    private String tutorId;
 
 
     public SessionRequester() {
@@ -26,6 +27,7 @@ public class SessionRequester {
         this.sessionAvailable = session.isAvailable();
         this.sessionStatus = "pending";
         this.sessionId = session.getSessionId();
+        this.tutorId = session.getTutorId();
     }
 
 
@@ -66,5 +68,11 @@ public class SessionRequester {
     }
     public String getSessionId() {
         return sessionId;
+    }
+    public String getTutorId() {
+        return tutorId;
+    }
+    public void setTutorId(String tutorId) {
+        this.tutorId = tutorId;
     }
 }

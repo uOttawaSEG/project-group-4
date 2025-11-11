@@ -59,4 +59,10 @@ public class AvailableSession {
         isAvailable = available;
     }
 
+    public String getTutorId() {
+        return tutorId;
+    }
+    public void setTutorId(String tutorId) {
+        this.tutorId = tutorId;
+    }
 }

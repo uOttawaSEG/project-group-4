@@ -18,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
@@ -26,7 +27,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class TutorInbox extends AppCompatActivity {
+public class TutorInboxActivity extends AppCompatActivity {
 
     private LinearLayout sessionCardLayout;
     private TabLayout sessionTab;
@@ -37,12 +38,14 @@ public class TutorInbox extends AppCompatActivity {
     private List<SessionRequester> rejectedSessions = new ArrayList<>();
     private Button inboxToDashButton;
     private DatabaseReference sessionsFirebaseReference;
+    private String tutorId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tutor_inbox);
 
+        tutorId = getIntent().getStringExtra("TUTOR_ID");
         ToggleButton toggle = findViewById(R.id.toggleBtn);
 
         // go back to dashboard button
@@ -50,7 +53,7 @@ public class TutorInbox extends AppCompatActivity {
         inboxToDashButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TutorInbox.this, DashboardActivity.class);
+                Intent intent = new Intent(TutorInboxActivity.this, DashboardActivity.class);
                 intent.putExtra("USER_ROLE", "Tutor");
                 startActivity(intent);
             }
@@ -60,8 +63,11 @@ public class TutorInbox extends AppCompatActivity {
         sessionTab = findViewById(R.id.tabLayout);
         sessionsFirebaseReference = FirebaseDatabase.getInstance().getReference("sessionRequests");
 
+        // again, using firebase Queries just cause' its easier to read data than lists
+        Query sessionsQuery =sessionsFirebaseReference.orderByChild("tutorId").equalTo(tutorId);
+
         //linking firebase
-        sessionsFirebaseReference.addValueEventListener(new ValueEventListener() {
+        sessionsQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 pastSessions.clear();
@@ -78,8 +84,8 @@ public class TutorInbox extends AppCompatActivity {
                         else if(session.getSessionStatus().equalsIgnoreCase("rejected")){
                             rejectedSessions.add(session);
                         }
-                        else {
-                            long sessionMillis = convertTime(session.getSessionDate(), session.getSessionTime());
+                        else { //status=="accepted"
+                            long sessionMillis = convertTime(session.getSessionDate(), session.getSessionTime().split("-")[0].trim());
                             long currentTime = System.currentTimeMillis();
 
                             if (sessionMillis > currentTime) {
@@ -89,15 +95,6 @@ public class TutorInbox extends AppCompatActivity {
                             }
                         }
                     }
-                    /*
-                    //display past sessions as default
-                    sessionCardLayout.removeAllViews();
-
-                    for (SessionRequester ses: pastSessions) {
-                        View pastCard = makeSessionCard(ses, "Past");
-                        sessionCardLayout.addView(pastCard);
-                    }
-                    */
                 }
                 //display past sessions as default
                 sessionCardLayout.removeAllViews();
@@ -120,24 +117,25 @@ public class TutorInbox extends AppCompatActivity {
             if(isChecked) {
                 //approve all pending sessions
                 if (pendingSessions.isEmpty()) {
-                    Toast.makeText(TutorInbox.this, "There are no sessions", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TutorInboxActivity.this, "There are no sessions", Toast.LENGTH_SHORT).show();
+                    toggle.setChecked(false);
                     return;
                 }
                 for(SessionRequester session: pendingSessions) {
                     sessionsFirebaseReference.child(session.getSessionId()).child("sessionStatus").setValue("accepted");
-                    upcomingSessions.add(session);
+                    //upcomingSessions.add(session);
                 }
-                pendingSessions.clear();
-                Toast.makeText(TutorInbox.this, "Automatic session approval enabled", Toast.LENGTH_SHORT).show();
+                //pendingSessions.clear();
+                Toast.makeText(TutorInboxActivity.this, "Automatic session approval enabled", Toast.LENGTH_SHORT).show();
 
-                TabLayout.Tab selectedTab = sessionTab.getTabAt(sessionTab.getSelectedTabPosition());
-                if (selectedTab != null && "Pending".equalsIgnoreCase(selectedTab.getText().toString())) {
-                    sessionCardLayout.removeAllViews();
-                    for(SessionRequester session: pendingSessions) {
-                        View pendingCard = makeSessionCard(session, "Pending");
-                        sessionCardLayout.addView(pendingCard);
-                    }
-                }
+//                TabLayout.Tab selectedTab = sessionTab.getTabAt(sessionTab.getSelectedTabPosition());
+//                if (selectedTab != null && "Pending".equalsIgnoreCase(selectedTab.getText().toString())) {
+//                    sessionCardLayout.removeAllViews();
+//                    for(SessionRequester session: pendingSessions) {
+//                        View pendingCard = makeSessionCard(session, "Pending");
+//                        sessionCardLayout.addView(pendingCard);
+//                    }
+//                }
 
             }
         });
@@ -146,41 +144,43 @@ public class TutorInbox extends AppCompatActivity {
         sessionTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if (tab.getPosition()== 0) {
-                    //display past sessions
-                    sessionCardLayout.removeAllViews();
+//                if (tab.getPosition()== 0) {
+//                    //display past sessions
+//                    sessionCardLayout.removeAllViews();
+//
+//                    for (SessionRequester session: pastSessions) {
+//                        View pastCard = makeSessionCard(session, "Past");
+//                        sessionCardLayout.addView(pastCard);
+//                    }
+//                } else if (tab.getPosition()==1) {
+//                    //display upcoming sessions
+//                    sessionCardLayout.removeAllViews();
+//                    for (SessionRequester session: upcomingSessions) {
+//                        View upcomingCard = makeSessionCard(session, "Upcoming");
+//                        sessionCardLayout.addView(upcomingCard);
+//
+//                    }
+//
+//                } else if (tab.getPosition()== 2) {
+//                    //display pending sessions
+//                    sessionCardLayout.removeAllViews();
+//                    for (SessionRequester session: pendingSessions) {
+//                        View pendingCard = makeSessionCard(session, "Pending");
+//                        sessionCardLayout.addView(pendingCard);
+//                    }
+//
+//                }
+//                else if (tab.getPosition()== 3) {
+//                    //display rejected sessions
+//                    sessionCardLayout.removeAllViews();
+//                    for (SessionRequester session: rejectedSessions) {
+//                        View rejectedCard = makeSessionCard(session, "Rejected");
+//                        sessionCardLayout.addView(rejectedCard);
+//                    }
+//
+//                }
+                displaySessions();
 
-                    for (SessionRequester session: pastSessions) {
-                        View pastCard = makeSessionCard(session, "Past");
-                        sessionCardLayout.addView(pastCard);
-                    }
-                } else if (tab.getPosition()==1) {
-                    //display upcoming sessions
-                    sessionCardLayout.removeAllViews();
-                    for (SessionRequester session: upcomingSessions) {
-                        View upcomingCard = makeSessionCard(session, "Upcoming");
-                        sessionCardLayout.addView(upcomingCard);
-
-                    }
-
-                } else if (tab.getPosition()== 2) {
-                    //display pending sessions
-                    sessionCardLayout.removeAllViews();
-                    for (SessionRequester session: pendingSessions) {
-                        View pendingCard = makeSessionCard(session, "Pending");
-                        sessionCardLayout.addView(pendingCard);
-                    }
-
-                }
-                else if (tab.getPosition()== 3) {
-                    //display rejected sessions
-                    sessionCardLayout.removeAllViews();
-                    for (SessionRequester session: rejectedSessions) {
-                        View rejectedCard = makeSessionCard(session, "Rejected");
-                        sessionCardLayout.addView(rejectedCard);
-                    }
-
-                }
             }
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {}
@@ -190,6 +190,36 @@ public class TutorInbox extends AppCompatActivity {
 
 
     }
+
+    //helepr method to load all the cards in the inbox
+    private void displaySessions() {
+        sessionCardLayout.removeAllViews();
+        int selectedTabNum = sessionTab.getSelectedTabPosition();
+
+        List<SessionRequester> displayList = new ArrayList<>();
+        String status = "";
+
+        if (selectedTabNum == 0) {
+            displayList = pastSessions;
+            status = "Past";
+        } else if (selectedTabNum== 1) {
+            displayList = upcomingSessions;
+            status = "Upcoming";
+        } else if (selectedTabNum == 2) {
+            displayList = pendingSessions;
+            status = "Pending";
+        } else if (selectedTabNum == 3) {
+            displayList = rejectedSessions;
+            status = "Rejected";
+        }
+
+        // display cards according to status
+        for (SessionRequester session : displayList) {
+            View card = makeSessionCard(session, status);
+            sessionCardLayout.addView(card);
+        }
+    }
+
 
 // helper method to create the session cards
     private View  makeSessionCard (SessionRequester studentCard, String status) {
@@ -240,18 +270,18 @@ public class TutorInbox extends AppCompatActivity {
             upcomingSessions.add(studentCard);
             pendingSessions.remove(studentCard);
             sessionsFirebaseReference.child(studentCard.getSessionId()).child("sessionStatus").setValue("accepted");
-            Toast.makeText(TutorInbox.this, "Session accepted", Toast.LENGTH_SHORT).show();
+            Toast.makeText(TutorInboxActivity.this, "Session accepted", Toast.LENGTH_SHORT).show();
         });
         rejectBtn.setOnClickListener(v -> {
             pendingSessions.remove(studentCard);
             sessionsFirebaseReference.child(studentCard.getSessionId()).child("sessionStatus").setValue("rejected");
-            Toast.makeText(TutorInbox.this, "Session rejected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(TutorInboxActivity.this, "Session rejected", Toast.LENGTH_SHORT).show();
         });
         cancelBtn.setOnClickListener(v -> {
             upcomingSessions.remove(studentCard);
             sessionsFirebaseReference.child(studentCard.getSessionId()).child("sessionStatus").setValue("rejected");
             //sessionsFirebaseReference.child(studentCard.getSessionId()).removeValue();
-            Toast.makeText(TutorInbox.this, "Session cancelled", Toast.LENGTH_SHORT).show();
+            Toast.makeText(TutorInboxActivity.this, "Session cancelled", Toast.LENGTH_SHORT).show();
         });
         return cardView;
     }
@@ -260,7 +290,7 @@ public class TutorInbox extends AppCompatActivity {
     private long convertTime(String date, String time) {
         try {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
-            Date dateObj = format.parse(date + " " + time);
+            Date dateObj = format.parse(date + " " + time.trim());
             return dateObj.getTime();
         } catch (Exception e) {
             e.printStackTrace();

@@ -8,9 +8,6 @@ import android.widget.CalendarView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Calendar;
 
@@ -51,7 +48,7 @@ public class CalendarViewActivity extends AppCompatActivity {
         selectDateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CalendarViewActivity.this, TimeSlot.class);
+                Intent intent = new Intent(CalendarViewActivity.this, TimeSlotActivity.class);
                 intent.putExtra("SELECTED_DATE", dateSelected);
                 intent.putExtra("USER_ROLE", "Tutor");
                 startActivity(intent);

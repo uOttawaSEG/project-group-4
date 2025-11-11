@@ -4,7 +4,6 @@ import static java.lang.String.format;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -30,7 +29,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-public class TimeSlot extends AppCompatActivity {
+public class TimeSlotActivity extends AppCompatActivity {
     TextView dateTextView;
     Button toCal;
     Button selectTimeSlotBtn;
@@ -41,6 +40,7 @@ public class TimeSlot extends AppCompatActivity {
     long selectedDate;
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
+
 
 
     @Override
@@ -60,11 +60,11 @@ public class TimeSlot extends AppCompatActivity {
         endTimeSpinner = findViewById(R.id.endTimeSpinner);
         selectTimeBtn = findViewById(R.id.selectTimeSlotBtn);
 
-        alreadySelectedTimeSlots = new HashSet<>();
+        //alreadySelectedTimeSlots = new HashSet<>();
 
         //go back to Calender button
         toCal.setOnClickListener(v -> {
-            Intent intent = new Intent(TimeSlot.this, CalendarViewActivity.class);
+            Intent intent = new Intent(TimeSlotActivity.this, CalendarViewActivity.class);
             startActivity(intent);
         });
 
@@ -108,78 +108,7 @@ public class TimeSlot extends AppCompatActivity {
         endTimeSpinner.setAdapter(adapter);
     }
 
-    //helper method to ensure the the time slot makes sense
-    // 1) the end time cannot be before the start time
-    // 2) the start time and end time cannot be the same
-    // 3) the tutor cannot choose a time slot that has already been selected
-//    private void validateTimeSlot() {
-//        String start = (String) startTimeSpinner.getSelectedItem();
-//        String end = (String) endTimeSpinner.getSelectedItem();
-//        String interval = start + "-" + end;
-//
-//        // end shouldn't be before start time
-//        if (start.compareTo(end) > 0) {
-//            Toast.makeText(this, "The end time cannot be before start time", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//        // start time cannot equal end time
-//        if (start.equals(end)) {
-//            Toast.makeText(this, "The start time and end time cannot be the same", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//        // check if the time slot has already been selected
-//        if (alreadySelectedTimeSlots.contains(interval)) {
-//            Toast.makeText(this, "This time slot has already been selected", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//        // check if the time slot overlaps with previously selected time slots
-//        for (String timeInterval : alreadySelectedTimeSlots) {
-//            String[] allIntervals = timeInterval.split("-");
-//            String alreadySelectedStart = allIntervals[0];
-//            String alreadySelectedEnd = allIntervals[1];
-//
-//            if (start.compareTo(alreadySelectedEnd) < 0 && start.compareTo(alreadySelectedStart) > 0) {
-//                Toast.makeText(this, "This time slot overlaps with previously selected time slots", Toast.LENGTH_SHORT).show();
-//                return;
-//            }
-//        }
-//        Toast.makeText(this, "Time slot succesfully selected!", Toast.LENGTH_SHORT).show();
-//
-//        // if everything is valid -> create a session with the time slot
-//
-//
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        String userId = currentUser.getUid();
-//        databaseReference.child("tutors").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                Tutor tutor = dataSnapshot.getValue(Tutor.class);
-//                if (tutor != null) {
-//                    alreadySelectedTimeSlots.add(interval);
-//
-//                    String sessionDate = dateTextView.getText().toString();
-//                    String sessionTime = start + "-" + end;
-//
-//                    Intent intent = new Intent(TimeSlot.this, AvailableSessionListActivity.class);
-//                    intent.putExtra("tutor_name", tutor.getFirstName() + " " + tutor.getLastName());
-//                    intent.putExtra("tutor_courses", tutor.getCoursesOffered().toString());
-//                    intent.putExtra("session_date", sessionDate);
-//                    intent.putExtra("session_time", sessionTime);
-//                    startActivity(intent);
-//
-//                    Toast.makeText(TimeSlot.this, "Session succesfully created!", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(TimeSlot.this, "Tutor not found", Toast.LENGTH_SHORT).show();
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                Toast.makeText(TimeSlot.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
+
 
     private void validateTimeSlot() {
         String start = (String) startTimeSpinner.getSelectedItem();
@@ -191,50 +120,72 @@ public class TimeSlot extends AppCompatActivity {
             Toast.makeText(this, "The end time cannot be before start time", Toast.LENGTH_SHORT).show();
             return;
         }
-        // start time cannot equal end time
-        if (start.equals(end)) {
-            Toast.makeText(this, "The start time and end time cannot be the same", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        // check if the time slot has already been selected
-        if (alreadySelectedTimeSlots.contains(interval)) {
-            Toast.makeText(this, "This time slot has already been selected", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if(Overlaps(start, end, alreadySelectedTimeSlots)) {
-            Toast.makeText(this, "This time slot overlaps with previously selected time slots", Toast.LENGTH_SHORT).show();
-            return;
-        }
+//        // start time cannot equal end time
+//        if (start.equals(end)) {
+//            Toast.makeText(this, "The start time and end time cannot be the same", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        // check if the time slot has already been selected
+//        if (alreadySelectedTimeSlots.contains(interval)) {
+//            Toast.makeText(this, "This time slot has already been selected", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//
+//        if(Overlaps(start, end, alreadySelectedTimeSlots)) {
+//            Toast.makeText(this, "This time slot overlaps with previously selected time slots", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
 
 
         // Get the date from the intent
         Intent intent = getIntent();
-        long date = intent.getLongExtra("SELECTED_DATE", 0);
+        selectedDate= intent.getLongExtra("SELECTED_DATE", 0);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        String dateString= dateFormat.format(new Date(date));
+        String dateString= dateFormat.format(new Date(selectedDate));
 
         FirebaseUser sessionTutor = mAuth.getCurrentUser();
         String userId = sessionTutor.getUid();
+        DatabaseReference sessionsRef = FirebaseDatabase.getInstance().getReference("sessions");
 
-        databaseReference.child("tutors").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+        sessionsRef.orderByChild("tutorId").equalTo(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Tutor tutor = dataSnapshot.getValue(Tutor.class);
-                if (tutor != null) {
-                    alreadySelectedTimeSlots.add(interval);
+                Set<String> existingTimeSlots = new HashSet<>(); // keeping track of time sets
 
-                    //adding to firebase
-                    createAndUploadSession(tutor, dateString, interval);
-
-                } else {
-                    Toast.makeText(TimeSlot.this, "Tutor not found", Toast.LENGTH_SHORT).show();
+                // adding all session intervals into the set
+                for (DataSnapshot sessionSnapshot : dataSnapshot.getChildren()) {
+                    AvailableSession session = sessionSnapshot.getValue(AvailableSession.class);
+                    if (session != null && dateString.equals(session.getDate())) {
+                        existingTimeSlots.add(session.getTimeSlot());
+                    }
                 }
+                // check if any of times in the set overlap or are equal
+                if (Overlaps(start, end, existingTimeSlots)) {
+                    Toast.makeText(TimeSlotActivity.this, "This time slot overlaps with another session.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                databaseReference.child("tutors").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot tutorSnapshot) {
+                        Tutor tutor = tutorSnapshot.getValue(Tutor.class);
+
+                        if (tutor != null) {
+                            String timeInterval = start + "-" + end;
+                            createAndUploadSession(tutor, dateString, timeInterval);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Toast.makeText(TimeSlotActivity.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(TimeSlot.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(TimeSlotActivity.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -248,14 +199,16 @@ public class TimeSlot extends AppCompatActivity {
         DatabaseReference sessionsRef = FirebaseDatabase.getInstance().getReference("sessions");
         sessionsRef.child(session.getSessionId()).setValue(session)
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(TimeSlot.this, "Session successfully created!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TimeSlotActivity.this, "Session successfully created!", Toast.LENGTH_SHORT).show();
                     // go back to sessions list
-                    Intent intent = new Intent(TimeSlot.this, AvailableSessionListActivity.class);
+                    Intent intent = new Intent(TimeSlotActivity.this, AvailableSessionListActivity.class);
+                    intent.putExtra("USER_ROLE", "Tutor");
+                    intent.putExtra("TUTOR_ID", currentTutorId);
                     startActivity(intent);
                     finish();
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(TimeSlot.this, "Could not create session: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TimeSlotActivity.this, "Could not create session: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
     }
 

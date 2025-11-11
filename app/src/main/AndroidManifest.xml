@@ -29,9 +29,9 @@
         <activity android:name=".AdminActivity" />
         <activity android:name=".LogOutPageActivity" />
         <activity android:name=".AdminInboxActivity" />
-        <activity android:name=".TimeSlot" />
+        <activity android:name=".TimeSlotActivity" />
         <activity android:name=".AvailableSessionListActivity"/>
-        <activity android:name=".TutorInbox"/>
+        <activity android:name=".TutorInboxActivity"/>
 
     </application>
 

@@ -249,7 +249,7 @@ public class TutorInboxActivity extends AppCompatActivity {
         Button cancelBtn = cardView.findViewById(R.id.cancelBtn);
 
         if (status.equals("Upcoming")) {
-            cancelBtn.setVisibility(View.VISIBLE);
+            cancelBtn.setVisibility(View.GONE); // making it gone -> "Tutor cannot delete slots with booked sessions part" of Deliverable 4
             acceptBtn.setVisibility(View.GONE);
             rejectBtn.setVisibility(View.GONE);
             sessionStatus.setText("Status: ACCEPTED");

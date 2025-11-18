@@ -65,6 +65,16 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/student_inbox.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/student_inbox_card.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/studentinformation.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
@@ -91,16 +101,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Started implementing the part where the the sessions displayed in the tutor inbox are specific to a tutor instance">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Fixed the Requests card of admin inbox because there was an extra comma that should not have been displayed">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInboxActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox_card.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSession.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/CalendarViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/CalendarViewActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/DashboardActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/DashboardActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/SessionRequester.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/SessionRequester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TimeSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TimeSlotActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInboxActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dashboard.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +190,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/uOttawaSEG/project-group-4.git&quot;,
-    &quot;accountId&quot;: &quot;befa4524-63ef-48a3-a40e-3e72f01891b7&quot;
+    &quot;accountId&quot;: &quot;d31907dd-b4ae-4bfa-afa1-e0a294142e2c&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -645,15 +657,7 @@
       <option name="project" value="LOCAL" />
       <updated>1762750699958</updated>
     </task>
-    <task id="LOCAL-00045" summary="Started implementing the part where the the sessions displayed in the tutor inbox are specific to a tutor instance">
-      <option name="closed" value="true" />
-      <created>1762782123792</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1762782123792</updated>
-    </task>
-    <option name="localTasksCounter" value="46" />
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -668,6 +672,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Modified MainActivity, more precisely checkForErrors and validateAndLoginUser because I forgot to consider the case where a user writes the wrong password for an existing account" />
     <MESSAGE value="Constrained vertically OTAMS Homepage TextView in loginorregister.xml" />
     <MESSAGE value="Fixed the TutorInfoActivity.java, DashboardActivity.java, LogOutPageActivity.java, and StudentInfoActivity.java files because they did not have the onClick methods called for the buttons, which did not lead them to the correct page" />
     <MESSAGE value="Modified logout_screen.xml and DashboardActivity.java" />
@@ -692,20 +697,19 @@
     <MESSAGE value="Tutor can now approve (will move to upcoming tab), cancel (will move to rejected tab) or reject (will move to rejected tab) sessions which will be reflected in tutor_inbox.xml" />
     <MESSAGE value="Fixed the bug where the app glitches when a user moves from pending to rejected in the admin inbox" />
     <MESSAGE value="Fixed the Requests card of admin inbox because there was an extra comma that should not have been displayed" />
-    <MESSAGE value="Started implementing the part where the the sessions displayed in the tutor inbox are specific to a tutor instance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started implementing the part where the the sessions displayed in the tutor inbox are specific to a tutor instance" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the Requests card of admin inbox because there was an extra comma that should not have been displayed" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="com.example.logintest.domain">
           <value>
-            <CheckInfo lastCheckTimestamp="1762813901060" />
+            <CheckInfo lastCheckTimestamp="1763413472255" />
           </value>
         </entry>
         <entry key="com.example.logintest.domain.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1762813901060" />
+            <CheckInfo lastCheckTimestamp="1763413472254" />
           </value>
         </entry>
       </map>

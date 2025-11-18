@@ -24,6 +24,7 @@ public class DashboardActivity extends AppCompatActivity {
     Button viewCalendarButton;
     Button toSessions;
     Button toInbox;
+    Button toStudentInbox;
     private Student studentUser;
     private FirebaseAuth mAuth;
     private DatabaseReference databaseRef;
@@ -73,13 +74,6 @@ public class DashboardActivity extends AppCompatActivity {
                 }
             });
         } else { //is tutor
-            String tutorId;
-            FirebaseUser firebaseUser = mAuth.getCurrentUser();
-            if (firebaseUser!= null) {
-                 tutorId = firebaseUser.getUid();
-            } else {
-                tutorId = null;
-            }
             // go to sessions list button
             toSessions = findViewById(R.id.viewSessionsBtn);
             toSessions.setOnClickListener(new View.OnClickListener() {
@@ -87,25 +81,13 @@ public class DashboardActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(DashboardActivity.this, AvailableSessionListActivity.class);
                     intent.putExtra("USER_ROLE", role);
-                    intent.putExtra("TUTOR_ID", tutorId);
-                    startActivity(intent);
-                }
-            });
-
-            // go to tutor Inbox
-            toInbox = findViewById(R.id.viewInbox);
-            toInbox.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(DashboardActivity.this, TutorInboxActivity.class);
-                    intent.putExtra("TUTOR_ID", tutorId); // pass the student object
+                    //intent.putExtra("CURR_STUDENT", studentUser); // pass the student object
                     startActivity(intent);
                 }
             });
 
         }
 
-        // go to Calendar, only available for tutor
         viewCalendarButton = findViewById(R.id.viewCalendarButton);
         viewCalendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,6 +97,26 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
+        toInbox = findViewById(R.id.viewInbox);
+        toInbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, TutorInboxActivity.class);
+                intent.putExtra("CURR_STUDENT", studentUser); // pass the student object
+                startActivity(intent);
+            }
+        });
+
+        // only for students, inbox button
+        toStudentInbox = findViewById(R.id.viewStudentInbox);
+        toStudentInbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, StudentInboxActivity.class);
+                intent.putExtra("CURR_STUDENT", studentUser); // pass the student object
+                startActivity(intent);
+            }
+        });
 
         if (role != null) {
             userRole.setText(role);
@@ -123,6 +125,8 @@ public class DashboardActivity extends AppCompatActivity {
             } else if (role.equals("Tutor")) {
                 toInbox.setVisibility(View.VISIBLE);
                 viewCalendarButton.setVisibility(View.VISIBLE);
+            }else if (role.equals("Student")) {
+                toStudentInbox.setVisibility(View.VISIBLE);
             }
         } else {
             userRole.setText("Unknown");

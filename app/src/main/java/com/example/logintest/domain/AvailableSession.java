@@ -58,11 +58,11 @@ public class AvailableSession {
     public void setAvailable(boolean available) {
         isAvailable = available;
     }
-
     public String getTutorId() {
-        return tutorId;
+        return this.tutorId;
     }
     public void setTutorId(String tutorId) {
         this.tutorId = tutorId;
     }
+
 }

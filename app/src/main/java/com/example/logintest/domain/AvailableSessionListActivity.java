@@ -18,7 +18,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -33,7 +32,6 @@ public class AvailableSessionListActivity extends AppCompatActivity {
     Button toDash;
     Student student;
     String role;
-    String tutorId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,18 +40,16 @@ public class AvailableSessionListActivity extends AppCompatActivity {
 
         role = getIntent().getStringExtra("USER_ROLE");
         student = (Student)getIntent().getSerializableExtra("CURR_STUDENT");
-        tutorId = getIntent().getStringExtra("TUTOR_ID");
 
         toDash = findViewById(R.id.fromSessionsToDashBtn);
         toDash.setOnClickListener(v -> {
             Intent intent = new Intent(AvailableSessionListActivity.this, DashboardActivity.class);
-            if("Student".equals(role)) {
+            if(role.equals("Student")) {
                 intent.putExtra("USER_ROLE", "Student");
             } else {
                 intent.putExtra("USER_ROLE", "Tutor");
             }
             startActivity(intent);
-            finish();
         });
 
         availableSessionsContainer = findViewById(R.id.availableSessionsContainer);
@@ -68,50 +64,24 @@ public class AvailableSessionListActivity extends AppCompatActivity {
     }
 
     private void setupSessionListener() {
-        Query sessionsQuery; // the list was taking too long so im using queries for cleaner implementation of filtering the Session cards
-        if("Tutor".equalsIgnoreCase(role)&& tutorId != null) {
-            sessionsQuery = sessionPath.orderByChild("tutorId").equalTo(tutorId);
-        } else {
-            sessionsQuery = sessionPath;
-        }
-
-        sessionsQuery.addValueEventListener(new ValueEventListener() {
+        sessionPath.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 availableSessions.clear();
-
                 for (DataSnapshot sessionSnapshot: dataSnapshot.getChildren()) {
                     AvailableSession session = sessionSnapshot.getValue(AvailableSession.class);
-
                     if (session != null && session.isAvailable()) {
                         availableSessions.add(session);
                     }
                 }
                 displaySessions();
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(AvailableSessionListActivity.this, "Error loading sessions: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-//        sessionPath.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                availableSessions.clear();
-//                for (DataSnapshot sessionSnapshot: dataSnapshot.getChildren()) {
-//                    AvailableSession session = sessionSnapshot.getValue(AvailableSession.class);
-//                    if (session != null && session.isAvailable()) {
-//                        availableSessions.add(session);
-//                    }
-//                }
-//                displaySessions();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(AvailableSessionListActivity.this, "Error loading sessions: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
 
     //display the session cards
@@ -153,7 +123,7 @@ public class AvailableSessionListActivity extends AppCompatActivity {
 
                 SessionRequester studentRequester = new SessionRequester(student, session);
                 DatabaseReference requestsReference = FirebaseDatabase.getInstance().getReference("sessionRequests");
-                //requestsReference.child(session.getSessionId()).setValue(studentRequester);
+                requestsReference.child(session.getSessionId()).setValue(studentRequester);
 
 
                 requestsReference.child(session.getSessionId()).setValue(studentRequester)
@@ -176,7 +146,7 @@ public class AvailableSessionListActivity extends AppCompatActivity {
 //                        });
             });
 
-            //cancel the session
+            //cancel the session (to do: make it only available to tutors)
             //removes the card from the firebase
             cancelSessionBtn.setOnClickListener(v -> {
                 sessionPath.child(session.getSessionId()).removeValue()
@@ -195,6 +165,7 @@ public class AvailableSessionListActivity extends AppCompatActivity {
             TextView sessionListTitle = findViewById(R.id.sessionListTItle);
             sessionListTitle.setText("No available sessions");
             sessionListTitle.setGravity(Gravity.CENTER);
+            availableSessionsContainer.addView(sessionListTitle);
         }
     }
 

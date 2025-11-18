@@ -101,8 +101,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Fixed bug where the tutor inbox cards disappear when the accept/reject buttons are clicked">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInboxActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInboxActivity.java" afterDir="false" />
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Tutor can't delete slots with booked sessions">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -663,7 +664,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763431766368</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Tutor can't delete slots with booked sessions">
+      <option name="closed" value="true" />
+      <created>1763431891548</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1763431891548</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -678,7 +687,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed the TutorInfoActivity.java, DashboardActivity.java, LogOutPageActivity.java, and StudentInfoActivity.java files because they did not have the onClick methods called for the buttons, which did not lead them to the correct page" />
     <MESSAGE value="Modified logout_screen.xml and DashboardActivity.java" />
     <MESSAGE value="In DashboardActivity.java, I changed one of the parameters of the Intent created in the onClick method because when we would click on log out, it would lead to the homepage instead of the logout screen" />
     <MESSAGE value="Changed the layout in dashboard.xml, because it would change when Running the app" />
@@ -703,7 +711,8 @@
     <MESSAGE value="Fixed the Requests card of admin inbox because there was an extra comma that should not have been displayed" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="Fixed bug where the tutor inbox cards disappear when the accept/reject buttons are clicked" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug where the tutor inbox cards disappear when the accept/reject buttons are clicked" />
+    <MESSAGE value="Tutor can't delete slots with booked sessions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tutor can't delete slots with booked sessions" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

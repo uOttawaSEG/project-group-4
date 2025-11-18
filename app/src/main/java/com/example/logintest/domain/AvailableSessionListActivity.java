@@ -119,32 +119,50 @@ public class AvailableSessionListActivity extends AppCompatActivity {
                 // sessions is not available anymore
                 // set availabiltiy to false and then add it to pending list
 
-                session.setAvailable(false);
 
-                SessionRequester studentRequester = new SessionRequester(student, session);
                 DatabaseReference requestsReference = FirebaseDatabase.getInstance().getReference("sessionRequests");
-                requestsReference.child(session.getSessionId()).setValue(studentRequester);
+                //requestsReference.child(session.getSessionId()).setValue(studentRequester);
 
+                //preventing student from booking times that overlap with their exisitng bookings
+                requestsReference.orderByChild("studentEmail").equalTo(student.getEmail()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot dataSnap: snapshot.getChildren()) {
+                            SessionRequester timeBooked = dataSnap.getValue(SessionRequester.class);
 
-                requestsReference.child(session.getSessionId()).setValue(studentRequester)
-                    .addOnSuccessListener(aVoid -> {
-                        sessionPath.child(session.getSessionId()).removeValue();
-                        Toast.makeText(AvailableSessionListActivity.this, "Session request successful", Toast.LENGTH_SHORT).show();
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(AvailableSessionListActivity.this, "Could not request session", Toast.LENGTH_SHORT).show();
-                    });
+                            if(timeBooked != null && (timeBooked.getSessionStatus().equalsIgnoreCase("pending")|| timeBooked.getSessionStatus().equalsIgnoreCase("accepted"))) {
+                                if(timeBooked.getSessionDate().equals(session.getDate())) {
+                                    if(isOverlapping(timeBooked.getSessionTime(), session.getTimeSlot())) {
+                                        Toast.makeText(AvailableSessionListActivity.this, "This session time overlaps with your existing bookings", Toast.LENGTH_SHORT).show();
+                                        return;
 
-//                sessionPath.child(session.getSessionId()).setValue(session)
-//                        .addOnSuccessListener(aVoid -> {
-//                            // Logging the session request in the database
-//                            //FirebaseDatabase.getInstance().getReference("sessionRequests").child(session.getSessionId()).setValue(new SessionRequester(sessionStudent, session));
-//                            Toast.makeText(AvailableSessionListActivity.this, "Session request successful", Toast.LENGTH_SHORT).show();
-//                        })
-//                        .addOnFailureListener(e -> {
-//                            Toast.makeText(AvailableSessionListActivity.this, "Failed to request session", Toast.LENGTH_SHORT).show();
-//                        });
-            });
+                                    }
+                                }
+                            }
+                        }
+                        // if the session does not have an overlapping time, continue with booking selection
+                        session.setAvailable(false);
+                        SessionRequester studentRequester = new SessionRequester(student, session);
+
+                        requestsReference.child(session.getSessionId()).setValue(studentRequester)
+                                .addOnSuccessListener(aVoid -> {
+                                    sessionPath.child(session.getSessionId()).removeValue();
+                                    Toast.makeText(AvailableSessionListActivity.this, "Session request successful", Toast.LENGTH_SHORT).show();
+                                })
+                                .addOnFailureListener(e -> {
+                                    Toast.makeText(AvailableSessionListActivity.this, "Could not request session", Toast.LENGTH_SHORT).show();
+                                });
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+
+                });
+
+        });
 
             //cancel the session (to do: make it only available to tutors)
             //removes the card from the firebase
@@ -167,6 +185,23 @@ public class AvailableSessionListActivity extends AppCompatActivity {
             sessionListTitle.setGravity(Gravity.CENTER);
             availableSessionsContainer.addView(sessionListTitle);
         }
+    }
+
+    //helper method to make sure Student can't book overlapping sessions
+    private boolean isOverlapping(String t1, String t2) {
+        String[] t1Intervals = t1.split("-");
+        String[] t2Intervals = t2.split("-");
+
+        int s1 = timeToMinutes(t1Intervals[0].trim());
+        int e1   = timeToMinutes(t1Intervals[1].trim());
+        int s2 = timeToMinutes(t2Intervals[0].trim());
+        int e2   = timeToMinutes(t2Intervals[1].trim());
+        return s1 < e2 && s2 < e1;
+    }
+    //helper method for isOverlapping(), converts given time to interger version (in minutes)
+    private int timeToMinutes(String time) {
+        String[] times = time.split(":");
+        return Integer.parseInt(times[0]) * 60 +Integer.parseInt(times[1]);
     }
 
 }

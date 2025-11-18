@@ -97,12 +97,13 @@ public class TutorInboxActivity extends AppCompatActivity {
                     }
                 }
                 //display past sessions as default
-                sessionCardLayout.removeAllViews();
-
-                for (SessionRequester ses: pastSessions) {
-                    View pastCard = makeSessionCard(ses, "Past");
-                    sessionCardLayout.addView(pastCard);
-                }
+//                sessionCardLayout.removeAllViews();
+//
+//                for (SessionRequester ses: pastSessions) {
+//                    View pastCard = makeSessionCard(ses, "Past");
+//                    sessionCardLayout.addView(pastCard);
+//                }
+                displaySessions();
             }//end of onDataChange
 
             @Override
@@ -267,18 +268,18 @@ public class TutorInboxActivity extends AppCompatActivity {
         }
 
         acceptBtn.setOnClickListener(v -> {
-            upcomingSessions.add(studentCard);
-            pendingSessions.remove(studentCard);
+            //upcomingSessions.add(studentCard);
+            //pendingSessions.remove(studentCard);
             sessionsFirebaseReference.child(studentCard.getSessionId()).child("sessionStatus").setValue("accepted");
             Toast.makeText(TutorInboxActivity.this, "Session accepted", Toast.LENGTH_SHORT).show();
         });
         rejectBtn.setOnClickListener(v -> {
-            pendingSessions.remove(studentCard);
+            //pendingSessions.remove(studentCard);
             sessionsFirebaseReference.child(studentCard.getSessionId()).child("sessionStatus").setValue("rejected");
             Toast.makeText(TutorInboxActivity.this, "Session rejected", Toast.LENGTH_SHORT).show();
         });
         cancelBtn.setOnClickListener(v -> {
-            upcomingSessions.remove(studentCard);
+            //upcomingSessions.remove(studentCard);
             sessionsFirebaseReference.child(studentCard.getSessionId()).child("sessionStatus").setValue("rejected");
             //sessionsFirebaseReference.child(studentCard.getSessionId()).removeValue();
             Toast.makeText(TutorInboxActivity.this, "Session cancelled", Toast.LENGTH_SHORT).show();

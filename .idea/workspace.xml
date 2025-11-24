@@ -106,10 +106,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Added search view in the sessions_list.xml">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Student can now search by course code and view available slots for tutoring sessions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/sessions_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/sessions_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInboxActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInboxActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -826,7 +826,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763948199470</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Student can now search by course code and view available slots for tutoring sessions">
+      <option name="closed" value="true" />
+      <created>1763958597125</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1763958597125</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -841,7 +849,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="In DashboardActivity.java, I changed one of the parameters of the Intent created in the onClick method because when we would click on log out, it would lead to the homepage instead of the logout screen" />
     <MESSAGE value="Changed the layout in dashboard.xml, because it would change when Running the app" />
     <MESSAGE value="Updated APK file" />
     <MESSAGE value="Added new password instance variable to users, modified Student and Tutor Activities for pending requests" />
@@ -866,7 +873,8 @@
     <MESSAGE value="Fixed bug where the tutor inbox cards disappear when the accept/reject buttons are clicked" />
     <MESSAGE value="Tutor can't delete slots with booked sessions" />
     <MESSAGE value="Added search view in the sessions_list.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added search view in the sessions_list.xml" />
+    <MESSAGE value="Student can now search by course code and view available slots for tutoring sessions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Student can now search by course code and view available slots for tutoring sessions" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

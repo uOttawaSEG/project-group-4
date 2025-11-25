@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="6dp"
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="#151A30">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/sessionStudentName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/sessionStudentEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Student Email"
+            android:textSize="14sp"
+            android:textColor="#E0E4FF" />
+
+        <TextView
+            android:id="@+id/sessionStudentPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Student Phone"
+            android:textColor="#CCCCCC" />
+
+        <TextView
+            android:id="@+id/sessionStudentProgram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Student Program"
+            android:textColor="#CCCCCC" />
+
+        <TextView
+            android:id="@+id/sessionStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Session Status"
+            android:textStyle="italic"
+            android:textColor="#AAAAAA" />
+
+        <TextView
+            android:id="@+id/tutorViewTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Session Time"
+            android:textColor="#CCCCCC" />
+
+        <TextView
+            android:id="@+id/tutorViewDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Session Date"
+            android:textColor="#CCCCCC" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/tutorAcceptBtn"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:backgroundTint="#4CAF50"
+                android:text="Approve"
+                android:textAllCaps="false"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@android:color/white"
+                android:foreground="?attr/selectableItemBackground" />
+
+            <Button
+                android:id="@+id/tutorRejectBtn"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:backgroundTint="#FF5C7A"
+                android:text="Reject"
+                android:textAllCaps="false"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@android:color/white"
+                android:foreground="?attr/selectableItemBackground" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-medium"
+            android:backgroundTint="#3D7AFD"
+            android:textColor="@android:color/white"
+            android:foreground="?attr/selectableItemBackground"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

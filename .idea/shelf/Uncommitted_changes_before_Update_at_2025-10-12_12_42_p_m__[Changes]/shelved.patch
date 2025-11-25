@@ -1,0 +1,153 @@
+Index: app/src/main/java/com/example/logintest/domain/HomepageActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.logintest.domain;\r\n\r\nimport android.os.Bundle;\r\n\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\npublic class HomepageActivity extends AppCompatActivity {\r\n\r\n    //Variables for each input field\r\n    EditText username;\r\n    EditText password;\r\n    Button loginButton;\r\n\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.loginorregister);\r\n\r\n        //Link variables to the XML fields by their ID\r\n        username = findViewById(R.id.user_name);\r\n        password = findViewById(R.id.user_password);\r\n        loginButton = findViewById(R.id.loginButton);\r\n\r\n        //When user clicks login button\r\n        loginButton.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                checkForErrors();\r\n            }\r\n        });\r\n    }\r\n\r\n    void checkForErrors() {\r\n        //Get what the user typed and removed extra spaces\r\n        String usernameInput = username.getText().toString().trim();\r\n        String passwordInput = password.getText().toString().trim();\r\n\r\n        boolean everythingOK = true;\r\n\r\n        //Check username\r\n        if (usernameInput.isEmpty()) {\r\n            username.setError(\"Username is required\");\r\n            everythingOK = false;\r\n        }\r\n\r\n        //Check password\r\n        if (passwordInput.isEmpty()) {\r\n            password.setError(\"Password is required\");\r\n            everythingOK = false;\r\n        }\r\n\r\n        //Verify if the user exists\r\n\r\n\r\n\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/app/src/main/java/com/example/logintest/domain/HomepageActivity.java b/app/src/main/java/com/example/logintest/domain/HomepageActivity.java
+--- a/app/src/main/java/com/example/logintest/domain/HomepageActivity.java	(revision f8e5715548be9e5931f8a9c71606032268b934d6)
++++ b/app/src/main/java/com/example/logintest/domain/HomepageActivity.java	(date 1760287186915)
+@@ -1,16 +1,27 @@
+ package com.example.logintest.domain;
+-
+ import android.os.Bundle;
+-
+-import android.view.View;
++import android.content.Intent;
++import android.util.Log;
+ import android.widget.Button;
++import android.view.View;
+ import android.widget.EditText;
++import android.widget.Toast;
+ 
++import androidx.activity.EdgeToEdge;
+ import androidx.appcompat.app.AppCompatActivity;
++import androidx.core.graphics.Insets;
++import androidx.core.view.ViewCompat;
++import androidx.core.view.WindowInsetsCompat;
+ 
+-public class HomepageActivity extends AppCompatActivity {
++import com.google.firebase.auth.FirebaseAuth;
++import com.google.firebase.database.DatabaseReference;
++import com.google.firebase.database.FirebaseDatabase;
+ 
+-    //Variables for each input field
++public class MainActivity extends AppCompatActivity {
++    //Database services
++    DatabaseReference databaseReference;
++    private FirebaseAuth mAuth;
++    //UI elements
+     EditText username;
+     EditText password;
+     Button loginButton;
+@@ -19,23 +30,60 @@
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
++        EdgeToEdge.enable(this);
+         setContentView(R.layout.loginorregister);
++        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.linearLayout4), (v, insets) -> {
++            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
++            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
++            return insets;
++        });
+ 
+-        //Link variables to the XML fields by their ID
++        // Initialize  both firebase services
++        databaseReference = FirebaseDatabase.getInstance().getReference();
++        mAuth = FirebaseAuth.getInstance();
++
++        //Link UI elements for login
+         username = findViewById(R.id.user_name);
+         password = findViewById(R.id.user_password);
+         loginButton = findViewById(R.id.loginButton);
+-
+         //When user clicks login button
+-        loginButton.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                checkForErrors();
+-            }
+-        });
++        loginButton.setOnClickListener (view -> {
++            validateAndLoginUser();
++        });
++    }
++
++    // Login button
++    public void goToDashboard(View view) {
++        Intent intent = new Intent(this, DashboardActivity.class);
++        startActivity(intent);
+     }
++
++    // Tutor Register button
++    public void goToTutorRegistration(View view) {
++        Intent intent = new Intent(MainActivity.this, TutorInfoActivity.class);
++        startActivity(intent);
++    }
++
++    // Student Register button
++    public void goToStudentRegistration(View view) {
++        Intent intent = new Intent(this, StudentInfoActivity.class);
++        startActivity(intent);
++    }
++
++    //Admin login button
++    public void goToAdminLogin(View view) {
++        Intent intent = new Intent(this, AdminActivity.class);
++        startActivity(intent);
++    }
++
++    //Log out page
++    public void goToLogOut(View view){
++        Intent intent = new Intent(this, LogOutPageActivity.class);
++        startActivity(intent);
++    }
+ 
+-    void checkForErrors() {
++
++    void validateAndLoginUser() {
+         //Get what the user typed and removed extra spaces
+         String usernameInput = username.getText().toString().trim();
+         String passwordInput = password.getText().toString().trim();
+@@ -44,19 +92,35 @@
+ 
+         //Check username
+         if (usernameInput.isEmpty()) {
+-            username.setError("Username is required");
+-            everythingOK = false;
++            username.setError("Username (email) is required");
++            username.requestFocus();
++            return;
++        }
++        if (!usernameInput.contains("@") || !usernameInput.contains(".")) {
++            username.setError("Please enter a valid email address");
++            return;
+         }
+ 
+         //Check password
+         if (passwordInput.isEmpty()) {
+             password.setError("Password is required");
+-            everythingOK = false;
++            password.requestFocus();
++            return;
+         }
+ 
+         //Verify if the user exists
++        mAuth.signInWithEmailAndPassword(usernameInput, passwordInput).addOnCompleteListener(this, task -> {
++            if (task.isSuccessful()) {
++                Log.d("Firebase authentication", "Login successful for:" + username);
++                Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
++                goToDashboard(null);
++            } else {
++                Log.w("Firebase authentification", "Login failed", task.getException());
++                Toast.makeText(MainActivity.this, "Not an account, please register. If you already have an account, try again.", Toast.LENGTH_SHORT).show();
++            }
++        });
++    }
+ 
+ 
+ 
+-    }
+-}
++}
+\ No newline at end of file

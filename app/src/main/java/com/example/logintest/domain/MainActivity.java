@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     EditText username;
     EditText password;
     Button loginButton;
+    Button aboutPageButton;
 
 
     @Override
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         username = findViewById(R.id.user_name);
         password = findViewById(R.id.user_password);
         loginButton = findViewById(R.id.loginButton);
+        aboutPageButton = findViewById(R.id.aboutPageButton);
         //When user clicks login button
         loginButton.setOnClickListener (view -> {
             validateAndLoginUser();
@@ -83,6 +85,12 @@ public class MainActivity extends AppCompatActivity {
     //Admin login button
     public void goToAdminLogin(View view) {
         Intent intent = new Intent(this, AdminActivity.class);
+        startActivity(intent);
+    }
+
+    //About us page button
+    public void goToAboutUs(View view) {
+        Intent intent = new Intent(MainActivity.this, AboutUsActivity.class);
         startActivity(intent);
     }
 

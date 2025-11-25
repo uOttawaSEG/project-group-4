@@ -33,6 +33,7 @@
         <activity android:name=".AvailableSessionListActivity"/>
         <activity android:name=".TutorInboxActivity"/>
         <activity android:name=".StudentInboxActivity"/>
+        <activity android:name=".AboutUsActivity" />
 
     </application>
 

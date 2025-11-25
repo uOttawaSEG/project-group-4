@@ -25,7 +25,17 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_calendar_viewfancy.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_time_slot.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_time_slot_fancy.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -55,6 +65,11 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dashboard_fancy.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/loginorregister.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
@@ -66,6 +81,11 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/pending_inbox.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/pending_inbox_fancy.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -90,6 +110,11 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/student_inbox_fancy.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/studentinformation.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
@@ -100,7 +125,17 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/tutor_inbox_fancy.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/tutor_view_sessions.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/tutor_view_sessions_fancy.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -116,17 +151,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Slightly changed the UI in the student inbox">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AboutUsActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/about_us.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/course_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Added an about page so that we present all courses (with specific course codes) available for tutoring, as we previously only had subjects">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/loginorregister.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/loginorregister.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInfoActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -458,14 +485,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759093028352</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Added Firebase database.">
-      <option name="closed" value="true" />
-      <created>1759093975612</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1759093975612</updated>
     </task>
     <task id="LOCAL-00003" summary="Added Firebase database.">
       <option name="closed" value="true" />
@@ -851,7 +870,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763959786593</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Added an about page so that we present all courses (with specific course codes) available for tutoring, as we previously only had subjects">
+      <option name="closed" value="true" />
+      <created>1764034839764</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1764034839764</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -866,7 +893,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated APK file" />
     <MESSAGE value="Added new password instance variable to users, modified Student and Tutor Activities for pending requests" />
     <MESSAGE value="Added a RecyclerView in inbox_layout.xml" />
     <MESSAGE value="Added new xml's to support the Admin inbox xml" />
@@ -891,7 +917,8 @@
     <MESSAGE value="Added search view in the sessions_list.xml" />
     <MESSAGE value="Student can now search by course code and view available slots for tutoring sessions" />
     <MESSAGE value="Slightly changed the UI in the student inbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="Slightly changed the UI in the student inbox" />
+    <MESSAGE value="Added an about page so that we present all courses (with specific course codes) available for tutoring, as we previously only had subjects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added an about page so that we present all courses (with specific course codes) available for tutoring, as we previously only had subjects" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

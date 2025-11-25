@@ -158,8 +158,10 @@ public class TutorInfoActivity extends AppCompatActivity {
             coursesInput.setError("Courses offered is a required field");
             everythingOK = false;
         }
-        else if (!courses.contains("french") && !courses.contains("english") && !courses.contains("math") && !courses.contains("maths") && !courses.contains("mathematics") && !courses.contains("science") && !courses.contains("chemistry") && !courses.contains("physics") && !courses.contains("history") && !courses.contains("spanish") && !courses.contains("music")) {
-            coursesInput.setError("You must write at least one course from the list: french, english, math, science, chemistry, physics, history, spanish, music. (Check your spelling)");
+        else if (!courses.contains("french") && !courses.contains("english") && !courses.contains("math") && !courses.contains("maths") && !courses.contains("mathematics") && !courses.contains("science") && !courses.contains("chemistry") && !courses.contains("physics") && !courses.contains("history") && !courses.contains("spanish") && !courses.contains("music")
+        && !courses.contains("GNG1105") && !courses.contains("GNG1106") && !courses.contains("MCG1101") && !courses.contains("CHG1371") && !courses.contains("ITI1100") && !courses.contains("ITI1120") && !courses.contains("ITI1121") && !courses.contains("MAT1341") && !courses.contains("MAT1348") && !courses.contains("MAT1320") && !courses.contains("MAT1322")
+        && !courses.contains("CVG1107") && !courses.contains("PHY1121") && !courses.contains("PHY1122")) {
+            coursesInput.setError("You must write at least one course from the available subjects or courses codes for tutoring, as indicated in our About Us page");
             everythingOK = false;
         }
 

@@ -159,8 +159,8 @@ public class TutorInfoActivity extends AppCompatActivity {
             everythingOK = false;
         }
         else if (!courses.contains("french") && !courses.contains("english") && !courses.contains("math") && !courses.contains("maths") && !courses.contains("mathematics") && !courses.contains("science") && !courses.contains("chemistry") && !courses.contains("physics") && !courses.contains("history") && !courses.contains("spanish") && !courses.contains("music")
-        && !courses.contains("GNG1105") && !courses.contains("GNG1106") && !courses.contains("MCG1101") && !courses.contains("CHG1371") && !courses.contains("ITI1100") && !courses.contains("ITI1120") && !courses.contains("ITI1121") && !courses.contains("MAT1341") && !courses.contains("MAT1348") && !courses.contains("MAT1320") && !courses.contains("MAT1322")
-        && !courses.contains("CVG1107") && !courses.contains("PHY1121") && !courses.contains("PHY1122")) {
+        && !courses.contains("gng1105") && !courses.contains("gng1106") && !courses.contains("mcg1101") && !courses.contains("chg1371") && !courses.contains("iti1100") && !courses.contains("iti1120") && !courses.contains("iti1121") && !courses.contains("mat1341") && !courses.contains("mat1348") && !courses.contains("mat1320") && !courses.contains("mat1322")
+        && !courses.contains("cvg1107") && !courses.contains("phy1121") && !courses.contains("phy1122")) {
             coursesInput.setError("You must write at least one course from the available subjects or courses codes for tutoring, as indicated in our About Us page");
             everythingOK = false;
         }

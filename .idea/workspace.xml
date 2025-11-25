@@ -151,7 +151,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Added an about page so that we present all courses (with specific course codes) available for tutoring, as we previously only had subjects">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Added the new course codes for which tutors can offer tutoring lessons">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInfoActivity.java" afterDir="false" />
     </list>
@@ -485,14 +485,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759093028352</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added Firebase database.">
-      <option name="closed" value="true" />
-      <created>1759094054294</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1759094054294</updated>
     </task>
     <task id="LOCAL-00004" summary="Attempted to repair GitHub merging issues.">
       <option name="closed" value="true" />
@@ -878,7 +870,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764034839764</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Added the new course codes for which tutors can offer tutoring lessons">
+      <option name="closed" value="true" />
+      <created>1764035344729</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1764035344729</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -893,7 +893,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added new password instance variable to users, modified Student and Tutor Activities for pending requests" />
     <MESSAGE value="Added a RecyclerView in inbox_layout.xml" />
     <MESSAGE value="Added new xml's to support the Admin inbox xml" />
     <MESSAGE value="Implemented email notifications to user upon registration acceptance/rejection." />
@@ -918,7 +917,8 @@
     <MESSAGE value="Student can now search by course code and view available slots for tutoring sessions" />
     <MESSAGE value="Slightly changed the UI in the student inbox" />
     <MESSAGE value="Added an about page so that we present all courses (with specific course codes) available for tutoring, as we previously only had subjects" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added an about page so that we present all courses (with specific course codes) available for tutoring, as we previously only had subjects" />
+    <MESSAGE value="Added the new course codes for which tutors can offer tutoring lessons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the new course codes for which tutors can offer tutoring lessons" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

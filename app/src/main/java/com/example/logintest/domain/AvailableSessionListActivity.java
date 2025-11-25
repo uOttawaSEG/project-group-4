@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import androidx.appcompat.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,11 +28,13 @@ public class AvailableSessionListActivity extends AppCompatActivity {
     LinearLayout availableSessionsContainer;
     LinearLayout cardContainer;
     List<AvailableSession> availableSessions = new ArrayList<>();
+    List<AvailableSession> resultedSessions=new ArrayList<>();
     private DatabaseReference tutorPath;
     private DatabaseReference sessionPath;
     Button toDash;
     Student student;
     String role;
+    SearchView sessionSearchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,11 @@ public class AvailableSessionListActivity extends AppCompatActivity {
 
         availableSessionsContainer = findViewById(R.id.availableSessionsContainer);
         cardContainer = findViewById(R.id.cardContainer);
+        sessionSearchView=findViewById(R.id.searchView);
+
+        if ("Tutor".equalsIgnoreCase(role)){
+            sessionSearchView.setVisibility(View.GONE);
+        }
 
         //linking up firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -61,6 +69,44 @@ public class AvailableSessionListActivity extends AppCompatActivity {
         sessionPath = database.getReference("sessions");
 
         setupSessionListener();
+        setupSearchListener();
+    }
+
+    private void setupSearchListener() {
+        sessionSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                filterSessions(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterSessions(newText);
+                return true;
+            }
+        });
+    }
+
+    private void filterSessions(String text){
+        resultedSessions.clear();
+        if(text.isEmpty()){
+            resultedSessions.addAll(availableSessions);
+        }else{
+            text=text.toLowerCase().trim();
+            for (AvailableSession session: availableSessions){
+                String temp=session.getTutorCourses().toLowerCase();
+                String[] courses=temp.replace("[", "").replace("]", "").split(", ");
+                for(String course: courses){
+                    if (course.trim().startsWith(text)){
+                        resultedSessions.add(session);
+                        break;
+                    }
+                }
+
+            }
+        }
+        displaySessions();
     }
 
     private void setupSessionListener() {
@@ -74,6 +120,8 @@ public class AvailableSessionListActivity extends AppCompatActivity {
                         availableSessions.add(session);
                     }
                 }
+                resultedSessions.clear();
+                resultedSessions.addAll(availableSessions);
                 displaySessions();
             }
 
@@ -92,7 +140,7 @@ public class AvailableSessionListActivity extends AppCompatActivity {
         LayoutInflater inflater= LayoutInflater.from(this);
 
         // and then reload/make each session into a visible card
-        for (AvailableSession session: availableSessions) {
+        for (AvailableSession session: resultedSessions) {
             CardView sessionInfoCard = (CardView) inflater.inflate(R.layout.available_session, cardContainer, false);
 
             TextView tutorName = sessionInfoCard.findViewById(R.id.sessionTutorName);
@@ -179,11 +227,19 @@ public class AvailableSessionListActivity extends AppCompatActivity {
         }
 
         // change title to"no sessions" if the list is empty
-        if (availableSessions.isEmpty()) {
-            TextView sessionListTitle = findViewById(R.id.sessionListTItle);
-            sessionListTitle.setText("No available sessions");
-            sessionListTitle.setGravity(Gravity.CENTER);
-            availableSessionsContainer.addView(sessionListTitle);
+        TextView sessionListTitle = findViewById(R.id.sessionListTItle);
+        if (resultedSessions.isEmpty()) {
+            //TextView sessionListTitle = findViewById(R.id.sessionListTItle);
+            //sessionListTitle.setText("No available sessions");
+            //sessionListTitle.setGravity(Gravity.CENTER);
+            //availableSessionsContainer.addView(sessionListTitle);
+            if (availableSessions.isEmpty()) {
+                sessionListTitle.setText("No Available Sessions");
+            } else{
+                sessionListTitle.setText("No Sessions Match Your Search");
+            }
+        }else{
+            sessionListTitle.setText("Available Tutoring Sessions");
         }
     }
 

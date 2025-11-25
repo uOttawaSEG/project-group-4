@@ -150,7 +150,7 @@ public class StudentInboxActivity extends AppCompatActivity {
         tutorName.setText("Tutor Name: " + sessionCard.getTutorName());
         sessionDate.setText("Date: " + sessionCard.getSessionDate());
         sessionTime.setText("Time: " + sessionCard.getSessionTime());
-        sessionStatus.setText("Status: " + sessionCard.getSessionStatus());
+        sessionStatus.setText("Status: " + sessionCard.getSessionStatus().toUpperCase());
 
         Button cancelBtn = cardView.findViewById(R.id.studentCancelBtn);
 

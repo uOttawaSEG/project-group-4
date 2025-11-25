@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#101526">
+
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="24dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OTAMS Homepage"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/logoImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/login_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please Enter Your Login Details"
+        android:textColor="#E0E4FF"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/username_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username (email)"
+        android:textColor="#E0E4FF"
+        app:layout_constraintTop_toBottomOf="@+id/login_header"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp" />
+
+    <EditText
+        android:id="@+id/user_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="#FFFFFF"
+        android:hint="Enter your email"
+        android:textColorHint="#AAAAAA"
+        android:backgroundTint="#3D7AFD"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/username_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/password_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textColor="#E0E4FF"
+        app:layout_constraintTop_toBottomOf="@+id/user_name"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:id="@+id/user_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#AAAAAA"
+        android:backgroundTint="#3D7AFD"
+        android:hint="Enter your password"
+        app:layout_constraintTop_toBottomOf="@+id/password_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#4CAF50"
+        android:onClick="goToDashboard"
+        android:foreground="?attr/selectableItemBackground"
+        app:layout_constraintTop_toBottomOf="@+id/user_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/register_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="or register an account"
+        android:textColor="#AAAAAA"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <Button
+        android:id="@+id/student_register_btn"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="Student Register"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#3D7AFD"
+        android:onClick="goToStudentRegistration"
+        android:foreground="?attr/selectableItemBackground"
+        app:layout_constraintTop_toBottomOf="@+id/register_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/tutor_register_btn"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="Tutor Register"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFB74D"
+        android:onClick="goToTutorRegistration"
+        android:foreground="?attr/selectableItemBackground"
+        app:layout_constraintTop_toBottomOf="@+id/student_register_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/adminLoginButton"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="Admin Login"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FF5C7A"
+        android:onClick="goToAdminLogin"
+        android:foreground="?attr/selectableItemBackground"
+        app:layout_constraintTop_toBottomOf="@+id/tutor_register_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

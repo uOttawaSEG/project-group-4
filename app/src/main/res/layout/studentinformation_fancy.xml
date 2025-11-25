@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#101526">
+
+    <ImageView
+        android:id="@+id/studentRegisterLogo"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:alpha="0.95"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/student_info_header"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/studentRegisterLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/student_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="@string/first_name_hint"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#AAAAAA"
+        android:backgroundTint="#3D7AFD"
+        android:importantForAutofill="yes"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/student_last_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/last_name_hint"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#AAAAAA"
+        android:backgroundTint="#3D7AFD"
+        android:importantForAutofill="yes"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/student_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/student_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/email_hint"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#AAAAAA"
+        android:backgroundTint="#3D7AFD"
+        android:importantForAutofill="yes"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/student_last_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/student_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/password_hint"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#AAAAAA"
+        android:backgroundTint="#3D7AFD"
+        android:importantForAutofill="yes"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/student_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/student_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/phone_hint"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#AAAAAA"
+        android:backgroundTint="#3D7AFD"
+        android:importantForAutofill="yes"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/student_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/student_program"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/program_hint"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#AAAAAA"
+        android:backgroundTint="#3D7AFD"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/student_phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/submit_student_btn"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/submit_button_text"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-medium"
+        android:backgroundTint="#4CAF50"
+        android:foreground="?attr/selectableItemBackground"
+        app:layout_constraintTop_toBottomOf="@id/student_program"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/AdminHomeButton"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:onClick="goToHome"
+        android:text="@string/go_to_home_button_text"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-medium"
+        android:backgroundTint="#FF5C7A"
+        android:foreground="?attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="24dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#101526">
+
+    <Button
+        android:id="@+id/FromCalToDashBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="To Dashboard"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-medium"
+        android:backgroundTint="#FF5C7A"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/calendarLogo"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitCenter"
+        android:alpha="0.95"
+        app:srcCompat="@drawable/logo"
+        app:layout_constraintTop_toBottomOf="@+id/FromCalToDashBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Booking Calendar"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/calendarLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#151A30"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/selectDateBtn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:text="Select Date"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="16sp"
+        android:backgroundTint="#4CAF50"
+        android:foreground="?attr/selectableItemBackground"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

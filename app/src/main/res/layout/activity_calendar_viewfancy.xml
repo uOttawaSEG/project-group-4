@@ -47,30 +47,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <CalendarView
-        android:id="@+id/calendarView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/calendarCardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="#151A30"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#FAFAFA"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent" />
+
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/selectDateBtn"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
+        android:backgroundTint="#4CAF50"
+        android:fontFamily="sans-serif-medium"
+        android:foreground="?attr/selectableItemBackground"
         android:text="Select Date"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:fontFamily="sans-serif-medium"
         android:textSize="16sp"
-        android:backgroundTint="#4CAF50"
-        android:foreground="?attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/calendarCardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

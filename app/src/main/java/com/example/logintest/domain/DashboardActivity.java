@@ -79,6 +79,7 @@ public class DashboardActivity extends AppCompatActivity {
                 return;
             }
             String tutorID = fbUser.getUid();
+
             // go to sessions list button
             toSessions = findViewById(R.id.viewSessionsBtn);
             toSessions.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +88,17 @@ public class DashboardActivity extends AppCompatActivity {
                     Intent intent = new Intent(DashboardActivity.this, AvailableSessionListActivity.class);
                     intent.putExtra("USER_ROLE", role);
                     //intent.putExtra("CURR_STUDENT", studentUser); // pass the student object
+                    intent.putExtra("TUTOR_ID", tutorID);
+                    startActivity(intent);
+                }
+            });
+
+            toInbox = findViewById(R.id.viewInbox);
+            toInbox.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(DashboardActivity.this, TutorInboxActivity.class);
+                    intent.putExtra("CURR_STUDENT", studentUser); // pass the student object
                     intent.putExtra("TUTOR_ID", tutorID);
                     startActivity(intent);
                 }
@@ -103,15 +115,6 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
-        toInbox = findViewById(R.id.viewInbox);
-        toInbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DashboardActivity.this, TutorInboxActivity.class);
-                intent.putExtra("CURR_STUDENT", studentUser); // pass the student object
-                startActivity(intent);
-            }
-        });
 
         // only for students, inbox button
         toStudentInbox = findViewById(R.id.viewStudentInbox);

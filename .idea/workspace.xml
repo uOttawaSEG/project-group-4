@@ -101,11 +101,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Tutor can't delete slots with booked sessions">
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Sessions from tutor dashboard are now filtered so that only tutor can see the sessions they created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/DashboardActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/DashboardActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/SessionRequester.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/SessionRequester.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -674,7 +673,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763431891548</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Sessions from tutor dashboard are now filtered so that only tutor can see the sessions they created">
+      <option name="closed" value="true" />
+      <created>1764117867353</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1764117867353</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -689,7 +696,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modified logout_screen.xml and DashboardActivity.java" />
     <MESSAGE value="In DashboardActivity.java, I changed one of the parameters of the Intent created in the onClick method because when we would click on log out, it would lead to the homepage instead of the logout screen" />
     <MESSAGE value="Changed the layout in dashboard.xml, because it would change when Running the app" />
     <MESSAGE value="Updated APK file" />
@@ -714,7 +720,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="Fixed bug where the tutor inbox cards disappear when the accept/reject buttons are clicked" />
     <MESSAGE value="Tutor can't delete slots with booked sessions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tutor can't delete slots with booked sessions" />
+    <MESSAGE value="Sessions from tutor dashboard are now filtered so that only tutor can see the sessions they created" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sessions from tutor dashboard are now filtered so that only tutor can see the sessions they created" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

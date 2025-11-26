@@ -12,7 +12,7 @@ public class SessionRequester {
     public String sessionStatus;
     private String sessionId;
     private String tutorName;
-
+    private String tutorId;
 
     public SessionRequester() {
     }
@@ -28,6 +28,7 @@ public class SessionRequester {
         this.sessionStatus = "pending";
         this.sessionId = session.getSessionId();
         this.tutorName = session.getTutorName();
+        this.tutorId = session.getTutorId();
     }
 
 
@@ -75,5 +76,11 @@ public class SessionRequester {
     }
     public void setTutorName(String tutorName) {
         this.tutorName = tutorName;
+    }
+    public String getTutorId() {
+        return tutorId;
+    }
+    public void setTutorId(String tutorId) {
+        this.tutorId = tutorId;
     }
 }

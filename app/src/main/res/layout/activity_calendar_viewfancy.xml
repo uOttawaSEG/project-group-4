@@ -54,7 +54,7 @@
         android:layout_marginTop="20dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
-        app:cardBackgroundColor="#FAFAFA"
+        app:cardBackgroundColor="#101526"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4">
@@ -63,7 +63,8 @@
             android:id="@+id/calendarView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:theme="@style/calendar_view" />
 
     </androidx.cardview.widget.CardView>
 

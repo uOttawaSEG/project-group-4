@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -110,7 +111,16 @@ public class AvailableSessionListActivity extends AppCompatActivity {
     }
 
     private void setupSessionListener() {
-        sessionPath.addValueEventListener(new ValueEventListener() {
+        // if entering inboc from tutor dashboard, filter the sessions to only show the sessions that the tutor made
+        String tutorID = getIntent().getStringExtra("TUTOR_ID");
+        Query sessionTutor;
+
+        if(role.equalsIgnoreCase("Tutor") && tutorID !=null) {
+            sessionTutor = sessionPath.orderByChild("tutorId").equalTo(tutorID);
+        } else { // students can see all the sessions
+            sessionTutor = sessionPath;
+        }
+        sessionTutor.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 availableSessions.clear();

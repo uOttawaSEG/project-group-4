@@ -10,32 +10,12 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/search_view.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/about_us.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_calendar_view.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_calendar_viewfancy.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_time_slot.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_time_slot_fancy.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -55,17 +35,7 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/course_item.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dashboard.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dashboard_fancy.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -81,11 +51,6 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/pending_inbox.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/pending_inbox_fancy.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -110,11 +75,6 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/student_inbox_fancy.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/studentinformation.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
@@ -125,17 +85,7 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/tutor_inbox_fancy.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/tutor_view_sessions.xml">
-        <config>
-          <theme>@style/Theme.LoginTest</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/tutor_view_sessions_fancy.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -151,9 +101,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Changed a logic error from the previous commit">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Tutor can't delete slots with booked sessions">
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_calendar_viewfancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_calendar_viewfancy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/DashboardActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/DashboardActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +115,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\Daniela Bordeianu\.android\avd\Medium_Phone.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=/Users/parishoang/.android/avd/Medium_Phone_2.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -210,7 +162,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="Class" />
       </list>
@@ -232,7 +183,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/uOttawaSEG/project-group-4.git&quot;,
-    &quot;accountId&quot;: &quot;befa4524-63ef-48a3-a40e-3e72f01891b7&quot;
+    &quot;accountId&quot;: &quot;d31907dd-b4ae-4bfa-afa1-e0a294142e2c&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -253,23 +204,19 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Android App.app.executor&quot;: &quot;Run&quot;,
-    &quot;Android Instrumented Tests.All Tests.executor&quot;: &quot;Run&quot;,
-    &quot;Android Instrumented Tests.MainActivityTest.executor&quot;: &quot;Run&quot;,
-    &quot;Android Instrumented Tests.Tests in ''.executor&quot;: &quot;Run&quot;,
     &quot;ApkExportedModule&quot;: &quot;LoginTest.app&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.android.studio.ml.bot.mainConfigurable&quot;
   }
 }</component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="LoginTest.app" />
       <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
@@ -342,141 +289,6 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All Tests" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
-      <module name="LoginTest.app" />
-      <option name="ANDROID_TEST_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="com.example.logintest.domain.MainActivityTest1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_NAME_REGEX" value="" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
-      <option name="RETENTION_ENABLED" value="No" />
-      <option name="RETENTION_MAX_SNAPSHOTS" value="2" />
-      <option name="RETENTION_COMPRESS_SNAPSHOTS" value="false" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="DEBUGGER_TYPE" value="Auto" />
-      <Auto>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Auto>
-      <Hybrid>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Hybrid>
-      <Java>
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Java>
-      <Native>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Native>
-      <Profilers>
-        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
-        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
-        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
-      </Profilers>
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tests in ''" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
-      <module name="LoginTest.app" />
-      <option name="ANDROID_TEST_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
-      <option name="TESTING_TYPE" value="1" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="com.example.logintest.domain.MainActivityTest" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_NAME_REGEX" value="" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
-      <option name="RETENTION_ENABLED" value="No" />
-      <option name="RETENTION_MAX_SNAPSHOTS" value="2" />
-      <option name="RETENTION_COMPRESS_SNAPSHOTS" value="false" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="DEBUGGER_TYPE" value="Auto" />
-      <Auto>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Auto>
-      <Hybrid>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Hybrid>
-      <Java>
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Java>
-      <Native>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Native>
-      <Profilers>
-        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
-        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
-        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
-      </Profilers>
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Android App.app" />
-      <item itemvalue="Android Instrumented Tests.All Tests" />
-      <item itemvalue="Android Instrumented Tests.Tests in ''" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Android Instrumented Tests.All Tests" />
-        <item itemvalue="Android Instrumented Tests.Tests in ''" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -485,6 +297,38 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759093028352</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Added Firebase database.">
+      <option name="closed" value="true" />
+      <created>1759093832531</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1759093832531</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added Firebase database.">
+      <option name="closed" value="true" />
+      <created>1759093975612</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1759093975612</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added Firebase database.">
+      <option name="closed" value="true" />
+      <created>1759094054294</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1759094054294</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Attempted to repair GitHub merging issues.">
+      <option name="closed" value="true" />
+      <created>1759255915036</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1759255915036</updated>
     </task>
     <task id="LOCAL-00005" summary="Updated landing page.">
       <option name="closed" value="true" />
@@ -830,55 +674,7 @@
       <option name="project" value="LOCAL" />
       <updated>1763431891548</updated>
     </task>
-    <task id="LOCAL-00048" summary="Added search view in the sessions_list.xml">
-      <option name="closed" value="true" />
-      <created>1763948199470</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1763948199470</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Student can now search by course code and view available slots for tutoring sessions">
-      <option name="closed" value="true" />
-      <created>1763958597125</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1763958597125</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Slightly changed the UI in the student inbox">
-      <option name="closed" value="true" />
-      <created>1763959786593</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1763959786593</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Added an about page so that we present all courses (with specific course codes) available for tutoring, as we previously only had subjects">
-      <option name="closed" value="true" />
-      <created>1764034839764</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1764034839764</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Added the new course codes for which tutors can offer tutoring lessons">
-      <option name="closed" value="true" />
-      <created>1764035344729</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1764035344729</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Changed a logic error from the previous commit">
-      <option name="closed" value="true" />
-      <created>1764036481430</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1764036481430</updated>
-    </task>
-    <option name="localTasksCounter" value="54" />
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -893,6 +689,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Modified logout_screen.xml and DashboardActivity.java" />
+    <MESSAGE value="In DashboardActivity.java, I changed one of the parameters of the Intent created in the onClick method because when we would click on log out, it would lead to the homepage instead of the logout screen" />
+    <MESSAGE value="Changed the layout in dashboard.xml, because it would change when Running the app" />
+    <MESSAGE value="Updated APK file" />
+    <MESSAGE value="Added new password instance variable to users, modified Student and Tutor Activities for pending requests" />
+    <MESSAGE value="Added a RecyclerView in inbox_layout.xml" />
     <MESSAGE value="Added new xml's to support the Admin inbox xml" />
     <MESSAGE value="Implemented email notifications to user upon registration acceptance/rejection." />
     <MESSAGE value="Changed name of PendingUser.java" />
@@ -912,25 +714,19 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="Fixed bug where the tutor inbox cards disappear when the accept/reject buttons are clicked" />
     <MESSAGE value="Tutor can't delete slots with booked sessions" />
-    <MESSAGE value="Added search view in the sessions_list.xml" />
-    <MESSAGE value="Student can now search by course code and view available slots for tutoring sessions" />
-    <MESSAGE value="Slightly changed the UI in the student inbox" />
-    <MESSAGE value="Added an about page so that we present all courses (with specific course codes) available for tutoring, as we previously only had subjects" />
-    <MESSAGE value="Added the new course codes for which tutors can offer tutoring lessons" />
-    <MESSAGE value="Changed a logic error from the previous commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed a logic error from the previous commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tutor can't delete slots with booked sessions" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="com.example.logintest.domain">
           <value>
-            <CheckInfo lastCheckTimestamp="1764023855502" />
+            <CheckInfo lastCheckTimestamp="1763413472255" />
           </value>
         </entry>
         <entry key="com.example.logintest.domain.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1764023855502" />
+            <CheckInfo lastCheckTimestamp="1763413472254" />
           </value>
         </entry>
       </map>

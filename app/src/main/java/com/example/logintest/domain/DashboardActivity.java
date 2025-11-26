@@ -74,6 +74,11 @@ public class DashboardActivity extends AppCompatActivity {
                 }
             });
         } else { //is tutor
+            FirebaseUser fbUser =mAuth.getCurrentUser();
+            if (fbUser == null) {
+                return;
+            }
+            String tutorID = fbUser.getUid();
             // go to sessions list button
             toSessions = findViewById(R.id.viewSessionsBtn);
             toSessions.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +87,7 @@ public class DashboardActivity extends AppCompatActivity {
                     Intent intent = new Intent(DashboardActivity.this, AvailableSessionListActivity.class);
                     intent.putExtra("USER_ROLE", role);
                     //intent.putExtra("CURR_STUDENT", studentUser); // pass the student object
+                    intent.putExtra("TUTOR_ID", tutorID);
                     startActivity(intent);
                 }
             });

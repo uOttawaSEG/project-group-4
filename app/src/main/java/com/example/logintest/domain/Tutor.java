@@ -5,6 +5,8 @@ import java.util.List;
 public class Tutor extends User  {
     private String highestDegree;
     private List<String> coursesOffered;
+    private double rating = 0.0; // Added field
+    private int numberOfRatings = 0; // Added field
 
     //empty constructor
     public Tutor() {
@@ -38,4 +40,20 @@ public class Tutor extends User  {
         return "Tutor";
     }
 
+    // Added Getters and Setters
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
+    public int getNumberOfRatings() {
+        return numberOfRatings;
+    }
+
+    public void setNumberOfRatings(int numberOfRatings) {
+        this.numberOfRatings = numberOfRatings;
+    }
 }

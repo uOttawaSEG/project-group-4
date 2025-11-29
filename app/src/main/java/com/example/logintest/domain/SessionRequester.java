@@ -13,6 +13,8 @@ public class SessionRequester {
     private String sessionId;
     private String tutorName;
     private String tutorId;
+    private String tutorEmail; // Added field
+    private boolean rated = false; // Added field
 
     public SessionRequester() {
     }
@@ -29,6 +31,7 @@ public class SessionRequester {
         this.sessionId = session.getSessionId();
         this.tutorName = session.getTutorName();
         this.tutorId = session.getTutorId();
+        this.tutorEmail = session.getTutorEmail(); // Added this line
     }
 
 
@@ -82,5 +85,22 @@ public class SessionRequester {
     }
     public void setTutorId(String tutorId) {
         this.tutorId = tutorId;
+    }
+
+    // Added Getters and Setters
+    public String getTutorEmail() {
+        return tutorEmail;
+    }
+
+    public void setTutorEmail(String tutorEmail) {
+        this.tutorEmail = tutorEmail;
+    }
+
+    public boolean isRated() {
+        return rated;
+    }
+
+    public void setRated(boolean rated) {
+        this.rated = rated;
     }
 }

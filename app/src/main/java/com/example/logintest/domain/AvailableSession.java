@@ -5,6 +5,7 @@ public class AvailableSession {
     private String tutorId;
     private String tutorName;
     private String tutorCourses;
+    private String tutorEmail;
     private String date;
     private String timeSlot;
     private String sessionId;
@@ -17,6 +18,7 @@ public class AvailableSession {
         this.tutorId=tutorId;
         this.tutorName = tutor.getFirstName() +" "+ tutor.getLastName();
         this.tutorCourses = tutor.getCoursesOffered().toString();
+        this.tutorEmail = tutor.getEmail();
         this.date = date;
         this.timeSlot = timeSlot;
         this.isAvailable = true;
@@ -65,4 +67,12 @@ public class AvailableSession {
         this.tutorId = tutorId;
     }
 
+    // tutorEmail getter and setter
+    public String getTutorEmail() {
+        return tutorEmail;
+    }
+
+    public void setTutorEmail(String tutorEmail) {
+        this.tutorEmail = tutorEmail;
+    }
 }

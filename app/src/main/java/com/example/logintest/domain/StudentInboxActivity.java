@@ -2,6 +2,7 @@ package com.example.logintest.domain;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -22,8 +23,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -34,7 +37,7 @@ public class StudentInboxActivity extends AppCompatActivity {
     private TabLayout sessionTab;
     private List<SessionRequester> upcomingSessions = new ArrayList<>();
     private List<SessionRequester> notAcceptedSessions = new ArrayList<>();
-    private List<SessionRequester> completedSessions = new ArrayList<>(); // New list for past sessions
+    private List<SessionRequester> completedSessions = new ArrayList<>();
     private Button inboxToDashButton;
     private DatabaseReference sessionsFirebaseReference;
     private Student dashStudent;
@@ -56,7 +59,6 @@ public class StudentInboxActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // updated layout of student inbox
         sessionCardLayout = findViewById(R.id.studentCardLayout);
         sessionTab = findViewById(R.id.tabLayout);
         sessionsFirebaseReference = FirebaseDatabase.getInstance().getReference("sessionRequests");
@@ -74,9 +76,7 @@ public class StudentInboxActivity extends AppCompatActivity {
                     if (session != null) {
                         if (session.getSessionStatus().equalsIgnoreCase("accepted")) {
                             long sessionMillis = convertTime(session.getSessionDate(), session.getSessionTime().split("-")[0].trim());
-                            long currentTime = System.currentTimeMillis();
-
-                            if (sessionMillis > currentTime) {
+                            if (sessionMillis > System.currentTimeMillis()) {
                                 upcomingSessions.add(session);
                             } else {
                                 completedSessions.add(session);
@@ -101,13 +101,9 @@ public class StudentInboxActivity extends AppCompatActivity {
                 displaySessions();
             }
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabUnselected(TabLayout.Tab tab) {}
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabReselected(TabLayout.Tab tab) {}
         });
     }
 
@@ -121,7 +117,7 @@ public class StudentInboxActivity extends AppCompatActivity {
             displayList = upcomingSessions;
         } else if (selectedTabNum == 1) {
             displayList = notAcceptedSessions;
-        } else { // completed tab new version
+        } else {
             displayList = completedSessions;
         }
 
@@ -138,7 +134,8 @@ public class StudentInboxActivity extends AppCompatActivity {
         TextView sessionDate = cardView.findViewById(R.id.studentInboxTime);
         TextView sessionTime = cardView.findViewById(R.id.studentInboxDate);
         TextView sessionStatus = cardView.findViewById(R.id.sessionStatus);
-        Button actionButton = cardView.findViewById(R.id.studentCancelBtn);
+        Button cancelBtn = cardView.findViewById(R.id.studentCancelBtn);
+        Button calendarBtn = cardView.findViewById(R.id.addToCalendarBtn);
 
         tutorName.setText("Tutor Name: " + sessionCard.getTutorName());
         sessionDate.setText("Date: " + sessionCard.getSessionDate());
@@ -147,37 +144,56 @@ public class StudentInboxActivity extends AppCompatActivity {
 
         long sessionMillis = convertTime(sessionCard.getSessionDate(), sessionCard.getSessionTime().split("-")[0].trim());
         boolean isCompleted = sessionCard.getSessionStatus().equalsIgnoreCase("accepted") && sessionMillis <= System.currentTimeMillis();
+        boolean isUpcoming = sessionCard.getSessionStatus().equalsIgnoreCase("accepted") && sessionMillis > System.currentTimeMillis();
 
-        if(isCompleted) {
-            actionButton.setText("Rate");
-            if(sessionCard.isRated()) {
-                actionButton.setText("Rated");
-                actionButton.setEnabled(false);
+        if (isCompleted) {
+            cancelBtn.setText("Rate");
+            if (sessionCard.isRated()) {
+                cancelBtn.setText("Rated");
+                cancelBtn.setEnabled(false);
             } else {
-                actionButton.setOnClickListener(v -> showRatingDialog(sessionCard));
+                cancelBtn.setOnClickListener(v -> showRatingDialog(sessionCard));
             }
-        } else {
-            actionButton.setText("Cancel");
+        } else if (isUpcoming) {
+            calendarBtn.setVisibility(View.VISIBLE);
+            calendarBtn.setOnClickListener(v -> addEventToCalendar(sessionCard));
+            long hrCount = (sessionMillis - System.currentTimeMillis()) / (1000 * 60 * 60);
+            if (hrCount < 24) {
+                cancelBtn.setEnabled(false);
+                cancelBtn.setAlpha(0.4f);
+            }
+            cancelBtn.setOnClickListener(v -> {
+                sessionsFirebaseReference.child(sessionCard.getSessionId()).child("sessionStatus").setValue("cancelled");
+                Toast.makeText(StudentInboxActivity.this, "Session cancelled", Toast.LENGTH_SHORT).show();
+            });
+        } else { // Not accepted yet
             if(sessionCard.getSessionStatus().equals("rejected") || sessionCard.getSessionStatus().equals("cancelled")) {
-                actionButton.setVisibility(View.GONE);
+                cancelBtn.setVisibility(View.GONE);
             }
-            if(sessionCard.getSessionStatus().equals("accepted")) {
-                long hrCount = (sessionMillis - System.currentTimeMillis()) / (1000 * 60 * 60);
-                if(hrCount < 24) {
-                    actionButton.setEnabled(false);
-                    actionButton.setAlpha(0.4f);
-                    actionButton.setText("Cannot cancel 24hrs before session");
-                }
-            }
-            actionButton.setOnClickListener(v -> {
+            cancelBtn.setOnClickListener(v -> {
                 sessionsFirebaseReference.child(sessionCard.getSessionId()).child("sessionStatus").setValue("cancelled");
                 Toast.makeText(StudentInboxActivity.this, "Session cancelled", Toast.LENGTH_SHORT).show();
             });
         }
+
         return cardView;
     }
 
-    // Student rating bar data for tutors
+    private void addEventToCalendar(SessionRequester session) {
+        String[] timeParts = session.getSessionTime().split("-");
+        long beginTimeMillis = convertTime(session.getSessionDate(), timeParts[0].trim());
+        long endTimeMillis = convertTime(session.getSessionDate(), timeParts[1].trim());
+
+        Intent intent = new Intent(Intent.ACTION_INSERT)
+                .setData(CalendarContract.Events.CONTENT_URI)
+                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTimeMillis)
+                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTimeMillis)
+                .putExtra(CalendarContract.Events.TITLE, "Tutoring Session with " + session.getTutorName())
+                .putExtra(CalendarContract.Events.DESCRIPTION, "Tutoring session for course: [Course Name]"); // Consider adding course if available
+
+        startActivity(intent);
+    }
+
     private void showRatingDialog(final SessionRequester session) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
@@ -191,7 +207,7 @@ public class StudentInboxActivity extends AppCompatActivity {
             if (rating > 0) {
                 updateTutorRating(session, rating);
             } else {
-                Toast.makeText(StudentInboxActivity.this, "Please rate this tutor.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(StudentInboxActivity.this, "Please select a rating", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
@@ -204,13 +220,12 @@ public class StudentInboxActivity extends AppCompatActivity {
         tutorRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()) {
+                if (dataSnapshot.exists()) {
                     Tutor tutor = dataSnapshot.getValue(Tutor.class);
-                    if(tutor != null) {
-                        // show the tutor's ratings both to the tutor on their inbox card and when a student is searching it up
+                    if (tutor != null) {
                         double currentRating = tutor.getRating();
                         int numberOfRatings = tutor.getNumberOfRatings();
-                        double newAverageRating = ((currentRating * numberOfRatings) + newRating) / (numberOfRatings + 1); // calc avg rating for the tutor
+                        double newAverageRating = ((currentRating * numberOfRatings) + newRating) / (numberOfRatings + 1);
 
                         dataSnapshot.getRef().child("rating").setValue(newAverageRating);
                         dataSnapshot.getRef().child("numberOfRatings").setValue(numberOfRatings + 1);
@@ -219,13 +234,13 @@ public class StudentInboxActivity extends AppCompatActivity {
                         Toast.makeText(StudentInboxActivity.this, "Tutor rated successfully!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(StudentInboxActivity.this, "Could not find tutor to rate!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StudentInboxActivity.this, "Could not find tutor to rate.", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(StudentInboxActivity.this, "Unable to update rating.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(StudentInboxActivity.this, "Failed to update rating.", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -235,7 +250,7 @@ public class StudentInboxActivity extends AppCompatActivity {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
             Date dateObj = format.parse(date + " " + time.trim());
             return dateObj.getTime();
-        } catch (Exception e) {
+        } catch (ParseException e) {
             e.printStackTrace();
             return 0;
         }

@@ -101,20 +101,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Sessions from tutor dashboard are now filtered so that only tutor can see the sessions they created">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_rating.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2025-11-21_8_24_p_m__[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2025-11-21_8_24_p_m___Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Added add to calendar button to the UI to add to the calendar using ICS link">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/SessionRequester.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/SessionRequester.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInboxActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInboxActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/Tutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/Tutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/available_session.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/available_session.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox_card.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox_card.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -691,7 +681,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764117867353</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Student can rate a tutor and see the tutor's average rating. The tutor can also see their own rating as well.">
+      <option name="closed" value="true" />
+      <created>1764429955714</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1764429955714</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -706,7 +704,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="In DashboardActivity.java, I changed one of the parameters of the Intent created in the onClick method because when we would click on log out, it would lead to the homepage instead of the logout screen" />
     <MESSAGE value="Changed the layout in dashboard.xml, because it would change when Running the app" />
     <MESSAGE value="Updated APK file" />
     <MESSAGE value="Added new password instance variable to users, modified Student and Tutor Activities for pending requests" />
@@ -731,19 +728,20 @@
     <MESSAGE value="Fixed bug where the tutor inbox cards disappear when the accept/reject buttons are clicked" />
     <MESSAGE value="Tutor can't delete slots with booked sessions" />
     <MESSAGE value="Sessions from tutor dashboard are now filtered so that only tutor can see the sessions they created" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sessions from tutor dashboard are now filtered so that only tutor can see the sessions they created" />
+    <MESSAGE value="Student can rate a tutor and see the tutor's average rating. The tutor can also see their own rating as well." />
+    <option name="LAST_COMMIT_MESSAGE" value="Student can rate a tutor and see the tutor's average rating. The tutor can also see their own rating as well." />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="com.example.logintest.domain">
           <value>
-            <CheckInfo lastCheckTimestamp="1763413472255" />
+            <CheckInfo lastCheckTimestamp="1764429957716" />
           </value>
         </entry>
         <entry key="com.example.logintest.domain.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1763413472254" />
+            <CheckInfo lastCheckTimestamp="1764429957715" />
           </value>
         </entry>
       </map>

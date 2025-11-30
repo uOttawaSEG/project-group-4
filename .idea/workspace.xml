@@ -206,13 +206,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Linked the Calendar and Select Time Slots pages to the fancy layout">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Linked the Admin login and Admin inbox pages to the fancy layout. Updated the about us UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminInboxActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AdminInboxActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/about_us_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/about_us_fancy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/adminlogin_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adminlogin_fancy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/course_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/course_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/DashboardActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/DashboardActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_fancy.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -404,14 +401,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759093028352</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Updated landing page.">
-      <option name="closed" value="true" />
-      <created>1759256306177</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1759256306177</updated>
     </task>
     <task id="LOCAL-00006" summary="Updated landing page.">
       <option name="closed" value="true" />
@@ -797,7 +786,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764516541764</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Linked the Admin login and Admin inbox pages to the fancy layout. Updated the about us UI">
+      <option name="closed" value="true" />
+      <created>1764518522741</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1764518522741</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -812,7 +809,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added new xml's to support the Admin inbox xml" />
     <MESSAGE value="Implemented email notifications to user upon registration acceptance/rejection." />
     <MESSAGE value="Changed name of PendingUser.java" />
     <MESSAGE value="Solved errors associated PendingUser and AdminActivity" />
@@ -837,7 +833,8 @@
     <MESSAGE value="Updated UI to fit in the frame and removed scrollable feature." />
     <MESSAGE value="Linked the about page to the fancy layout" />
     <MESSAGE value="Linked the Calendar and Select Time Slots pages to the fancy layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Linked the Calendar and Select Time Slots pages to the fancy layout" />
+    <MESSAGE value="Linked the Admin login and Admin inbox pages to the fancy layout. Updated the about us UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Linked the Admin login and Admin inbox pages to the fancy layout. Updated the about us UI" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

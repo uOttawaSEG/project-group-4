@@ -32,7 +32,7 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard);
+        setContentView(R.layout.dashboard_fancy);
 
         mAuth = FirebaseAuth.getInstance();
         databaseRef = com.google.firebase.database.FirebaseDatabase.getInstance().getReference();

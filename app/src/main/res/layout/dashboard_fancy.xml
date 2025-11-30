@@ -41,6 +41,7 @@
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:backgroundTint="#FF5C7A"
+        android:onClick="goToLogOut"
         android:fontFamily="sans-serif-medium"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

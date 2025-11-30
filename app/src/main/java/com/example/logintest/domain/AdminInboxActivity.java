@@ -79,7 +79,7 @@ public class AdminInboxActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.admin_inbox);
+        setContentView(R.layout.admininbox_fancy);
 
         // setting up inboxToDashBtn so Admin can go back to login page
         indexToDashButton = findViewById(R.id.inboxToDashBtn);
@@ -159,7 +159,7 @@ public class AdminInboxActivity extends AppCompatActivity {
 
     // create card that shows pending requests (not yet approved or rejected)
     private View createPendingRequestCard(final PendingUser request) {
-        View cardView = LayoutInflater.from(this).inflate(R.layout.pending_inbox, containerLayout, false);
+        View cardView = LayoutInflater.from(this).inflate(R.layout.pending_inbox_fancy, containerLayout, false);
 
         TextView pendingName = cardView.findViewById(R.id.sessionTutorName);
         TextView pendingEmail = cardView.findViewById(R.id.sessionDate);
@@ -193,7 +193,7 @@ public class AdminInboxActivity extends AppCompatActivity {
 
     //create card that displays rejected request
     private View createRejectedRequestCard(final PendingUser request) {
-        View cardView = LayoutInflater.from(this).inflate(R.layout.rejected_inbox, containerLayout, false);
+        View cardView = LayoutInflater.from(this).inflate(R.layout.rejected_inbox_fancy, containerLayout, false);
         TextView rejectedName = cardView.findViewById(R.id.rejectedName);
         TextView rejectedEmail = cardView.findViewById(R.id.rejectedEmail);
         TextView rejectedRole= cardView.findViewById(R.id.rejectedRole);

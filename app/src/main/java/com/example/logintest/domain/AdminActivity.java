@@ -18,7 +18,7 @@ public class AdminActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.adminlogin);
+        setContentView(R.layout.adminlogin_fancy);
 
         adminKeyEditText = findViewById(R.id.adminKey);
         adminLoginButton = findViewById(R.id.adminLoginButton);

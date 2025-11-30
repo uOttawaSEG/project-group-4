@@ -26,15 +26,15 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-medium"
         android:text="Our Mission"
+        android:textColor="#FFFFFF"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/aboutLogo"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/aboutLogo" />
 
     <TextView
         android:id="@+id/textView17"
@@ -53,14 +53,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Offered Subjects for Tutoring"
-        android:textSize="18sp"
-        android:textStyle="bold"
         android:fontFamily="sans-serif-medium"
+        android:text="Offered Subjects for Tutoring"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/textView17"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/textView17" />
 
     <TextView
         android:id="@+id/textView19"
@@ -79,14 +79,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="More Offered Courses"
-        android:textSize="18sp"
-        android:textStyle="bold"
         android:fontFamily="sans-serif-medium"
+        android:text="More Offered Courses"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/textView19"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/textView19" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -94,6 +94,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
+        android:background="#151A30"
         app:layout_constraintBottom_toTopOf="@+id/adminHomeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

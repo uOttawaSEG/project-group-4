@@ -48,7 +48,7 @@
 
     <Button
         android:id="@+id/LogOutHomeButton"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         android:onClick="goToHome"
         android:text="Go to Home"

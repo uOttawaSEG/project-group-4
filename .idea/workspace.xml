@@ -211,10 +211,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Linked the Tutor inbox activity to the fancy layout">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Linked the Tutor info activity to the fancy layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInfoActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tutorinfo_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tutorinfo_fancy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/logout_screen_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/logout_screen_fancy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox_card_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox_card_fancy.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -406,14 +406,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759093028352</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Modified logout_screen.xml">
-      <option name="closed" value="true" />
-      <created>1760099822368</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1760099822368</updated>
     </task>
     <task id="LOCAL-00014" summary="Added the errors for tutor highest degree, tutor courses offered, studnt program of study">
       <option name="closed" value="true" />
@@ -799,7 +791,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764527414053</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Linked the Tutor info activity to the fancy layout">
+      <option name="closed" value="true" />
+      <created>1764527926765</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1764527926765</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -814,7 +814,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed bug where it crashed every time you click the Sessions button, also fixed the session list layout" />
     <MESSAGE value="Added Tutor Inbox functionality and connected to firebase &#10;&#10;will implement the toggle button and card sorting later" />
     <MESSAGE value="Card sorting works now. Session cards are removed and added accordingly in the firebase and visually on the xml. &#10;&#10;Last things to do: check overlapping times and the toggle button" />
     <MESSAGE value="Added toast messages for admin once it logs in or out, forgot to commit my changes from last deliverable" />
@@ -839,7 +838,8 @@
     <MESSAGE value="Linked the Student inbox page to the fancy layout, and used the fancy student inbox cards" />
     <MESSAGE value="Linked the Student information page to the fancy layout" />
     <MESSAGE value="Linked the Tutor inbox activity to the fancy layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Linked the Tutor inbox activity to the fancy layout" />
+    <MESSAGE value="Linked the Tutor info activity to the fancy layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Linked the Tutor info activity to the fancy layout" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

@@ -170,8 +170,11 @@ public class AvailableSessionListActivity extends AppCompatActivity {
                             double averageRating = tutor.getRating();
                             int numberOfRatings = tutor.getNumberOfRatings();
 
-                            if (numberOfRatings > 0) {
+                            if (numberOfRatings>1) {
                                 String ratingText = String.format("Rating: %.1f/5.0 (%d ratings)", averageRating, numberOfRatings);
+                                tutorRating.setText(ratingText);
+                            } else if (numberOfRatings==1){
+                                String ratingText = String.format("Rating: %.1f/5.0 (%d rating)", averageRating, numberOfRatings);
                                 tutorRating.setText(ratingText);
                             } else {
                                 tutorRating.setText("Rating: Not yet rated");

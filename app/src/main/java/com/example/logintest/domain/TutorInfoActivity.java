@@ -39,7 +39,7 @@ public class TutorInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tutorinfo);
+        setContentView(R.layout.tutorinfo_fancy);
 
         // Link variables to the XML fields by their ID
         firstNameInput = findViewById(R.id.tutor_firstname);

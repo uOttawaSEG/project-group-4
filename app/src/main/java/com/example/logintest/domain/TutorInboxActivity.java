@@ -43,7 +43,7 @@ public class TutorInboxActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tutor_inbox);
+        setContentView(R.layout.tutor_inbox_fancy);
 
         tutorId = getIntent().getStringExtra("TUTOR_ID");
         ToggleButton toggle = findViewById(R.id.toggleBtn);
@@ -224,7 +224,7 @@ public class TutorInboxActivity extends AppCompatActivity {
 
 // helper method to create the session cards
     private View  makeSessionCard (SessionRequester studentCard, String status) {
-        View cardView = LayoutInflater.from(this).inflate(R.layout.tutor_view_sessions, sessionCardLayout, false);
+        View cardView = LayoutInflater.from(this).inflate(R.layout.tutor_view_sessions_fancy, sessionCardLayout, false);
 
         TextView studentName = cardView.findViewById(R.id.sessionStudentName);
         TextView studentEmail = cardView.findViewById(R.id.sessionStudentEmail);

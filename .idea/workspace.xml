@@ -211,10 +211,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Linked the Student inbox page to the fancy layout, and used the fancy student inbox cards">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Linked the Student information page to the fancy layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInfoActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/studentinformation_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/studentinformation_fancy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInboxActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/TutorInboxActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/search_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/search_view.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -406,14 +406,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759093028352</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Fixed the mistakes in studentinformation.xml">
-      <option name="closed" value="true" />
-      <created>1760060750981</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1760060750981</updated>
     </task>
     <task id="LOCAL-00012" summary="Fixed warnings in studentinformation.xml">
       <option name="closed" value="true" />
@@ -799,7 +791,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764525907147</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Linked the Student information page to the fancy layout">
+      <option name="closed" value="true" />
+      <created>1764526503832</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1764526503832</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -814,7 +814,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed a few comments in Student and Tutor Activity classes, also I configured the messages according to the user's status in the MainActivity.java class" />
     <MESSAGE value="Added Time Slots, Added Time slot selection and session functionality, created a page that shows tutor sessions (however, it keeps crashing everytime I try to click on the go to sessions button). &#10;&#10;Checklist: &#10;-Tutor can create new availabiltiy slots,&#10;-Tutor cannot select past date or overlapping slot&#10;-Tutor sessions get added to the database&#10;&#10;Bug:&#10;-Tutor and Student can't look at the session list page because it keeps crashing" />
     <MESSAGE value="Fixed bug where it crashed every time you click the Sessions button, also fixed the session list layout" />
     <MESSAGE value="Added Tutor Inbox functionality and connected to firebase &#10;&#10;will implement the toggle button and card sorting later" />
@@ -839,7 +838,8 @@
     <MESSAGE value="Linked the Logout page to the fancy layout" />
     <MESSAGE value="Linked the sessions list page to the fancy layout" />
     <MESSAGE value="Linked the Student inbox page to the fancy layout, and used the fancy student inbox cards" />
-    <option name="LAST_COMMIT_MESSAGE" value="Linked the Student inbox page to the fancy layout, and used the fancy student inbox cards" />
+    <MESSAGE value="Linked the Student information page to the fancy layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Linked the Student information page to the fancy layout" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

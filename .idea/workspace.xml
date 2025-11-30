@@ -10,6 +10,11 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/search_view.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/about_us.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
@@ -206,10 +211,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Linked the Main (login or register) page to the fancy layout">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Linked the Logout page to the fancy layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/LogOutPageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/LogOutPageActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/logout_screen_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/logout_screen_fancy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/search_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/search_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_fancy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/sessions_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/sessions_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/sessions_list_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/sessions_list_fancy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -401,14 +411,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759093028352</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Updated landing page.">
-      <option name="closed" value="true" />
-      <created>1759435700962</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1759435700962</updated>
     </task>
     <task id="LOCAL-00009" summary="Added HomepageActivity.java and LogOutPageActivity.java. Modified some of the xml to have a home button to facilitate navigation">
       <option name="closed" value="true" />
@@ -794,7 +796,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764520869074</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Linked the Logout page to the fancy layout">
+      <option name="closed" value="true" />
+      <created>1764521400053</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1764521400053</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -809,7 +819,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Solved errors associated PendingUser and AdminActivity" />
     <MESSAGE value="Added additional comments to AdminActivity and AdminInboxActivity." />
     <MESSAGE value="Configured registration errors for Tutor and Student but now it includes also the cases where it is denied and pending" />
     <MESSAGE value="Removed a few comments in Student and Tutor Activity classes, also I configured the messages according to the user's status in the MainActivity.java class" />
@@ -834,7 +843,8 @@
     <MESSAGE value="Linked the Admin login and Admin inbox pages to the fancy layout. Updated the about us UI" />
     <MESSAGE value="Linked the Dashboard page to the fancy layout" />
     <MESSAGE value="Linked the Main (login or register) page to the fancy layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Linked the Main (login or register) page to the fancy layout" />
+    <MESSAGE value="Linked the Logout page to the fancy layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Linked the Logout page to the fancy layout" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

@@ -39,7 +39,7 @@ public class AvailableSessionListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sessions_list);
+        setContentView(R.layout.sessions_list_fancy);
 
         role = getIntent().getStringExtra("USER_ROLE");
         student = (Student)getIntent().getSerializableExtra("CURR_STUDENT");

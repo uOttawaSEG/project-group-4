@@ -21,7 +21,7 @@ public class AboutUsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.about_us);
+        setContentView(R.layout.about_us_fancy);
         
         //initializing instances for the scroll view inside the about_us.xml
         coursesContainer = findViewById(R.id.coursesContainer);
@@ -65,8 +65,8 @@ public class AboutUsActivity extends AppCompatActivity {
     }
 
     public void goToHome(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, MainActivity.class);
+        //startActivity(intent);
         finish();
     }
 }

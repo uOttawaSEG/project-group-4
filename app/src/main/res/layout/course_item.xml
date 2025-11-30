@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:padding="5dp"
+    android:background="#101526">
 
     <TextView
         android:id="@+id/courseNameTextView"
@@ -11,7 +12,8 @@
         android:layout_height="wrap_content"
         android:text="Course Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:id="@+id/courseDescriptionTextView"
@@ -19,7 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Course Description"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:id="@+id/courseDescriptionTextView2"

@@ -20,6 +20,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/logo" />
 
+    <Button
+        android:id="@+id/aboutPageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        android:onClick="goToAboutUs"
+        android:text="About us"
+        android:backgroundTint="#FF5C7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -52,6 +64,7 @@
         android:text="Username (email)"
         android:textColor="#E0E4FF"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintTop_toBottomOf="@+id/login_header"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -66,6 +79,8 @@
         android:padding="10dp"
         android:inputType="textEmailAddress"
         android:layout_marginTop="6dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@+id/username_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -77,6 +92,7 @@
         android:text="Password"
         android:textColor="#E0E4FF"
         android:layout_marginTop="12dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintTop_toBottomOf="@+id/user_name"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -91,6 +107,8 @@
         android:padding="10dp"
         android:inputType="textPassword"
         android:layout_marginTop="6dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@+id/password_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -106,6 +124,8 @@
         android:foreground="?attr/selectableItemBackground"
         android:layout_marginTop="16dp"
         android:onClick="goToDashboard"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@+id/user_password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -117,6 +137,7 @@
         android:text="or register an account"
         android:textColor="#AAAAAA"
         android:layout_marginTop="14dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintTop_toBottomOf="@+id/loginButton"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -131,6 +152,8 @@
         android:foreground="?attr/selectableItemBackground"
         android:onClick="goToStudentRegistration"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@+id/register_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -142,10 +165,12 @@
         android:text="Tutor Register"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#FFB74D"
+        android:backgroundTint="#3D7AFD"
         android:foreground="?attr/selectableItemBackground"
         android:onClick="goToTutorRegistration"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@+id/student_register_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -157,10 +182,12 @@
         android:text="Admin Login"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#FF5C7A"
+        android:backgroundTint="#3D7AFD"
         android:foreground="?attr/selectableItemBackground"
         android:onClick="goToAdminLogin"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@+id/tutor_register_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

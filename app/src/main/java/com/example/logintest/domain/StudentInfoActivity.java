@@ -33,7 +33,7 @@ public class StudentInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.studentinformation);
+        setContentView(R.layout.studentinformation_fancy);
 
         // Link variables to the XML fields by their ID
         firstNameInput = findViewById(R.id.student_name);

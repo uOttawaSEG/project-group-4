@@ -69,7 +69,7 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:backgroundTint="#3D7AFD"
+                android:backgroundTint="#FFB74D"
                 android:text="Add to Calendar"
                 android:textColor="#FFFFFF"
                 android:textAllCaps="false"

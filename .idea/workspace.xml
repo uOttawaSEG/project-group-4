@@ -211,9 +211,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Updated some details in the UI for some layouts">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" afterDir="false" />
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Fixed a logic mistake in the way the ratings are displayed">
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox_card_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox_card_fancy.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -405,14 +404,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759093028352</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Added admin key and admin login features.">
-      <option name="closed" value="true" />
-      <created>1760287396244</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1760287396244</updated>
     </task>
     <task id="LOCAL-00016" summary="Updated documentation for Adminactivity.java">
       <option name="closed" value="true" />
@@ -798,7 +789,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764528665230</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Fixed a logic mistake in the way the ratings are displayed">
+      <option name="closed" value="true" />
+      <created>1764530262902</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1764530262902</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -813,7 +812,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Card sorting works now. Session cards are removed and added accordingly in the firebase and visually on the xml. &#10;&#10;Last things to do: check overlapping times and the toggle button" />
     <MESSAGE value="Added toast messages for admin once it logs in or out, forgot to commit my changes from last deliverable" />
     <MESSAGE value="Added edge constraints to the buttons in activity_calendar_view.xml" />
     <MESSAGE value="Tutor can now approve (will move to upcoming tab), cancel (will move to rejected tab) or reject (will move to rejected tab) sessions which will be reflected in tutor_inbox.xml" />
@@ -838,7 +836,8 @@
     <MESSAGE value="Linked the Tutor inbox activity to the fancy layout" />
     <MESSAGE value="Linked the Tutor info activity to the fancy layout" />
     <MESSAGE value="Updated some details in the UI for some layouts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated some details in the UI for some layouts" />
+    <MESSAGE value="Fixed a logic mistake in the way the ratings are displayed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a logic mistake in the way the ratings are displayed" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

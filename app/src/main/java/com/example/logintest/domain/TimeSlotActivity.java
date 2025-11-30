@@ -47,7 +47,7 @@ public class TimeSlotActivity extends AppCompatActivity {
 
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_time_slot);
+        setContentView(R.layout.activity_time_slot_fancy);
 
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -101,8 +101,8 @@ public class TimeSlotActivity extends AppCompatActivity {
             times.add(t + ":30"); //andhr:30 minutes
         }
 
-        // spinenrs need these adapters
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, times);
+        // spinners need these adapters
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, times); //No longer using the default android.R.layout.simple_spinner_item
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         startTimeSpinner.setAdapter(adapter);
         endTimeSpinner.setAdapter(adapter);

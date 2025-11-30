@@ -21,7 +21,7 @@ public class CalendarViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_calendar_view);
+        setContentView(R.layout.activity_calendar_viewfancy);
 
         calendarView =findViewById(R.id.calendarView);
         dateSelected = calendarView.getDate(); //initial date will just be the day the user is on the app

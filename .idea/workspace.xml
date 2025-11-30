@@ -211,15 +211,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Linked the Logout page to the fancy layout">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Linked the sessions list page to the fancy layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/search_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/search_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_fancy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/sessions_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/sessions_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/sessions_list_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/sessions_list_fancy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInboxActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInboxActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox_card_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox_card_fancy.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -411,14 +406,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759093028352</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added HomepageActivity.java and LogOutPageActivity.java. Modified some of the xml to have a home button to facilitate navigation">
-      <option name="closed" value="true" />
-      <created>1760058928496</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1760058928496</updated>
     </task>
     <task id="LOCAL-00010" summary="Added Edge Constraints in the studentinformation.xml">
       <option name="closed" value="true" />
@@ -804,7 +791,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764521400053</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Linked the sessions list page to the fancy layout">
+      <option name="closed" value="true" />
+      <created>1764525218890</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1764525218890</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -819,7 +814,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added additional comments to AdminActivity and AdminInboxActivity." />
     <MESSAGE value="Configured registration errors for Tutor and Student but now it includes also the cases where it is denied and pending" />
     <MESSAGE value="Removed a few comments in Student and Tutor Activity classes, also I configured the messages according to the user's status in the MainActivity.java class" />
     <MESSAGE value="Added Time Slots, Added Time slot selection and session functionality, created a page that shows tutor sessions (however, it keeps crashing everytime I try to click on the go to sessions button). &#10;&#10;Checklist: &#10;-Tutor can create new availabiltiy slots,&#10;-Tutor cannot select past date or overlapping slot&#10;-Tutor sessions get added to the database&#10;&#10;Bug:&#10;-Tutor and Student can't look at the session list page because it keeps crashing" />
@@ -844,7 +838,8 @@
     <MESSAGE value="Linked the Dashboard page to the fancy layout" />
     <MESSAGE value="Linked the Main (login or register) page to the fancy layout" />
     <MESSAGE value="Linked the Logout page to the fancy layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Linked the Logout page to the fancy layout" />
+    <MESSAGE value="Linked the sessions list page to the fancy layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Linked the sessions list page to the fancy layout" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

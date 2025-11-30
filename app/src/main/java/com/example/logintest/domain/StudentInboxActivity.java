@@ -46,7 +46,7 @@ public class StudentInboxActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.student_inbox);
+        setContentView(R.layout.student_inbox_fancy);
 
         dashStudent = (Student)getIntent().getSerializableExtra("CURR_STUDENT");
         dashStudentEmail = dashStudent.getEmail();
@@ -128,7 +128,7 @@ public class StudentInboxActivity extends AppCompatActivity {
     }
 
     private View makeSessionCard(SessionRequester sessionCard) {
-        View cardView = LayoutInflater.from(this).inflate(R.layout.student_inbox_card, sessionCardLayout, false);
+        View cardView = LayoutInflater.from(this).inflate(R.layout.student_inbox_card_fancy, sessionCardLayout, false);
 
         TextView tutorName = cardView.findViewById(R.id.sessionTutorName);
         TextView sessionDate = cardView.findViewById(R.id.studentInboxTime);

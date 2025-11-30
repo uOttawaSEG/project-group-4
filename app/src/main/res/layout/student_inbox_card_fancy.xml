@@ -57,7 +57,7 @@
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
-                android:backgroundTint="#D32F2F"
+                android:backgroundTint="#3D7AFD"
                 android:text="Cancel"
                 android:textColor="#FFFFFF"
                 android:textAllCaps="false"

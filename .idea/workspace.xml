@@ -10,7 +10,22 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/about_us.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/about_us_fancy.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_calendar_view.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_calendar_viewfancy.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -20,7 +35,17 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_time_slot_fancy.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/admin_inbox.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/admininbox_fancy.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -35,7 +60,22 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/course_item.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dashboard.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dashboard_fancy.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_rating.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -45,7 +85,17 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/loginorregister_fancy.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/logout_screen.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/logout_screen_fancy.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -55,12 +105,27 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/pending_inbox_fancy.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/rejected_inbox.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/rejected_inbox_fancy.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/sessions_list.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/sessions_list_fancy.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -75,7 +140,17 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/student_inbox_fancy.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/studentinformation.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/studentinformation_fancy.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -85,12 +160,27 @@
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/tutor_inbox_fancy.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/tutor_view_sessions.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/tutor_view_sessions_fancy.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/tutorinfo.xml">
+        <config>
+          <theme>@style/Theme.LoginTest</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/tutorinfo_fancy.xml">
         <config>
           <theme>@style/Theme.LoginTest</theme>
         </config>
@@ -101,10 +191,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Added add to calendar button to the UI to add to the calendar using ICS link">
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Added add to calendar button to the UI to add to the calendar using ICS link. Should open Google Calendar directly with the option to login and then add to Calendar.">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/about_us_fancy.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInboxActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/StudentInboxActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox_card.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/student_inbox_card.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_time_slot_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_time_slot_fancy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/admininbox_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admininbox_fancy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/available_session.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/available_session.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_fancy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/loginorregister_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/loginorregister_fancy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/studentinformation_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/studentinformation_fancy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tutorinfo_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tutorinfo_fancy.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,8 +257,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -296,14 +392,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759093028352</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Added Firebase database.">
-      <option name="closed" value="true" />
-      <created>1759093832531</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1759093832531</updated>
     </task>
     <task id="LOCAL-00002" summary="Added Firebase database.">
       <option name="closed" value="true" />
@@ -689,7 +777,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764429955714</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Added add to calendar button to the UI to add to the calendar using ICS link. Should open Google Calendar directly with the option to login and then add to Calendar.">
+      <option name="closed" value="true" />
+      <created>1764431322253</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1764431322253</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -704,7 +800,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed the layout in dashboard.xml, because it would change when Running the app" />
     <MESSAGE value="Updated APK file" />
     <MESSAGE value="Added new password instance variable to users, modified Student and Tutor Activities for pending requests" />
     <MESSAGE value="Added a RecyclerView in inbox_layout.xml" />
@@ -729,7 +824,8 @@
     <MESSAGE value="Tutor can't delete slots with booked sessions" />
     <MESSAGE value="Sessions from tutor dashboard are now filtered so that only tutor can see the sessions they created" />
     <MESSAGE value="Student can rate a tutor and see the tutor's average rating. The tutor can also see their own rating as well." />
-    <option name="LAST_COMMIT_MESSAGE" value="Student can rate a tutor and see the tutor's average rating. The tutor can also see their own rating as well." />
+    <MESSAGE value="Added add to calendar button to the UI to add to the calendar using ICS link. Should open Google Calendar directly with the option to login and then add to Calendar." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added add to calendar button to the UI to add to the calendar using ICS link. Should open Google Calendar directly with the option to login and then add to Calendar." />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

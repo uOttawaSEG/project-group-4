@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    android:backgroundTint="#1A2338"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/sessionTutorName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tutor Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/sessionStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Session Status"
+            android:textColor="#E0E4FF" />
+
+        <TextView
+            android:id="@+id/studentInboxTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Session Time"
+            android:textColor="#E0E4FF" />
+
+        <TextView
+            android:id="@+id/studentInboxDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Session Date"
+            android:textColor="#E0E4FF" />
+
+        <LinearLayout
+            android:id="@+id/actionButtonsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/studentCancelBtn"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:backgroundTint="#D32F2F"
+                android:text="Cancel"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                android:fontFamily="sans-serif-medium" />
+
+            <Button
+                android:id="@+id/addToCalendarBtn"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="#3D7AFD"
+                android:text="Add to Calendar"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                android:fontFamily="sans-serif-medium"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

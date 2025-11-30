@@ -4,166 +4,139 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
+    android:padding="24dp"
     android:background="#101526">
 
     <ImageView
-        android:id="@+id/tutorRegisterLogo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="8dp"
-        android:scaleType="fitCenter"
+        android:id="@+id/dashboardLogo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="16dp"
         android:alpha="0.95"
+        android:scaleType="fitCenter"
         app:srcCompat="@drawable/logo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/textView9"
-        android:layout_width="0dp"
+        android:id="@+id/dashboardTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Please Enter Your Tutor Information"
-        android:textAlignment="center"
-        android:textSize="18sp"
+        android:text="@string/dashboard_title"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:fontFamily="sans-serif-medium"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@+id/tutorRegisterLogo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <EditText
-        android:id="@+id/tutor_firstname"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
         android:layout_marginTop="12dp"
-        android:hint="First Name"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#AAAAAA"
-        android:backgroundTint="#3D7AFD"
-        android:padding="10dp"
-        app:layout_constraintTop_toBottomOf="@id/textView9"
+        app:layout_constraintTop_toBottomOf="@id/dashboardLogo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <EditText
-        android:id="@+id/tutor_lastname"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="8dp"
-        android:hint="Last Name"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#AAAAAA"
-        android:backgroundTint="#3D7AFD"
-        android:padding="10dp"
-        app:layout_constraintTop_toBottomOf="@id/tutor_firstname"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <EditText
-        android:id="@+id/tutor_email"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="8dp"
-        android:hint="Email Address"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#AAAAAA"
-        android:backgroundTint="#3D7AFD"
-        android:padding="10dp"
-        android:inputType="textEmailAddress"
-        app:layout_constraintTop_toBottomOf="@id/tutor_lastname"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <EditText
-        android:id="@+id/tutor_password"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="8dp"
-        android:hint="Password"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#AAAAAA"
-        android:backgroundTint="#3D7AFD"
-        android:padding="10dp"
-        android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@id/tutor_email"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <EditText
-        android:id="@+id/tutor_phone"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="8dp"
-        android:hint="Phone Number"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#AAAAAA"
-        android:backgroundTint="#3D7AFD"
-        android:padding="10dp"
-        android:inputType="phone"
-        app:layout_constraintTop_toBottomOf="@id/tutor_password"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <EditText
-        android:id="@+id/tutor_degree"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="8dp"
-        android:hint="Highest Degree"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#AAAAAA"
-        android:backgroundTint="#3D7AFD"
-        android:padding="10dp"
-        app:layout_constraintTop_toBottomOf="@id/tutor_phone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <EditText
-        android:id="@+id/tutor_courses"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="8dp"
-        android:hint="Courses Offered"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#AAAAAA"
-        android:backgroundTint="#3D7AFD"
-        android:padding="10dp"
-        app:layout_constraintTop_toBottomOf="@id/tutor_degree"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/submit_tutor_btn"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="18dp"
-        android:text="Submit"
+        android:id="@+id/LogOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="@string/logout_button_text"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:fontFamily="sans-serif-medium"
-        android:backgroundTint="#4CAF50"
-        android:foreground="?attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@id/tutor_courses"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <Button
-        android:id="@+id/TutorHomeButton"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="10dp"
-        android:onClick="goToHome"
-        android:text="Go to Home"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:fontFamily="sans-serif-medium"
         android:backgroundTint="#FF5C7A"
-        android:foreground="?attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@id/submit_tutor_btn"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome! Your role is:"
+        android:textSize="16sp"
+        android:textColor="#E0E4FF"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/dashboardTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/user_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="role"
+        android:textStyle="bold|italic"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@id/welcomeText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/inboxButton"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="View Inbox"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#3D7AFD"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/user_role"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="28dp" />
+
+    <Button
+        android:id="@+id/viewSessionsBtn"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="View Sessions"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#4CAF50"
+        app:layout_constraintTop_toBottomOf="@id/inboxButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/viewCalendarButton"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="View Calendar"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFB74D"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/viewSessionsBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/viewInbox"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="View Inbox"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#3D7AFD"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/viewCalendarButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/viewStudentInbox"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="View Inbox"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#3D7AFD"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/viewCalendarButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

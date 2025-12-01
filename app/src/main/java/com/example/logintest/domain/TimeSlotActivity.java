@@ -23,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -113,29 +114,31 @@ public class TimeSlotActivity extends AppCompatActivity {
     private void validateTimeSlot() {
         String start = (String) startTimeSpinner.getSelectedItem();
         String end = (String) endTimeSpinner.getSelectedItem();
-        String interval = start + "-" + end;
+
+        // set date automatically so that they can't book a session before current date and time
+        long selectedDateMillis = getIntent().getLongExtra("SELECTED_DATE", 0);
+
+        // full session start time from prev code
+        Calendar sessionStartCalendar = Calendar.getInstance();
+        sessionStartCalendar.setTimeInMillis(selectedDateMillis);
+        String[] timeParts = start.split(":");
+        sessionStartCalendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(timeParts[0]));
+        sessionStartCalendar.set(Calendar.MINUTE, Integer.parseInt(timeParts[1]));
+        sessionStartCalendar.set(Calendar.SECOND, 0);
+        sessionStartCalendar.set(Calendar.MILLISECOND, 0);
+
+        // check if the sessionis in the past
+        if (sessionStartCalendar.getTimeInMillis() < System.currentTimeMillis()) {
+            // display to user
+            Toast.makeText(this, "Cannot create a session in the past.", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         // end shouldn't be before start time
         if (start.compareTo(end) > 0) {
             Toast.makeText(this, "The end time cannot be before start time", Toast.LENGTH_SHORT).show();
             return;
         }
-//        // start time cannot equal end time
-//        if (start.equals(end)) {
-//            Toast.makeText(this, "The start time and end time cannot be the same", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//        // check if the time slot has already been selected
-//        if (alreadySelectedTimeSlots.contains(interval)) {
-//            Toast.makeText(this, "This time slot has already been selected", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//
-//        if(Overlaps(start, end, alreadySelectedTimeSlots)) {
-//            Toast.makeText(this, "This time slot overlaps with previously selected time slots", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-
 
         // Get the date from the intent
         Intent intent = getIntent();
@@ -170,7 +173,7 @@ public class TimeSlotActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot tutorSnapshot) {
                         Tutor tutor = tutorSnapshot.getValue(Tutor.class);
 
-                        if (tutor != null) {
+                        if(tutor != null) {
                             String timeInterval = start + "-" + end;
                             createAndUploadSession(tutor, dateString, timeInterval);
                         }

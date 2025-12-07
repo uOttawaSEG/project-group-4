@@ -70,7 +70,7 @@
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginTop="8dp"
-        android:hint="Email Address"
+        android:hint="Email Address (username)"
         android:textColor="#FFFFFF"
         android:textColorHint="#AAAAAA"
         android:backgroundTint="#3D7AFD"

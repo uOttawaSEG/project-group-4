@@ -22,7 +22,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AvailableSessionListActivity extends AppCompatActivity {
     LinearLayout availableSessionsContainer;
@@ -108,7 +110,6 @@ public class AvailableSessionListActivity extends AppCompatActivity {
         }
         displaySessions();
     }
-
     private void setupSessionListener() {
         String tutorID = getIntent().getStringExtra("TUTOR_ID");
         Query sessionTutor;
@@ -170,14 +171,12 @@ public class AvailableSessionListActivity extends AppCompatActivity {
                             double averageRating = tutor.getRating();
                             int numberOfRatings = tutor.getNumberOfRatings();
 
-                            if (numberOfRatings>1) {
-                                String ratingText = String.format("Rating: %.1f/5.0 (%d ratings)", averageRating, numberOfRatings);
-                                tutorRating.setText(ratingText);
-                            } else if (numberOfRatings==1){
-                                String ratingText = String.format("Rating: %.1f/5.0 (%d rating)", averageRating, numberOfRatings);
+                            if (numberOfRatings>0) {
+                                String ratingText = String.format("Rating: %.1f/5.0 (%d rating(s))", averageRating, numberOfRatings);
                                 tutorRating.setText(ratingText);
                             } else {
                                 tutorRating.setText("Rating: Not yet rated");
+
                             }
                         }
                     }

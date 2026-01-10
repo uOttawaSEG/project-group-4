@@ -24,9 +24,9 @@ OTAMS was built collaboratively using **Git** for version control, with **Circle
 | Metric | Status |
 |----------------|---------------------------|
 | **Build Status** | [![CircleCI](https://dl.circleci.com/status-badge/img/gh/uOttawaSEG/project-group-4/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/uOttawaSEG/project-group-4/tree/main) |
-| **Latest Release** | ![Release](https://img.shields.io/github/v/release/uOttawaSEG/project-group-4?color=informational&style=social) |
-| **Last Commit** | ![Last Commit](https://img.shields.io/github/last-commit/uOttawaSEG/project-group-4?color=informational&label=last%20commit&style=social) |
-| **Contributors** | ![Contributors](https://img.shields.io/github/contributors/uOttawaSEG/project-group-4?color=informational&style=social) |
+| **Latest Release** | [![Release](https://img.shields.io/github/v/release/uOttawaSEG/project-group-4?color=informational&style=social)](https://github.com/uOttawaSEG/project-group-4/releases) |
+| **Last Commit** | [![Last Commit](https://img.shields.io/github/last-commit/uOttawaSEG/project-group-4?color=informational&label=last%20commit&style=social)](https://github.com/uOttawaSEG/project-group-4/commits/main/) |
+| **Contributors** | [![Contributors](https://img.shields.io/github/contributors/uOttawaSEG/project-group-4?color=informational&style=social)](https://github.com/uOttawaSEG/project-group-4/graphs/contributors) |
 
 ---
 

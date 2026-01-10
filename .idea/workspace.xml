@@ -211,13 +211,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Finished correcting UI and completed some more design updates, updated from forked branch.">
-      <change afterPath="$PROJECT_DIR$/.idea/appInsightsSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="49f9b6ab-01b4-4b1f-a7c5-4db121387015" name="Changes" comment="Updated changes from last deliverable">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/logintest/domain/AvailableSessionListActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tutorinfo_fancy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tutorinfo_fancy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,12 +289,12 @@
     &quot;assignee&quot;: &quot;navatavasoli&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/uOttawaSEG/project-group-4.git",
-    "accountId": "befa4524-63ef-48a3-a40e-3e72f01891b7"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/uOttawaSEG/project-group-4.git&quot;,
+    &quot;accountId&quot;: &quot;befa4524-63ef-48a3-a40e-3e72f01891b7&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -335,6 +332,7 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Daniela Bordeianu/Uni/SEG2105/Projects/project-group-4&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.android.studio.ml.bot.mainConfigurable&quot;
   }
 }</component>
@@ -738,14 +736,6 @@
       <option name="presentableId" value="Default" />
       <updated>1759093028352</updated>
     </task>
-    <task id="LOCAL-00016" summary="Updated documentation for Adminactivity.java">
-      <option name="closed" value="true" />
-      <created>1760287822437</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1760287822437</updated>
-    </task>
     <task id="LOCAL-00017" summary="Fixed an error message for layout_height">
       <option name="closed" value="true" />
       <created>1760288108782</created>
@@ -1130,7 +1120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764530262902</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Updated changes from last deliverable">
+      <option name="closed" value="true" />
+      <created>1765132570048</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1765132570048</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -1145,7 +1143,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added toast messages for admin once it logs in or out, forgot to commit my changes from last deliverable" />
     <MESSAGE value="Added edge constraints to the buttons in activity_calendar_view.xml" />
     <MESSAGE value="Tutor can now approve (will move to upcoming tab), cancel (will move to rejected tab) or reject (will move to rejected tab) sessions which will be reflected in tutor_inbox.xml" />
     <MESSAGE value="Fixed the bug where the app glitches when a user moves from pending to rejected in the admin inbox" />
@@ -1170,19 +1167,20 @@
     <MESSAGE value="Linked the Tutor info activity to the fancy layout" />
     <MESSAGE value="Updated some details in the UI for some layouts" />
     <MESSAGE value="Fixed a logic mistake in the way the ratings are displayed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed a logic mistake in the way the ratings are displayed" />
+    <MESSAGE value="Updated changes from last deliverable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated changes from last deliverable" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="com.example.logintest.domain">
           <value>
-            <CheckInfo lastCheckTimestamp="1764624759630" />
+            <CheckInfo lastCheckTimestamp="1765132571455" />
           </value>
         </entry>
         <entry key="com.example.logintest.domain.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1764624759630" />
+            <CheckInfo lastCheckTimestamp="1765132571456" />
           </value>
         </entry>
       </map>

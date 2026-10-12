@@ -1,5 +1,5 @@
 ## **Online Tutoring Appointment Management System (OTAMS)**
-### OTAMS is an Android mobile application that streamlines  tutoring appointment scheduling
+### An Android mobile application that streamlines  tutoring appointment scheduling
 
 ---
 
